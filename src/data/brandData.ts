@@ -1,7 +1,16 @@
 // ============================================================
 // GROUPED BRAND HQ — DATA
-// Source: grouped_master_reference.md + Brand Direction Sprint
+// Source: grouped_master_reference.md + GDS26R (grouped_brand README, Feb 2026)
 // Last sync: March 2026
+//
+// NOTE ON VISUAL SPECS:
+// Grouped runs two distinct visual systems:
+//   1. BRAND / MARKETING (GDS26R) — Deep blue + bronze + warm white + Grouped Font / Satoshi
+//      Used on: marketing site, pitch decks, social, press, partner-facing materials
+//   2. PRODUCT / APP UI — Documented separately in the product design system
+//      The Brand HQ internal tool uses its own internal palette (lime + near-black)
+//      and is NOT representative of the Grouped brand visual direction.
+// All visual identity specs below refer to the BRAND system (GDS26R).
 // ============================================================
 
 export const CLIENT = {
@@ -72,7 +81,7 @@ export const COMPANY = {
 export const BRAND_IDENTITY = {
   archetype: 'The Outlaw / The Creator',
   archetypeNote: 'Artist-first, algorithm-opposed, anti-intermediary. Building infrastructure for genuine independence from Big Tech.',
-  
+
   brandAnchor: 'FIRST',
   brandAnchorNote: 'The single idea the whole brand stands on. First to hear. First to see. First to react. First to prove it. Perfectly aligns with current product (early access swaps) and future roadmap (gamification, leaderboards, top fan status).',
 
@@ -114,49 +123,271 @@ export const BRAND_IDENTITY = {
   nameConsiderations: 'Seth\'s concern: "grouped." has 80% confusion rate on first listen, people mishear it. Also: community/grouping connotation emphasizes the hardest thing to sell. "First.FM" explored as alternative — better alignment with the FIRST brand anchor. Decision: keeping grouped. for now while this is documented for future consideration.',
 };
 
+// ============================================================
+// VISUAL IDENTITY — GDS26R (Grouped Design System v1.0, Feb 2026)
+// This documents the BRAND / MARKETING visual system.
+// Product/app UI is a separate spec.
+// ============================================================
 export const VISUAL_IDENTITY = {
-  confirmed: false, // Pending full Figma GDS26R export
-  direction: 'Tesla-inspired minimalism meets music culture. Sleek, future-facing, precision. Dark mode primary (aligns with music culture, differentiates from daytime SaaS). Electric lime accent for energy, modernity, greenspace in competitive set.',
-  
-  palette: [
-    { name: 'Acid Lime', hex: '#BFFF00', role: 'Primary Accent', note: 'Confirmed from site. Occupies genuine competitive greenspace.' },
-    { name: 'Off-Black', hex: '#07070A', role: 'Background', note: 'Primary canvas. Dark mode primary by design decision.' },
-    { name: 'Surface 1', hex: '#0E0E13', role: 'Sidebar / Header', note: 'Slightly lighter than BG for panel differentiation.' },
-    { name: 'Surface 2', hex: '#15151C', role: 'Cards / Panels', note: 'Primary card background.' },
-    { name: 'Surface 3', hex: '#1C1C26', role: 'Nested elements', note: 'Hover states and nested cards.' },
-    { name: 'Border', hex: '#272733', role: 'Primary dividers', note: '' },
-    { name: 'Border Soft', hex: '#33333F', role: 'Subtle dividers', note: '' },
-    { name: 'Text Primary', hex: '#EDEDF5', role: 'Headings + body', note: 'Near-white with slight blue cast.' },
-    { name: 'Text Secondary', hex: '#9494AA', role: 'Subtitles + supporting', note: '' },
-    { name: 'Muted', hex: '#555566', role: 'Labels / metadata', note: '' },
-    { name: 'Amber', hex: '#FFB020', role: 'Unconfirmed / Warning', note: 'Marks AI-generated data needing confirmation.' },
-    { name: 'Teal', hex: '#00E59B', role: 'Success / Confirmed', note: '' },
-    { name: 'Electric Blue', hex: '#4DA8FF', role: 'Informational', note: '' },
-    { name: 'Red', hex: '#FF4D4D', role: 'Critical / Error', note: '' },
+  systemVersion: 'GDS26R v1.0 — February 2026',
+  scope: 'Brand + Marketing (marketing site, pitch decks, social, press, partner materials)',
+  productNote: 'Product UI runs a separate design system. The two systems intentionally differ. This page documents the brand/marketing system only.',
+
+  // Foundation principle
+  foundationPrinciple: 'Make the screen disappear. Grouped is Swiss-minimal with soul. The visual language draws from 70s modernist typography and geometric precision, then layers in warmth through bronze accents, tactile surfaces, and generous spacing. Every surface should feel considered, every animation intentional, every interaction like reaching into the screen and touching something real.',
+
+  extensionMetaphor: 'Grouped should feel like an extension of the artist, not a tool they log into. When an artist opens Grouped, the screen should dissolve. No chrome, no clutter, no "app" feeling. Just them, their music, and a warm room full of fans.',
+
+  designPrinciples: [
+    {
+      name: 'Cyclical',
+      desc: 'Music lives in loops. Write, record, release, connect, repeat. Every animation should feel like it\'s returning to something, building on the last cycle. Rounded corners, circular motifs, spring easings that overshoot and settle. Nothing stops. Everything flows into the next beat.',
+    },
+    {
+      name: 'Tactile',
+      desc: 'Glass has weight. Cards tilt when you reach for them. Stickers resist then follow your hand. Grain gives every surface a texture you can feel through the screen. The experience should remind you of handling vinyl, flipping through a crate, holding something real.',
+    },
+    {
+      name: 'Vibing',
+      desc: 'Timing is feel. Fast UI feels anxious. Slow UI feels confident. Our transitions run 500ms or longer because we\'re not in a hurry. We\'re vibing. The cursor glow drifts. Cards lift and settle with weight. Everything breathes at a pace that matches sitting in a listening room, not clicking through a dashboard.',
+    },
   ],
 
-  typography: [
-    { role: 'Display / Wordmark', family: 'Syne', weights: '700, 800', usage: 'Section headers, hero text, brand wordmark, prominent figures.' },
-    { role: 'Monospace / Data', family: 'DM Mono', weights: '300, 400, 500', usage: 'Labels, badges, hex codes, data tables, metadata.' },
-    { role: 'Body / Interface', family: 'Inter', weights: '300, 400, 500, 600', usage: 'Body text, descriptions, UI copy.' },
-  ],
+  // COLORS — Dark mode primary
+  colorSystem: {
+    mode: 'Dark mode primary. Light mode secondary (documentation, print, partner-facing).',
+    modeNote: 'Three temperature layers: cool navy surfaces, warm bronze brand elements, cool blue interactive accents.',
+    backgrounds: [
+      { token: '--bg-base',    hex: '#111620', rgb: '17, 22, 32',  usage: 'Page background, app shell' },
+      { token: '--bg-raised',  hex: '#181E2A', rgb: '24, 30, 42',  usage: 'Cards, modals, elevated surfaces' },
+      { token: '--bg-overlay', hex: '#1F2735', rgb: '31, 39, 53',  usage: 'Dropdowns, popovers, floating panels' },
+      { token: '--bg-subtle',  hex: '#262F3F', rgb: '38, 47, 63',  usage: 'Hover states, selected rows, active areas' },
+      { token: '--bg-muted',   hex: '#2E3849', rgb: '46, 56, 73',  usage: 'Input fields, code blocks, inset surfaces' },
+    ],
+    borders: [
+      { token: '--border-default', hex: '#EBE1D2', opacity: '7%',  usage: 'Card edges, section dividers' },
+      { token: '--border-hover',   hex: '#EBE1D2', opacity: '11%', usage: 'Hovered card edges, interactive borders' },
+      { token: '--border-active',  hex: '#EBE1D2', opacity: '16%', usage: 'Focused inputs, selected elements' },
+      { token: '--border-strong',  hex: '#EBE1D2', opacity: '22%', usage: 'High-contrast dividers' },
+      { token: '--border-accent',  hex: '#C48A3A', opacity: '40%', usage: 'Bronze-tinted borders for premium surfaces' },
+    ],
+    text: [
+      { token: '--text-primary',   hex: '#F0EBE3', opacity: '100%', usage: 'Headlines, body text, primary content' },
+      { token: '--text-secondary', hex: '#F0EBE3', opacity: '60%',  usage: 'Descriptions, secondary labels, metadata' },
+      { token: '--text-tertiary',  hex: '#F0EBE3', opacity: '38%',  usage: 'Placeholders, disabled text, captions' },
+      { token: '--text-muted',     hex: '#F0EBE3', opacity: '18%',  usage: 'Watermarks, decorative numbers, ghost text' },
+      { token: '--text-inverse',   hex: '#111620', opacity: '100%', usage: 'Text on light/accent backgrounds' },
+    ],
+    bronze: [
+      { token: '--bronze-50',  hex: '#FEF7EC', usage: 'Light mode tint, subtle highlights' },
+      { token: '--bronze-100', hex: '#FDE9C8', usage: 'Light badges, soft glow' },
+      { token: '--bronze-200', hex: '#FAD08E', usage: 'Hover accents, warm highlights' },
+      { token: '--bronze-300', hex: '#F6B44E', usage: 'Secondary buttons, tags. Use for body-size text (AA compliant)' },
+      { token: '--bronze-400', hex: '#C48A3A', usage: 'PRIMARY BRAND ACCENT. Headlines, logos, labels, CTAs. Bronze is brand voice.' },
+      { token: '--bronze-500', hex: '#B87A2E', usage: 'Hover state for primary accent' },
+      { token: '--bronze-600', hex: '#916024', usage: 'Pressed state, deep accents' },
+      { token: '--bronze-700', hex: '#6B471B', usage: 'Dark mode subtle bronze on dark surfaces' },
+      { token: '--bronze-800', hex: '#4A3114', usage: 'Ghost bronze, decorative only' },
+    ],
+    focusBlue: {
+      token: '--focus',
+      hex: '#7CBBDF',
+      rule: 'Focus blue handles interactive states ONLY: focus rings, accent stickers, badges, active/selected indicators, data viz accents. Never use for brand voice elements. If an element is on a poster, it\'s bronze. If you interact with it, it\'s focus blue.',
+    },
+    semantic: [
+      { token: '--success',        hex: '#8BAF9C', usage: 'Confirmations, positive metrics, connected states' },
+      { token: '--success-muted',  hex: '#8BAF9C', opacity: '15%', usage: 'Success background tint' },
+      { token: '--warning',        hex: '#D4A24B', usage: 'Caution states, approaching limits' },
+      { token: '--warning-muted',  hex: '#D4A24B', opacity: '15%', usage: 'Warning background tint' },
+      { token: '--error',          hex: '#C27A6B', usage: 'Errors, destructive actions, disconnected states' },
+      { token: '--error-muted',    hex: '#C27A6B', opacity: '15%', usage: 'Error background tint' },
+      { token: '--info',           hex: '#8BA4BE', usage: 'Informational, tips, neutral highlights' },
+    ],
+    ringSystem: [
+      { token: '--ring-outer-rest',   hex: '#2A3036', opacity: '18%', state: 'Default outer ring' },
+      { token: '--ring-outer-active', hex: '#C48A3A', opacity: '22%', state: 'Activated outer ring (bronze glow)' },
+      { token: '--ring-middle',       hex: '#2A3036', opacity: '28%', state: 'Middle ring, static' },
+      { token: '--ring-inner',        hex: '#2A3036', opacity: '42%', state: 'Inner ring, static' },
+      { token: '--ring-g-logo',       hex: '#FFFFFF',  opacity: '6%',  state: 'G lettermark inside rings' },
+    ],
+  },
 
+  // TYPOGRAPHY
+  typography: {
+    systemNote: 'Two typefaces, one system. Grouped Font is brand-forward. Satoshi handles everything else.',
+    fonts: [
+      {
+        name: 'Grouped Font',
+        role: 'Display / Brand',
+        type: 'Custom OTF — single weight (Regular), 160 glyphs, full ASCII coverage',
+        minSize: '28px',
+        source: 'Proprietary — in Google Drive assets',
+        useFor: ['Hero headlines (48px+)', 'Marketing section titles (32px+)', 'Brand moments in pitch decks', 'The "grouped." wordmark/logotype', 'Social media graphics (large text)', 'Print headers'],
+        dontUseFor: ['Body copy at any size', 'Product UI (all of it)', 'Navigation and buttons', 'Form labels and inputs', 'Any text under 28px', 'Anywhere bold/medium/light weights are needed'],
+        rule: 'Legibility always wins. If a context calls for varying weight, small sizes, or extended reading, Satoshi is correct.',
+      },
+      {
+        name: 'Satoshi',
+        role: 'System Workhorse',
+        type: 'Swiss-style modernist sans serif. Variable font available.',
+        source: 'Fontshare (free, open commercial)',
+        weights: 'Light 300, Regular 400, Medium 500, Bold 700, Black 900 + italics',
+        useFor: ['Body copy', 'Product UI', 'Subheadings', 'Navigation', 'Buttons', 'Captions', 'All text under 28px'],
+        rule: 'Double-storey "a" and "g" give editorial credibility. Single-storey alternates via OpenType for geometric/70s display contexts.',
+      },
+      {
+        name: 'JetBrains Mono',
+        role: 'Monospace / Data',
+        type: 'Monospace fallback stack: JetBrains Mono, SF Mono, Fira Code, Cascadia Code',
+        useFor: ['Metrics displays', 'Code snippets', 'Data values', 'IDs', 'Data-heavy contexts'],
+      },
+    ],
+    scaleMarketing: [
+      { token: '--display-xl', size: '80px', weight: 'Black 900', lh: '0.95', ls: '-0.03em', usage: 'Hero headlines, section openers' },
+      { token: '--display-lg', size: '64px', weight: 'Black 900', lh: '0.98', ls: '-0.025em', usage: 'Secondary heroes, feature headlines' },
+      { token: '--display-md', size: '48px', weight: 'Bold 700', lh: '1.05', ls: '-0.02em', usage: 'Section titles' },
+      { token: '--display-sm', size: '36px', weight: 'Bold 700', lh: '1.1', ls: '-0.015em', usage: 'Card headlines, subsection titles' },
+      { token: '--heading-lg', size: '28px', weight: 'Bold 700', lh: '1.2', ls: '-0.01em', usage: 'Feature names, list headers' },
+      { token: '--heading-md', size: '24px', weight: 'Medium 500', lh: '1.25', ls: '-0.005em', usage: 'Subheadings, dialog titles' },
+      { token: '--body-lg',    size: '18px', weight: 'Regular 400', lh: '1.6', ls: '0', usage: 'Lead paragraphs, hero subtext' },
+      { token: '--body-md',    size: '16px', weight: 'Regular 400', lh: '1.6', ls: '0', usage: 'Default body copy' },
+      { token: '--body-sm',    size: '14px', weight: 'Regular 400', lh: '1.5', ls: '0.005em', usage: 'Secondary body, descriptions' },
+      { token: '--caption',    size: '12px', weight: 'Medium 500', lh: '1.4', ls: '0.02em', usage: 'Labels, badges, metadata' },
+      { token: '--overline',   size: '11px', weight: 'Bold 700', lh: '1.3', ls: '0.1em', usage: 'Section labels, all-caps markers ("01 / Capture")' },
+    ],
+    rules: [
+      'Uppercase reserved for: overline labels, button text (under 3 words), badge text, tab labels',
+      'Sentence case for all headlines. Title Case only for proper nouns and the Grouped brand name.',
+      'Italics reserved for: emphasis within body copy, song titles/album names, placeholder text in editorial contexts',
+      'Never combine uppercase + italic',
+      'Use tabular figures (font-variant-numeric: tabular-nums) in data tables, metrics, pricing',
+    ],
+  },
+
+  // SURFACE SYSTEM
+  surfaces: {
+    concept: 'The Listening Room. Every surface is designed to elevate whatever sits on top of it. Artist content should always be the brightest, warmest, most vivid thing on screen. Grouped never competes with the artist\'s visual identity.',
+    types: [
+      {
+        name: 'Solid',
+        description: 'The walls and floor. Structural, grounding, opaque. Use for page backgrounds, primary card containers, navigation.',
+        cssNote: 'bg: --bg-raised, border: 1px solid border-default, radius: --radius-sleeve (4px)',
+      },
+      {
+        name: 'Glass',
+        description: 'Real frosted glass built from four layers: SVG noise texture (3% opacity), top-edge light gradient (refraction), blurred tinted base, layered inner shadows. The noise texture is critical — without it, glass looks like a CSS backdrop-filter demo.',
+        cssNote: 'backdrop-filter: blur(28px) saturate(1.25) brightness(1.02)',
+        usage: 'Callout cards, floating elements, overlays, secondary containers',
+      },
+      {
+        name: 'Glass Warm',
+        description: 'Gold-tinted glass variant. Bronze tint signals importance. Use for featured metrics, important notices, premium callouts.',
+        cssNote: 'background: rgba(196,138,58,0.06), border: 1px solid rgba(196,138,58,0.1)',
+        usage: 'Featured metrics, important notices, premium callouts',
+      },
+      {
+        name: 'Vinyl',
+        description: 'The premium surface. Warm gradient with reflective sheen. Use sparingly — only for the most important thing in the room.',
+        cssNote: 'gradient: 135deg deep blue to bronze 4% tint, backdrop-filter: blur(32px) saturate(1.3)',
+        usage: 'Hero moments, featured content, design principle callouts',
+      },
+      {
+        name: 'Sticker',
+        description: 'Lightweight transparent labels. Like stickers on a record sleeve. Use for badges, tags, metadata, small interactive elements.',
+        cssNote: 'background: rgba(24,30,42,0.35), backdrop-filter: blur(8px), radius: --radius-label (9999px)',
+        usage: 'Badges, tags, metadata, interactive elements',
+      },
+    ],
+    grain: 'Fixed SVG noise overlay at 2.8% opacity (mix-blend-mode: overlay) covers the entire viewport. Adds organic warmth to every surface without interfering with readability. The grain is the difference between "digital dark mode" and "a room with texture."',
+    ambientGlow: 'Warm radial gradients simulate lamplight. Applied behind glass surfaces to create depth and warmth. Keep subtle, off-center, never directly behind text.',
+  },
+
+  // BORDER RADIUS
+  radiusSystem: {
+    concept: 'Two families, two physical metaphors: Sleeves (cards, panels — barely-worn edges of vinyl pulled from a crate) and Labels (buttons, stickers, badges — round stickers stuck to the sleeve). The contrast between sharp containers and soft interactive elements is the system.',
+    tokens: [
+      { token: '--radius-sleeve', value: '4px',    family: 'Sleeve', usage: 'Cards, panels, containers, modals' },
+      { token: '--radius-label',  value: '9999px', family: 'Label',  usage: 'Buttons, stickers, badges, pills, toggles' },
+      { token: '--radius-sm',     value: '6px',    family: 'Sleeve', usage: 'Small containers, thumbnails' },
+      { token: '--radius-md',     value: '10px',   family: 'Hybrid', usage: 'Inputs, dropdowns' },
+      { token: '--radius-full',   value: '9999px', family: 'Label',  usage: 'Pills, toggles' },
+    ],
+    rule: 'If it holds content, it\'s a sleeve. If you tap it, it\'s a label.',
+  },
+
+  // SIGNATURE MOTIF
+  signatureMotif: {
+    name: 'Concentric Arcs',
+    meaning: 'Sound waves. Vinyl grooves. Ripples expanding outward. The core product idea: something starts at the center (the artist, the release) and radiates outward to reach more people.',
+    rules: [
+      'Heavy strokes with tight gaps. Stroke width always larger than gap (2.5:1 ratio)',
+      'All rings in a set use the same stroke weight and color. No variation.',
+      'No gradients. No feathering. No per-ring opacity changes. Solid lines.',
+      '3 to 6 arcs per group',
+      'Stroke math: Period = stroke-width + gap. Target ratio: stroke 2.5x the gap. Example: stroke-width 34, gap 14, period 48',
+    ],
+    usage: [
+      { mode: 'Subtle', opacity: '5-10%', use: 'Background texture. Heavy strokes still read at low opacity.' },
+      { mode: 'Bold',   opacity: '100%',  use: 'Bronze background with slightly darker bronze arcs. Poster hero, social assets.' },
+    ],
+    ringProportions: {
+      outer: '100% of container',
+      middle: '~68% of outer',
+      inner: '~42% of outer',
+      gMark: '~20% of outer, centered',
+      fill: 'Always low opacity fills (6-42%). Rings are atmospheric, not solid.',
+    },
+  },
+
+  // WORDMARK
   wordmark: {
     treatment: 'grouped. — lowercase with period.',
+    font: 'Grouped Font (custom display OTF)',
     rationale: 'The period is intentional. Confidence, finality, precision. "This is the end of the sentence. No further explanation required." An anti-corporate, artist-first punctuation choice.',
-    logoNote: 'Assets available in Google Drive. Full SVG/PNG/DM export pending from Figma GDS26R (node 7-89).',
+    logoNote: 'Assets in Google Drive. Full SVG/PNG export pending from Figma GDS26R (node 7-89).',
     driveFolder: 'https://drive.google.com/drive/folders/1_UmgLjW2jfctJywpoTFVcI4eReV8uaQx',
     figmaFile: 'https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=7-89',
   },
 
+  // GREENSPACE
   greenspace: [
-    { name: 'Laylo', colors: ['#7C3AED', '#A855F7'], note: 'Purple — dominant in music CRM space' },
-    { name: 'Community', colors: ['#1A1A1A', '#444444'], note: 'Flat black — generic' },
-    { name: 'Patreon', colors: ['#FF424D', '#F96854'], note: 'Coral/red' },
-    { name: 'Discord', colors: ['#5865F2', '#7289DA'], note: 'Indigo' },
-    { name: 'Mailchimp', colors: ['#FFE01B', '#241C15'], note: 'Yellow + dark' },
-    { name: 'OpenStage', colors: ['#6366F1', '#818CF8'], note: 'More indigo' },
-    { name: 'grouped.', colors: ['#BFFF00', '#07070A'], note: 'Acid lime + near-black — unoccupied' },
+    { name: 'Laylo',      colors: ['#7C3AED', '#A855F7'], note: 'Purple — dominant in music CRM' },
+    { name: 'Community',  colors: ['#1A1A1A', '#444444'], note: 'Flat black — generic' },
+    { name: 'Patreon',    colors: ['#FF424D', '#F96854'], note: 'Coral/red' },
+    { name: 'Discord',    colors: ['#5865F2', '#7289DA'], note: 'Indigo' },
+    { name: 'Mailchimp',  colors: ['#FFE01B', '#241C15'], note: 'Yellow + dark' },
+    { name: 'OpenStage',  colors: ['#6366F1', '#818CF8'], note: 'Indigo variant' },
+    { name: 'grouped.',   colors: ['#C48A3A', '#111620'], note: 'Bronze + deep navy — entirely unoccupied' },
+  ],
+
+  // WHAT TO AVOID
+  avoidList: [
+    'Neon/electric gradients (too SaaS-generic)',
+    'Blue as a primary color (too corporate/tech)',
+    'Sharp 0px radius (too harsh for the warmth needed)',
+    'Thin/hairline fonts (too fragile for the bold message)',
+    'Heavy drop shadows (too dated)',
+    'Decorative illustrations (too playful for the premium positioning)',
+    'Auto-playing video (too aggressive)',
+    'Electric lime (#BFFF00) — this was a prior direction, superseded by GDS26R bronze system',
+  ],
+
+  // MOTION (key rules)
+  motionPrinciples: [
+    'Scroll drives narrative. Every scroll increment advances the story.',
+    'Motion has mass. Use ease-out for entering, ease-in for exiting. Never linear.',
+    'Stagger creates rhythm. Groups enter with 60-100ms stagger.',
+    'Gold glows, never flashes. Bronze reveals minimum 400ms transition.',
+    'Subtlety at rest, confidence in motion.',
+    'All interactions respect prefers-reduced-motion.',
+  ],
+
+  easing: [
+    { token: '--ease-out',     value: 'cubic-bezier(0.16, 1, 0.3, 1)',    usage: 'Default for entering elements' },
+    { token: '--ease-in-out',  value: 'cubic-bezier(0.65, 0, 0.35, 1)',   usage: 'Morphing, layout shifts' },
+    { token: '--ease-spring',  value: 'cubic-bezier(0.34, 1.56, 0.64, 1)', usage: 'Bouncy micro-interactions (badges, toasts)' },
+    { token: '--ease-smooth',  value: 'cubic-bezier(0.25, 0.1, 0.25, 1)', usage: 'Slow, cinematic movements' },
+    { token: '--ease-snap',    value: 'cubic-bezier(0.5, 0, 0, 1)',       usage: 'Quick snaps (tabs, toggles)' },
   ],
 };
 
@@ -383,8 +614,8 @@ export const GAP_ANALYSIS = [
   },
   {
     dim: 'Visual Identity', priority: 'High', pct: 55,
-    current: 'Dark editorial aesthetic established. Electric lime accent confirmed. Wordmark strong. Figma GDS26R in progress but not exported or documented.',
-    future: 'Full documented design system: primary/secondary palette, typography hierarchy, component library, asset usage rules, exported from GDS26R.',
+    current: 'GDS26R v1.0 defined (Feb 2026). Bronze/deep blue system documented. Figma component library build in progress. Grouped Font custom OTF and Satoshi confirmed as typeface system.',
+    future: 'Full documented design system exported from GDS26R: component library, animation prototypes, campaign extension guide, Figma variables with light/dark mode.',
   },
   {
     dim: 'Verbal System', priority: 'High', pct: 60,
@@ -510,16 +741,17 @@ export const PRODUCT_ROADMAP = [
 export const DECISIONS = [
   { date: 'Feb 2026', decision: 'Merged Tribly and Grouped under the Grouped brand identity', rationale: 'Combined entity owns the full funnel. Accelerates roadmap by 2-3 years. Grouped name tests stronger for community positioning.', owner: 'Seth + Tim', status: 'Active' },
   { date: 'Feb 2026', decision: 'Keep "grouped." name (revisit if traction requires rebrand)', rationale: 'Short-term wedge > long-term fit. Win the market position first, brand can evolve. "First.FM" documented as future option.', owner: 'Seth', status: 'Active' },
+  { date: 'Feb 2026', decision: 'GDS26R: Bronze (#C48A3A) as primary brand accent — supersedes electric lime', rationale: 'Deep blue + bronze + warm white system established in GDS26R v1.0. Bronze is the brand voice (headlines, logos, CTAs). Focus blue (#7CBBDF) handles interactive states. Prior lime direction retired.', owner: 'Lucy', status: 'Active' },
+  { date: 'Feb 2026', decision: 'GDS26R: Grouped Font + Satoshi as the two-typeface system', rationale: 'Grouped Font (custom OTF) for display/brand. Satoshi (Fontshare) for all product/body copy. JetBrains Mono for data. Replaces Syne/DM Mono/Inter prior direction.', owner: 'Lucy', status: 'Active' },
   { date: 'Jan 2026', decision: 'Free tier at $0 — no freemium ceiling', rationale: 'Drive top-of-funnel volume. Convert via product experience, not trial expiry pressure.', owner: 'Seth', status: 'Active' },
   { date: 'Jan 2026', decision: 'Pricing at $0/$7/$19/$39 + email credits as revenue layer 2', rationale: 'Competitive vs. Laylo/Community at lower price. Email credits add variable revenue on top of fixed MRR.', owner: 'Seth + Lucy', status: 'Active' },
   { date: 'Dec 2025', decision: 'Position as collaborative partner to distributors, not competitor', rationale: 'Integration reduces friction and unlocks massive acquisition channel via distributor catalog.', owner: 'Seth', status: 'Active' },
   { date: 'Nov 2025', decision: 'Dark mode as brand primary, light mode secondary', rationale: 'Aligns with music culture aesthetic. Differentiates from daytime SaaS tools. Tesla-inspired precision and modernity.', owner: 'Lucy', status: 'Active' },
   { date: 'Nov 2025', decision: 'Do NOT emphasize "community" in messaging', rationale: 'Community sounds heavy — high commitment for both artists and fans. Lead with premiere window and early access. Community is the implicit byproduct.', owner: 'Seth + Lucy', status: 'Active' },
-  { date: 'Nov 2025', decision: 'Electric lime (#BFFF00) as primary accent', rationale: 'Occupies genuine competitive greenspace. Music-culture-coded. Energy, forward motion, distinctiveness vs. every purple/indigo/coral competitor.', owner: 'Lucy', status: 'Active' },
 ];
 
 export const REPORT_CARD = [
-  { cat: 'Visual Identity', score: 6, trend: 'up', note: 'Strong wordmark and aesthetic direction. Design system documentation (GDS26R) still incomplete.' },
+  { cat: 'Visual Identity', score: 7, trend: 'up', note: 'GDS26R v1.0 documented (Feb 2026). Bronze/deep blue system established. Figma component library build in progress. Grouped Font + Satoshi typeface system confirmed.' },
   { cat: 'Verbal Identity', score: 7, trend: 'up', note: 'Hero messaging sharp. FIRST anchor defined but not yet deployed. Segment-specific playbook in progress.' },
   { cat: 'Digital Presence', score: 6, trend: 'stable', note: 'Website strong. Social presence active. SEO baseline not yet measured.' },
   { cat: 'Market Position', score: 7, trend: 'up', note: 'Clear differentiation vs. Laylo/Community. Distribution partnership is the key unlock.' },
@@ -530,7 +762,7 @@ export const REPORT_CARD = [
 export const ACTIONS = [
   { status: 'Now', text: 'Lock Series A narrative and slide structure', owner: 'Seth + Lucy', priority: 'Critical' },
   { status: 'Now', text: 'Finalize customer case study pipeline (need 8 more)', owner: 'Lucy', priority: 'Critical' },
-  { status: 'Now', text: 'Export + document design system (Figma GDS26R)', owner: 'Lucy', priority: 'High' },
+  { status: 'Now', text: 'Export + document design system (Figma GDS26R component library)', owner: 'Lucy', priority: 'High' },
   { status: 'Now', text: 'Build investor data room', owner: 'Seth', priority: 'High' },
   { status: 'Next', text: 'Distribution partnership outreach and pitch (2 largest distributors)', owner: 'Seth', priority: 'High' },
   { status: 'Next', text: 'Growth tier + email credit system build', owner: 'Product', priority: 'High' },
@@ -540,7 +772,6 @@ export const ACTIONS = [
   { status: 'Later', text: 'Artist advisory board formation', owner: 'Seth', priority: 'Low' },
 ];
 
-// Research workflow steps for each section
 export type ResearchStep = {
   id: string;
   label: string;

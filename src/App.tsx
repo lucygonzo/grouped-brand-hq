@@ -64,19 +64,19 @@ export default function App() {
       <nav style={{ width: '210px', flexShrink: 0, background: C.s1, borderRight: `1px solid ${C.border}`, display: 'flex', flexDirection: 'column' }}>
         {/* Logo */}
         <div style={{ padding: '18px', borderBottom: `1px solid ${C.border}`, flexShrink: 0 }}>
-          <div style={{ fontFamily: 'Syne, sans-serif', fontSize: '19px', fontWeight: 800, color: C.text, letterSpacing: '-0.02em' }}>grouped.</div>
-          <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '8px', color: C.muted, textTransform: 'uppercase', letterSpacing: '0.16em', marginTop: '3px' }}>Brand HQ · Feb 2026</div>
+          <div style={{ fontFamily: "'Satoshi', sans-serif", fontSize: '19px', fontWeight: 800, color: C.accent, letterSpacing: '-0.02em' }}>grouped.</div>
+          <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '8px', color: C.muted, textTransform: 'uppercase', letterSpacing: '0.16em', marginTop: '3px' }}>Brand HQ · Feb 2026</div>
         </div>
 
         {/* Nav groups */}
         <div style={{ flex: 1, overflowY: 'auto', padding: '10px 0' }}>
           {NAV.map(group => (
             <div key={group.group} style={{ marginBottom: '6px' }}>
-              <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '7px', color: C.muted, textTransform: 'uppercase', letterSpacing: '0.18em', padding: '4px 16px 5px' }}>
+              <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '7px', color: C.muted, textTransform: 'uppercase', letterSpacing: '0.18em', padding: '4px 16px 5px' }}>
                 {group.group}
               </div>
               {group.tabs.map(tab => (
-                <button key={tab.id} onClick={() => setActiveTab(tab.id)} style={{ display: 'block', width: '100%', textAlign: 'left', padding: '7px 16px', fontFamily: 'Inter, sans-serif', fontSize: '12px', color: activeTab === tab.id ? C.accent : C.sub, background: activeTab === tab.id ? C.accentDim : 'transparent', border: 'none', cursor: 'pointer', borderLeft: `2px solid ${activeTab === tab.id ? C.accent : 'transparent'}`, transition: 'all 0.15s' }}>
+                <button key={tab.id} onClick={() => setActiveTab(tab.id)} style={{ display: 'block', width: '100%', textAlign: 'left', padding: '7px 16px', fontFamily: "'Satoshi', sans-serif", fontSize: '12px', color: activeTab === tab.id ? C.accent : C.sub, background: activeTab === tab.id ? C.accentDim : 'transparent', border: 'none', cursor: 'pointer', borderLeft: `2px solid ${activeTab === tab.id ? C.accent : 'transparent'}`, transition: 'all 0.15s' }}>
                   {tab.label}
                 </button>
               ))}
@@ -86,8 +86,8 @@ export default function App() {
 
         {/* Footer */}
         <div style={{ padding: '10px 16px', borderTop: `1px solid ${C.border}`, flexShrink: 0 }}>
-          <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '8px', color: C.muted }}>Pre-Series A · Phase 1</div>
-          <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '8px', color: C.muted, marginTop: '1px' }}>grouped.com</div>
+          <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '8px', color: C.muted }}>Pre-Series A · Phase 1</div>
+          <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '8px', color: C.muted, marginTop: '1px' }}>grouped.com</div>
         </div>
       </nav>
 
