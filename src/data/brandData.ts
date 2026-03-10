@@ -16,7 +16,7 @@
 export const CLIENT = {
   name: 'Grouped',
   fullName: 'Grouped, Inc.',
-  tagline: 'The growth engine for lifelong music careers.',
+  tagline: 'Where Artists and Fans Connect.',
   website: 'grouped.com',
   stage: 'Pre-Series A',
   phase: 'Phase 1 — Integrative SaaS',
@@ -393,11 +393,11 @@ export const VISUAL_IDENTITY = {
 
 export const VERBAL_IDENTITY = {
   taglines: [
+    'Where Artists and Fans Connect.',
+    'Grow Your Audience, On Your Terms.',
+    'Reach Fans Directly. Build Real Relationships.',
+    'Turn Fan Support Into Sustainable Income.',
     'The growth engine for lifelong music careers.',
-    'direct-to-fan, finally done right.',
-    'Turn every release into a growth engine.',
-    'Just you and your fans. Every. Single. Time.',
-    "Don't just drop music. Create waves.",
   ],
 
   brandAnchorCopy: {

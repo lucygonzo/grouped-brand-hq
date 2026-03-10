@@ -14,7 +14,7 @@
 export const company = {
   name: 'Grouped',        // [CONFIRMED] — title case, no period
   slug: 'grouped',
-  tagline: 'The growth engine for lifelong music careers.',  // [CONFIRMED]
+  tagline: 'Where Artists and Fans Connect.',  // [CONFIRMED — site hero]
   phase: 'Pre-Series A',
   stage: 'Phase 1 SaaS — Live',
   founded: '2026',         // post-merger date
@@ -178,11 +178,11 @@ export const visualIdentity = {
 
 export const verbalIdentity = {
   taglines: [
-    'The growth engine for lifelong music careers.',     // [CONFIRMED — primary]
-    'direct-to-fan, finally done right.',                // [CONFIRMED — site headline]
-    'Turn every release into a growth engine.',          // [CONFIRMED — site]
-    'Just you and your fans. Every. Single. Time.',      // [CONFIRMED — site]
-    'Don\'t just drop music. Create moments.',           // [UNCONFIRMED — under consideration]
+    'Where Artists and Fans Connect.',                   // [CONFIRMED — primary, site hero]
+    'Grow Your Audience, On Your Terms.',                // [CONFIRMED — site headline]
+    'Reach Fans Directly. Build Real Relationships.',    // [CONFIRMED — site]
+    'Turn Fan Support Into Sustainable Income.',          // [CONFIRMED — site]
+    'The growth engine for lifelong music careers.',      // [CONFIRMED — investor / artist one-liner]
   ],
 
   positioningStatement: {

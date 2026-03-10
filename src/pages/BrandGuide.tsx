@@ -838,11 +838,11 @@ export default function BrandGuide() {
             <SubLabel>Taglines</SubLabel>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', marginBottom: '24px' }}>
               {[
-                { tag: 'Turn every release into lasting fan relationships.', label: 'Primary' },
-                { tag: 'Turn every listen into a fan.' },
-                { tag: 'Direct-to-fan, finally done right.' },
-                { tag: 'Stop dropping music. Start creating moments.' },
-                { tag: 'Never start from zero.' },
+                { tag: 'Where Artists and Fans Connect.', label: 'Primary' },
+                { tag: 'Grow Your Audience, On Your Terms.' },
+                { tag: 'Reach Fans Directly. Build Real Relationships.' },
+                { tag: 'Turn Fan Support Into Sustainable Income.' },
+                { tag: 'The growth engine for lifelong music careers.', label: 'Investor' },
               ].map((t, i) => (
                 <div key={i} style={{ padding: '10px 14px', background: i === 0 ? C.accentGlow : C.s1, border: `1px solid ${i === 0 ? C.accent : C.border}`, borderRadius: '8px', display: 'flex', alignItems: 'center', gap: '10px' }}>
                   {t.label && <span style={{ fontFamily: F.mono, fontSize: '9px', color: C.accent, textTransform: 'uppercase', letterSpacing: '0.1em', flexShrink: 0 }}>{t.label}</span>}
