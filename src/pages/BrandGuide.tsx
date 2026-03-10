@@ -469,7 +469,7 @@ export default function BrandGuide() {
             {/* Live specimens */}
             <SubLabel>Type Specimens</SubLabel>
             <GuideCard style={{ marginBottom: '20px' }}>
-              <div style={{ fontFamily: F.display, fontSize: '48px', fontWeight: 900, color: C.text, letterSpacing: '-0.03em', lineHeight: 0.95, marginBottom: '16px' }}>The growth engine for lifelong music careers.</div>
+              <div style={{ fontFamily: F.display, fontSize: '48px', fontWeight: 900, color: C.text, letterSpacing: '-0.03em', lineHeight: 0.95, marginBottom: '16px' }}>Turn every release into lasting fan relationships.</div>
               <div style={{ fontFamily: F.mono, fontSize: '9px', color: C.muted }}>DISPLAY XL · Satoshi Black 900 · 48px · -0.03em</div>
             </GuideCard>
             <GuideCard style={{ marginBottom: '20px' }}>
@@ -694,11 +694,11 @@ export default function BrandGuide() {
             <SubLabel>Taglines</SubLabel>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', marginBottom: '24px' }}>
               {[
-                { tag: 'The growth engine for music careers.', label: 'Primary' },
+                { tag: 'Turn every release into lasting fan relationships.', label: 'Primary' },
                 { tag: 'Turn every listen into a fan.' },
-                { tag: 'Turn every release into lasting fan relationships.' },
                 { tag: 'Direct-to-fan, finally done right.' },
                 { tag: 'Stop dropping music. Start creating moments.' },
+                { tag: 'Never start from zero.' },
               ].map((t, i) => (
                 <div key={i} style={{ padding: '10px 14px', background: i === 0 ? C.accentGlow : C.s1, border: `1px solid ${i === 0 ? C.accent : C.border}`, borderRadius: '8px', display: 'flex', alignItems: 'center', gap: '10px' }}>
                   {t.label && <span style={{ fontFamily: F.mono, fontSize: '9px', color: C.accent, textTransform: 'uppercase', letterSpacing: '0.1em', flexShrink: 0 }}>{t.label}</span>}
