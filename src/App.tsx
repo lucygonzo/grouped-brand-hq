@@ -84,6 +84,15 @@ export default function App() {
           ))}
         </div>
 
+        {/* Brand Guide Link */}
+        <div style={{ padding: '10px 16px', flexShrink: 0 }}>
+          <a href="brand-guide.html" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '8px 12px', background: C.accentDim, border: `1px solid ${C.accent}35`, borderRadius: '8px', textDecoration: 'none', transition: 'border-color 0.2s' }}>
+            <span style={{ fontFamily: "'Satoshi', sans-serif", fontSize: '12px', fontWeight: 600, color: C.accent }}>Brand Guide</span>
+            <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '8px', color: C.muted, marginLeft: 'auto' }}>↗</span>
+          </a>
+          <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '8px', color: C.ghost, marginTop: '6px', paddingLeft: '2px' }}>Shareable external reference</div>
+        </div>
+
         {/* Footer */}
         <div style={{ padding: '10px 16px', borderTop: `1px solid ${C.border}`, flexShrink: 0 }}>
           <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '8px', color: C.muted }}>Pre-Series A · Phase 1</div>

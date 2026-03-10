@@ -40,6 +40,14 @@ export default function VisualIdentityPage() {
         <strong>Two visual systems, one brand.</strong> The specs on this page govern the marketing site, pitch decks, social assets, and all brand-facing surfaces. The product app runs a separate design system. Do not conflate the two.
       </Block>
 
+      <a href="brand-guide.html" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '10px 14px', background: C.accentGlow, border: `1px solid ${C.accent}35`, borderRadius: '7px', marginBottom: '20px', textDecoration: 'none' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+          <span style={{ fontFamily: "'Satoshi', sans-serif", fontSize: '13px', fontWeight: 600, color: C.accent }}>Brand Guide</span>
+          <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '9px', color: C.muted }}>Shareable external version with logo downloads</span>
+        </div>
+        <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '10px', color: C.accent }}>↗</span>
+      </a>
+
       <SubTabs tabs={TABS} active={tab} onChange={setTab} />
 
       {/* ===== OVERVIEW ===== */}

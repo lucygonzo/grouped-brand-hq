@@ -26,6 +26,14 @@ export default function OverviewPage() {
         </Card>
       </div>
 
+      <a href="brand-guide.html" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '14px 18px', background: C.accentGlow, border: `1px solid ${C.accent}35`, borderRadius: '7px', marginBottom: '24px', textDecoration: 'none', transition: 'border-color 0.2s' }}>
+        <div>
+          <div style={{ fontFamily: "'Satoshi', sans-serif", fontSize: '14px', fontWeight: 700, color: C.accent }}>Brand Guide</div>
+          <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '9px', color: C.muted, marginTop: '2px' }}>Shareable reference for partners, agencies, and collaborators · GDS26R v1.0</div>
+        </div>
+        <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', color: C.accent }}>Open ↗</span>
+      </a>
+
       <Lbl>Open Priorities</Lbl>
       {OPEN_PRIORITIES.map((p, i) => (
         <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px 14px', background: C.s2, border: `1px solid ${C.border}`, borderRadius: '7px', marginBottom: '6px' }}>
