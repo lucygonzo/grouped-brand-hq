@@ -64,7 +64,7 @@ export default function App() {
       <nav style={{ width: '210px', flexShrink: 0, background: C.s1, borderRight: `1px solid ${C.border}`, display: 'flex', flexDirection: 'column' }}>
         {/* Logo */}
         <div style={{ padding: '18px', borderBottom: `1px solid ${C.border}`, flexShrink: 0 }}>
-          <div style={{ fontFamily: "'Satoshi', sans-serif", fontSize: '19px', fontWeight: 800, color: C.accent, letterSpacing: '-0.02em' }}>grouped.</div>
+          <div style={{ fontFamily: "'Satoshi', sans-serif", fontSize: '19px', fontWeight: 800, color: C.accent, letterSpacing: '-0.02em' }}>Grouped</div>
           <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '8px', color: C.muted, textTransform: 'uppercase', letterSpacing: '0.16em', marginTop: '3px' }}>Brand HQ · Feb 2026</div>
         </div>
 

@@ -4,7 +4,7 @@ import { SectionHeader, Callout, Card, Lbl, Body, Block, C } from '../components
 export default function CompanyPage() {
   return (
     <div>
-      <SectionHeader num="01 / Foundation" title="Company Profile" sub="The founding story, mission, thesis, and team behind grouped." />
+      <SectionHeader num="01 / Foundation" title="Company Profile" sub="The founding story, mission, thesis, and team behind Grouped." />
       <Callout>
         Grouped is the direct-to-fan relationship layer that the music industry has been missing. Not a distributor. Not a social platform. The owned channel between every artist and every fan they have ever earned.
       </Callout>

@@ -4,9 +4,9 @@ import { SectionHeader, Callout, Card, StatBox, Lbl, Body, Chip, C } from '../co
 export default function OverviewPage() {
   return (
     <div>
-      <SectionHeader num="00 / Foundation" title="Overview" sub="Executive summary — current state, key metrics, and open priorities for the grouped. Brand HQ." />
+      <SectionHeader num="00 / Foundation" title="Overview" sub="Executive summary — current state, key metrics, and open priorities for the Grouped Brand HQ." />
       <Callout>
-        <strong>grouped.</strong> is the direct-to-fan growth engine for independent musicians. The 2026 merger of Tribly (top-of-funnel swaps) and Grouped (bottom-of-funnel community) created the only full-funnel platform that captures fans at the moment of excitement, keeps them year-round, and compounds value across every release. The brand anchor: <strong>FIRST.</strong> First to hear. First to see. First to prove it.
+        <strong>Grouped</strong> is the direct-to-fan platform for independent musicians. The 2026 merger of Tribly (top-of-funnel swaps) and Grouped (bottom-of-funnel community) created the only full-funnel platform that captures fans at the moment of excitement, keeps them year-round, and compounds value across every release.
       </Callout>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '10px', marginBottom: '24px' }}>

@@ -4,7 +4,7 @@ import { SectionHeader, Callout, Card, Lbl, Body, Block, C } from '../components
 export default function BrandIdentityPage() {
   return (
     <div>
-      <SectionHeader num="02 / Brand" title="Brand Identity" sub="Archetype, brand anchor, mission, values, personality, and inspiration that drive every grouped. decision." />
+      <SectionHeader num="02 / Brand" title="Brand Identity" sub="Archetype, brand anchor, mission, values, personality, and inspiration that drive every Grouped decision." />
       <Callout>
         The single idea the whole brand stands on: <strong>FIRST.</strong> First to hear. First to see. First to react. First to prove it. Every feature maps back to this. Swaps = first access. Feed = first to know. Groups = first in. Gamification = first on the leaderboard.
       </Callout>

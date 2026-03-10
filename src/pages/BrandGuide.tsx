@@ -132,7 +132,7 @@ const GDRIVE_ASSETS = 'https://drive.google.com/drive/folders/1E3xl-FC3HFVtCWRBL
 
 const LOGO_CATEGORIES = [
   {
-    type: 'Grouped Typemark', desc: 'Primary wordmark — "grouped." in Anacrusis', hero: true,
+    type: 'Grouped Typemark', desc: 'Primary wordmark — "Grouped" in custom display type', hero: true,
     variants: [
       { color: 'Warm Bronze', file: 'Grouped_Rebrand_Visual Assets_Grouped Typemark_WarmBronze', bg: '#111620' },
       { color: 'White', file: 'Grouped_Rebrand_Visual Assets_Grouped Typemark_White', bg: '#111620' },
@@ -288,7 +288,7 @@ export default function BrandGuide() {
       {/* ── HEADER BAR ────────────────────────────── */}
       <div style={{ position: 'fixed', top: 0, left: 0, right: 0, height: '52px', background: C.bg, borderBottom: `1px solid ${C.border}`, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 28px', zIndex: 100 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-          <span style={{ fontFamily: F.display, fontSize: '18px', fontWeight: 900, color: C.accent, letterSpacing: '-0.02em' }}>grouped.</span>
+          <span style={{ fontFamily: F.display, fontSize: '18px', fontWeight: 900, color: C.accent, letterSpacing: '-0.02em' }}>Grouped</span>
           <span style={{ fontFamily: F.mono, fontSize: '10px', color: C.muted, textTransform: 'uppercase', letterSpacing: '0.16em', background: C.s2, padding: '3px 10px', borderRadius: '4px' }}>Brand Guide</span>
           <span style={{ fontFamily: F.mono, fontSize: '10px', color: C.ghost, letterSpacing: '0.08em' }}>GDS26R v1.0 · February 2026</span>
         </div>
@@ -383,24 +383,24 @@ export default function BrandGuide() {
           {/* 02 — LOGO RULES                           */}
           {/* ═══════════════════════════════════════════ */}
           <section ref={el => { sectionRefs.current['logo'] = el; }} id="logo" style={{ marginBottom: '64px', scrollMarginTop: '72px' }}>
-            <SectionHeading num="02" title="Logo Rules" sub="The grouped. wordmark is the brand's primary identifier. The Vinyl G mark is the secondary mark. Both require governance, not redesign." />
+            <SectionHeading num="02" title="Logo Rules" sub="The Grouped wordmark is the brand's primary identifier. The Vinyl G mark is the secondary mark. Both require governance, not redesign." />
 
             {/* Hero: Primary Typemark */}
             <SubLabel>Wordmark</SubLabel>
             <GuideCard style={{ marginBottom: '20px', textAlign: 'center', padding: '40px 20px' }}>
               <div style={{ background: '#111620', borderRadius: '8px', padding: '24px 32px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', border: `1px solid ${C.border}` }}>
-                <img src={logoSvgUrl('Grouped_Rebrand_Visual Assets_Grouped Typemark_WarmBronze')} alt="grouped. wordmark" style={{ height: '48px', objectFit: 'contain' }} />
+                <img src={logoSvgUrl('Grouped_Rebrand_Visual Assets_Grouped Typemark_WarmBronze')} alt="Grouped wordmark" style={{ height: '48px', objectFit: 'contain' }} />
               </div>
-              <div style={{ fontFamily: F.mono, fontSize: '11px', color: C.muted, marginTop: '16px' }}>Grouped Font (Custom OTF) · Lowercase with period · Always.</div>
+              <div style={{ fontFamily: F.mono, fontSize: '11px', color: C.muted, marginTop: '16px' }}>Grouped Font (Custom OTF) · Title case · No period.</div>
             </GuideCard>
 
             <GuideCallout>{VI.wordmark.rationale}</GuideCallout>
 
             <SubLabel>Treatment Rules</SubLabel>
-            <DoDont type="do">Always render "grouped." in lowercase with a period. The period is the brand's punctuation signature.</DoDont>
+            <DoDont type="do">Always render the wordmark as "Grouped" — capital G, no period.</DoDont>
             <DoDont type="do">Use Grouped Font (custom display OTF) for the wordmark at 28px+ minimum size.</DoDont>
-            <DoDont type="dont">Never capitalize: "Grouped", "GROUPED", or "Grouped."</DoDont>
-            <DoDont type="dont">Never remove the period. "grouped" without the period is incomplete.</DoDont>
+            <DoDont type="dont">Never render in all-lowercase ("grouped") or with a trailing period ("grouped." / "Grouped.").</DoDont>
+            <DoDont type="dont">Never set in all-caps: "GROUPED".</DoDont>
             <DoDont type="dont">Never set the wordmark in Satoshi, Arial, or any substitute typeface.</DoDont>
 
             {/* Hero: Vinyl G Mark */}
@@ -689,7 +689,7 @@ export default function BrandGuide() {
           {/* 07 — VERBAL IDENTITY                      */}
           {/* ═══════════════════════════════════════════ */}
           <section ref={el => { sectionRefs.current['verbal'] = el; }} id="verbal" style={{ marginBottom: '64px', scrollMarginTop: '72px' }}>
-            <SectionHeading num="07" title="Verbal Identity" sub="The grouped. voice is artist-to-artist, not SaaS-to-customer. Direct, bold, warm — never corporate." />
+            <SectionHeading num="07" title="Verbal Identity" sub="The Grouped voice is artist-to-artist, not SaaS-to-customer. Direct, bold, warm — never corporate." />
 
             <SubLabel>Taglines</SubLabel>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', marginBottom: '24px' }}>
@@ -846,11 +846,11 @@ export default function BrandGuide() {
             <p style={{ fontFamily: F.body, fontSize: '13px', color: C.sub, lineHeight: 1.65, marginBottom: '12px' }}>The bronze + deep navy combination is entirely unoccupied in the music platform space.</p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', marginBottom: '20px' }}>
               {VI.greenspace.map(g => (
-                <div key={g.name} style={{ display: 'flex', alignItems: 'center', gap: '12px', padding: '8px 14px', background: g.name === 'grouped.' ? C.accentGlow : C.s1, border: `1px solid ${g.name === 'grouped.' ? C.accent : C.border}`, borderRadius: '8px' }}>
+                <div key={g.name} style={{ display: 'flex', alignItems: 'center', gap: '12px', padding: '8px 14px', background: g.name === 'Grouped' ? C.accentGlow : C.s1, border: `1px solid ${g.name === 'Grouped' ? C.accent : C.border}`, borderRadius: '8px' }}>
                   <div style={{ display: 'flex', gap: '3px' }}>
                     {g.colors.map((c, i) => <div key={i} style={{ width: '18px', height: '18px', borderRadius: '4px', background: c, border: `1px solid ${C.border}` }} />)}
                   </div>
-                  <span style={{ fontFamily: F.display, fontSize: '13px', fontWeight: g.name === 'grouped.' ? 700 : 500, color: g.name === 'grouped.' ? C.accent : C.text, flex: 1 }}>{g.name}</span>
+                  <span style={{ fontFamily: F.display, fontSize: '13px', fontWeight: g.name === 'Grouped' ? 700 : 500, color: g.name === 'Grouped' ? C.accent : C.text, flex: 1 }}>{g.name}</span>
                   <span style={{ fontFamily: F.body, fontSize: '11px', color: C.muted }}>{g.note}</span>
                 </div>
               ))}
@@ -860,7 +860,7 @@ export default function BrandGuide() {
           {/* ── FOOTER ────────────────────────────────── */}
           <footer style={{ borderTop: `1px solid ${C.border}`, paddingTop: '24px', marginTop: '40px' }}>
             <div style={{ fontFamily: F.mono, fontSize: '10px', color: C.ghost, letterSpacing: '0.08em', textTransform: 'uppercase' }}>
-              grouped. Brand Guide · GDS26R v1.0 · February 2026
+              Grouped Brand Guide · GDS26R v1.0 · February 2026
             </div>
             <div style={{ fontFamily: F.body, fontSize: '12px', color: C.muted, marginTop: '6px' }}>
               Built from confirmed brand strategy. Every rule has a rationale.

@@ -14,7 +14,7 @@
 // ============================================================
 
 export const CLIENT = {
-  name: 'grouped.',
+  name: 'Grouped',
   fullName: 'Grouped, Inc.',
   tagline: 'The growth engine for lifelong music careers.',
   website: 'grouped.com',
@@ -222,7 +222,7 @@ export const VISUAL_IDENTITY = {
         type: 'Custom OTF — single weight (Regular), 160 glyphs, full ASCII coverage',
         minSize: '28px',
         source: 'Proprietary — in Google Drive assets',
-        useFor: ['Hero headlines (48px+)', 'Marketing section titles (32px+)', 'Brand moments in pitch decks', 'The "grouped." wordmark/logotype', 'Social media graphics (large text)', 'Print headers'],
+        useFor: ['Hero headlines (48px+)', 'Marketing section titles (32px+)', 'Brand moments in pitch decks', 'The "Grouped" wordmark/logotype', 'Social media graphics (large text)', 'Print headers'],
         dontUseFor: ['Body copy at any size', 'Product UI (all of it)', 'Navigation and buttons', 'Form labels and inputs', 'Any text under 28px', 'Anywhere bold/medium/light weights are needed'],
         rule: 'Legibility always wins. If a context calls for varying weight, small sizes, or extended reading, Satoshi is correct.',
       },
@@ -341,9 +341,9 @@ export const VISUAL_IDENTITY = {
 
   // WORDMARK
   wordmark: {
-    treatment: 'grouped. — lowercase with period.',
+    treatment: 'Grouped — title case, no period.',
     font: 'Grouped Font (custom display OTF)',
-    rationale: 'The period is intentional. Confidence, finality, precision. "This is the end of the sentence. No further explanation required." An anti-corporate, artist-first punctuation choice.',
+    rationale: 'Title case reflects confidence and brand maturity. The wordmark is clean, precise, and stands on its own without punctuation gimmicks.',
     logoNote: 'Assets in Google Drive. Full SVG/PNG export pending from Figma GDS26R (node 7-89).',
     driveFolder: 'https://drive.google.com/drive/folders/1_UmgLjW2jfctJywpoTFVcI4eReV8uaQx',
     figmaFile: 'https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R?node-id=7-89',
@@ -357,7 +357,7 @@ export const VISUAL_IDENTITY = {
     { name: 'Discord',    colors: ['#5865F2', '#7289DA'], note: 'Indigo' },
     { name: 'Mailchimp',  colors: ['#FFE01B', '#241C15'], note: 'Yellow + dark' },
     { name: 'OpenStage',  colors: ['#6366F1', '#818CF8'], note: 'Indigo variant' },
-    { name: 'grouped.',   colors: ['#C48A3A', '#111620'], note: 'Bronze + deep navy — entirely unoccupied' },
+    { name: 'Grouped',   colors: ['#C48A3A', '#111620'], note: 'Bronze + deep navy — entirely unoccupied' },
   ],
 
   // WHAT TO AVOID

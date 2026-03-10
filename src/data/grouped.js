@@ -12,7 +12,7 @@
 // ─── COMPANY ────────────────────────────────────────────
 
 export const company = {
-  name: 'grouped.',        // [CONFIRMED] — always lowercase with period
+  name: 'Grouped',        // [CONFIRMED] — title case, no period
   slug: 'grouped',
   tagline: 'The growth engine for lifelong music careers.',  // [CONFIRMED]
   phase: 'Pre-Series A',
@@ -128,13 +128,13 @@ export const brandIdentity = {
 
 export const visualIdentity = {
   wordmark: {
-    text: 'grouped.',
+    text: 'Grouped',
     rules: [
-      'Always lowercase — never "Grouped" or "GROUPED"',
-      'Always with the period — it is part of the wordmark',
-      'Set in Syne, weight 800',
-      'On dark backgrounds: use #EDEDF5 (white-ish) or #BFFF00 (acid)',
-      'On light backgrounds: use #07070A (near-black)',
+      'Always title case — "Grouped" with capital G, no period',
+      'Never all-lowercase ("grouped") or all-caps ("GROUPED")',
+      'Set in Grouped Font (custom display OTF)',
+      'On dark backgrounds: use #EDEDF5 (white-ish) or #C48A3A (bronze)',
+      'On light backgrounds: use #111620 (navy)',
       'Never stretch, rotate, or apply effects',
     ],
   },
@@ -168,10 +168,10 @@ export const visualIdentity = {
     { name: 'Discord',   colors: ['#5865F2', '#7289DA'], style: 'Indigo / gaming' },
     { name: 'Mailchimp', colors: ['#FFE01B', '#241C15'], style: 'Yellow / playful' },
     { name: 'OpenStage', colors: ['#6366F1', '#818CF8'], style: 'Violet / polished' },
-    { name: 'grouped.',  colors: ['#BFFF00', '#07070A'], style: 'Acid lime / editorial dark' },
+    { name: 'Grouped',  colors: ['#C48A3A', '#111620'], style: 'Bronze / deep navy' },
   ],
 
-  greenspaceOpportunity: 'The music tech space defaults to purple/indigo (Laylo, OpenStage, Discord), coral (Patreon), or generic black (Community). grouped.\'s acid lime (#BFFF00) on near-black occupies genuine visual white space — aggressive, energetic, and coded to music culture. It stands out immediately in any competitive grid.',
+  greenspaceOpportunity: 'The music tech space defaults to purple/indigo (Laylo, OpenStage, Discord), coral (Patreon), or generic black (Community). Grouped\'s bronze (#C48A3A) on deep navy occupies genuine visual white space — warm, premium, and distinct from the tech-coded competition.',
 }
 
 // ─── VERBAL IDENTITY ─────────────────────────────────────
