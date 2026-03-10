@@ -11,6 +11,7 @@ const F = {
 
 // ── Sections ────────────────────────────────────────────
 const SECTIONS = [
+  { id: 'manifesto', label: 'Brand Manifesto' },
   { id: 'colors', label: 'Color System' },
   { id: 'logo', label: 'Logo Rules' },
   { id: 'typography', label: 'Typography' },
@@ -19,6 +20,7 @@ const SECTIONS = [
   { id: 'dark-mode', label: 'Dark Mode' },
   { id: 'verbal', label: 'Verbal Identity' },
   { id: 'iconography', label: 'Iconography' },
+  { id: 'approvals', label: 'Approvals & Contact' },
 ];
 
 // ── Copy Hex — Large Color Card ─────────────────────────
@@ -130,85 +132,76 @@ const logoSvgUrl = (file: string) => `${LOGO_BASE}/SVG/${encodeURIComponent(file
 const logoPngUrl = (file: string) => `${LOGO_BASE}/PNG/${encodeURIComponent(file)}.png`;
 const GDRIVE_ASSETS = 'https://drive.google.com/drive/folders/1E3xl-FC3HFVtCWRBLyN-u8RCVgk9VME6';
 
-const LOGO_CATEGORIES = [
+const LOGO_CATEGORIES_PRIMARY = [
   {
     type: 'Grouped Typemark', desc: 'Primary wordmark — "Grouped" in custom display type', hero: true,
     variants: [
       { color: 'Warm Bronze', file: 'Grouped_Rebrand_Visual Assets_Grouped Typemark_WarmBronze', bg: '#111620' },
-      { color: 'White', file: 'Grouped_Rebrand_Visual Assets_Grouped Typemark_White', bg: '#111620' },
       { color: 'Cream', file: 'Grouped_Rebrand_Visual Assets_Grouped Typemark_Cream', bg: '#111620' },
       { color: 'Navy', file: 'Grouped_Rebrand_Visual Assets_Grouped Typemark_Navy', bg: '#F0EBE3' },
-      { color: 'Black', file: 'Grouped_Rebrand_Visual Assets_Grouped Typemark_Black', bg: '#F0EBE3' },
-      { color: 'Focus Blue', file: 'Grouped_Rebrand_Visual Assets_Grouped Typemark_Focus Blue', bg: '#111620' },
+      { color: 'White (B&W only)', file: 'Grouped_Rebrand_Visual Assets_Grouped Typemark_White', bg: '#111620' },
+      { color: 'Black (B&W only)', file: 'Grouped_Rebrand_Visual Assets_Grouped Typemark_Black', bg: '#F0EBE3' },
     ],
   },
   {
     type: 'VinylG Icon', desc: 'Standalone G mark — app icon, favicon, social avatar, watermark', hero: true,
     variants: [
       { color: 'Warm Bronze', file: 'Grouped_Rebrand_Visual Assets_VinylG Icon_WarmBronze', bg: '#111620' },
-      { color: 'White', file: 'Grouped_Rebrand_Visual Assets_VinylG Icon_White', bg: '#111620' },
       { color: 'Cream', file: 'Grouped_Rebrand_Visual Assets_VinylG Icon_Cream', bg: '#111620' },
       { color: 'Navy', file: 'Grouped_Rebrand_Visual Assets_VinylG Icon_Navy', bg: '#F0EBE3' },
-      { color: 'Black', file: 'Grouped_Rebrand_Visual Assets_VinylG Icon_Black', bg: '#F0EBE3' },
-      { color: 'Focus Blue', file: 'Grouped_Rebrand_Visual Assets_VinylG Icon_Focus Blue', bg: '#111620' },
+      { color: 'White (B&W only)', file: 'Grouped_Rebrand_Visual Assets_VinylG Icon_White', bg: '#111620' },
+      { color: 'Black (B&W only)', file: 'Grouped_Rebrand_Visual Assets_VinylG Icon_Black', bg: '#F0EBE3' },
     ],
   },
   {
-    type: 'Lockup Horizontal', desc: 'VinylG + wordmark side by side',
+    type: 'Lockup Horizontal', desc: 'VinylG + wordmark side by side — preferred lockup',
     variants: [
       { color: 'Warm Bronze', file: 'Grouped_Rebrand_Visual Assets_Lockup Horizontal_Warm Bronze', bg: '#111620' },
-      { color: 'White', file: 'Grouped_Rebrand_Visual Assets_Lockup Horizontal_white', bg: '#111620' },
       { color: 'Cream', file: 'Grouped_Rebrand_Visual Assets_Lockup Horizontal_Cream', bg: '#111620' },
       { color: 'Navy', file: 'Grouped_Rebrand_Visual Assets_Lockup Horizontal_Navy', bg: '#F0EBE3' },
-      { color: 'Black', file: 'Grouped_Rebrand_Visual Assets_Lockup Horizontal_Black', bg: '#F0EBE3' },
-      { color: 'Focus Blue', file: 'Grouped_Rebrand_Visual Assets_Lockup Horizontal_Focus Blue', bg: '#111620' },
+      { color: 'White (B&W only)', file: 'Grouped_Rebrand_Visual Assets_Lockup Horizontal_white', bg: '#111620' },
+      { color: 'Black (B&W only)', file: 'Grouped_Rebrand_Visual Assets_Lockup Horizontal_Black', bg: '#F0EBE3' },
     ],
   },
   {
-    type: 'Lockup Vertical', desc: 'VinylG + wordmark stacked',
+    type: 'Lockup Vertical', desc: 'VinylG + wordmark stacked — for square formats',
     variants: [
       { color: 'Warm Bronze', file: 'Grouped_Rebrand_Visual Assets_Lockup Vertical_Warm Bronze', bg: '#111620' },
       { color: 'Cream', file: 'Grouped_Rebrand_Visual Assets_Lockup Vertical_Cream', bg: '#111620' },
       { color: 'Navy', file: 'Grouped_Rebrand_Visual Assets_Lockup Vertical_Navy', bg: '#F0EBE3' },
-      { color: 'Black', file: 'Grouped_Rebrand_Visual Assets_Lockup Vertical_Black', bg: '#F0EBE3' },
-      { color: 'Focus Blue', file: 'Grouped_Rebrand_Visual Assets_Lockup Vertical_Focus Blue', bg: '#111620' },
+      { color: 'Black (B&W only)', file: 'Grouped_Rebrand_Visual Assets_Lockup Vertical_Black', bg: '#F0EBE3' },
     ],
   },
+];
+
+const LOGO_CATEGORIES_CAMPAIGN = [
   {
     type: 'Pill Tag', desc: 'Pill-shaped logo badge',
     variants: [
       { color: 'Full Color', file: 'Grouped_Rebrand_Visual Assets_Pill Tag_Full Color', bg: '#111620' },
       { color: 'Warm Bronze', file: 'Grouped_Rebrand_Visual Assets_Pill Tag_Warm Bronze', bg: '#111620' },
-      { color: 'White', file: 'Grouped_Rebrand_Visual Assets_Pill Tag_White', bg: '#111620' },
       { color: 'Navy', file: 'Grouped_Rebrand_Visual Assets_Pill Tag_Navy', bg: '#F0EBE3' },
-      { color: 'Black', file: 'Grouped_Rebrand_Visual Assets_Pill Tag_Black', bg: '#F0EBE3' },
     ],
   },
   {
     type: 'Stacked Askew', desc: 'Angled stacked treatment',
     variants: [
       { color: 'Warm Bronze', file: 'Grouped_Rebrand_Visual Assets_Stacked Askew_Warm Bronze', bg: '#111620' },
-      { color: 'White', file: 'Grouped_Rebrand_Visual Assets_Stacked Askew_White', bg: '#111620' },
       { color: 'Navy', file: 'Grouped_Rebrand_Visual Assets_Stacked Askew_Navy', bg: '#F0EBE3' },
-      { color: 'Black', file: 'Grouped_Rebrand_Visual Assets_Stacked Askew_Black', bg: '#F0EBE3' },
     ],
   },
   {
     type: 'Stacked Sticker', desc: 'Sticker-style stacked treatment',
     variants: [
       { color: 'Warm Bronze', file: 'Grouped_Rebrand_Visual Assets_Stacked Sticker_WarmBronze', bg: '#111620' },
-      { color: 'White', file: 'Grouped_Rebrand_Visual Assets_Stacked Sticker_White', bg: '#111620' },
       { color: 'Navy', file: 'Grouped_Rebrand_Visual Assets_Stacked Sticker_Navy', bg: '#F0EBE3' },
-      { color: 'Black', file: 'Grouped_Rebrand_Visual Assets_Stacked Sticker_Black', bg: '#F0EBE3' },
     ],
   },
   {
     type: 'Stacked Window', desc: 'Window-framed stacked treatment',
     variants: [
       { color: 'Warm Bronze', file: 'Grouped_Rebrand_Visual Assets_Stacked Window_Warm Bronze', bg: '#111620' },
-      { color: 'White', file: 'Grouped_Rebrand_Visual Assets_Stacked Window_White', bg: '#111620' },
       { color: 'Navy', file: 'Grouped_Rebrand_Visual Assets_Stacked Window_Navy', bg: '#F0EBE3' },
-      { color: 'Black', file: 'Grouped_Rebrand_Visual Assets_Stacked Window_Black', bg: '#F0EBE3' },
     ],
   },
   {
@@ -255,7 +248,10 @@ const SurfaceCard = ({ hex, name, token, usage }: { hex: string; name: string; t
 // MAIN COMPONENT
 // ══════════════════════════════════════════════════════════
 export default function BrandGuide() {
-  const [activeSection, setActiveSection] = useState('colors');
+  const [activeSection, setActiveSection] = useState('manifesto');
+  const [showSemantic, setShowSemantic] = useState(false);
+  const [showCampaignLogos, setShowCampaignLogos] = useState(false);
+  const [expandedSpectrum, setExpandedSpectrum] = useState<string | null>(null);
   const mainRef = useRef<HTMLDivElement>(null);
   const sectionRefs = useRef<Record<string, HTMLElement | null>>({});
 
@@ -334,19 +330,79 @@ export default function BrandGuide() {
           </div>
 
           {/* ═══════════════════════════════════════════ */}
-          {/* 01 — COLOR SYSTEM                         */}
+          {/* 01 — BRAND MANIFESTO                      */}
+          {/* ═══════════════════════════════════════════ */}
+          <section ref={el => { sectionRefs.current['manifesto'] = el; }} id="manifesto" style={{ marginBottom: '64px', scrollMarginTop: '72px' }}>
+            <SectionHeading num="01" title="Brand Manifesto" sub="Before the colors, the fonts, and the rules — why Grouped exists." />
+
+            <GuideCard style={{ marginBottom: '24px', padding: '28px 24px' }}>
+              <div style={{ fontFamily: F.display, fontSize: '22px', fontWeight: 800, color: C.text, lineHeight: 1.3, marginBottom: '16px', letterSpacing: '-0.01em' }}>
+                The best artists have always known that the fan relationship is everything.
+              </div>
+              <div style={{ fontFamily: F.body, fontSize: '15px', color: C.sub, lineHeight: 1.75, marginBottom: '16px' }}>
+                Before algorithms, there were mailing lists, fan clubs, and backstage passes. There was a direct line between the people who made the music and the people who loved it. That line got cut. Streaming platforms separated songs from artists. Social platforms rented audiences and charged to reach them. Every release became a reset — start from zero, hope the algorithm cooperates, repeat.
+              </div>
+              <div style={{ fontFamily: F.body, fontSize: '15px', color: C.sub, lineHeight: 1.75, marginBottom: '16px' }}>
+                Grouped is that direct line — rebuilt for the modern era. Not rented. Not algorithmic. Yours. One place to capture who's listening, reach them directly, and build an audience that grows with every release.
+              </div>
+              <div style={{ fontFamily: F.body, fontSize: '15px', color: C.sub, lineHeight: 1.75, marginBottom: '16px' }}>
+                We are not a super fan platform. We are not a label. We are the missing layer between music distribution and fan engagement — built by artists, for artists. No algorithm. No per-message fees. No platform tax. Just direct reach.
+              </div>
+              <div style={{ fontFamily: F.display, fontSize: '16px', fontWeight: 700, color: C.accent, fontStyle: 'italic', marginTop: '8px' }}>
+                Fill the gap between first listen and forever fan.
+              </div>
+            </GuideCard>
+
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '12px', marginBottom: '20px' }}>
+              <GuideCard style={{ padding: '16px' }}>
+                <div style={{ fontFamily: F.mono, fontSize: '9px', color: C.accent, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '6px' }}>Mission</div>
+                <div style={{ fontFamily: F.body, fontSize: '13px', color: C.sub, lineHeight: 1.6 }}>Shift power back to artists by giving them ownership of their fan relationships and data.</div>
+              </GuideCard>
+              <GuideCard style={{ padding: '16px' }}>
+                <div style={{ fontFamily: F.mono, fontSize: '9px', color: C.accent, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '6px' }}>Founded</div>
+                <div style={{ fontFamily: F.body, fontSize: '13px', color: C.sub, lineHeight: 1.6 }}>2026 merger of Tribly (fan capture) and Grouped (fan community). Full-funnel, one roof.</div>
+              </GuideCard>
+              <GuideCard style={{ padding: '16px' }}>
+                <div style={{ fontFamily: F.mono, fontSize: '9px', color: C.accent, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '6px' }}>Who We Serve</div>
+                <div style={{ fontFamily: F.body, fontSize: '13px', color: C.sub, lineHeight: 1.6 }}>Independent artists at every stage — from first release to arena tours. All fans, not just superfans.</div>
+              </GuideCard>
+            </div>
+          </section>
+
+          {/* ═══════════════════════════════════════════ */}
+          {/* 02 — COLOR SYSTEM                         */}
           {/* ═══════════════════════════════════════════ */}
           <section ref={el => { sectionRefs.current['colors'] = el; }} id="colors" style={{ marginBottom: '64px', scrollMarginTop: '72px' }}>
-            <SectionHeading num="01" title="Color System" sub="Three temperature layers: cool navy surfaces, warm bronze brand elements, cool blue interactive accents." />
+            <SectionHeading num="02" title="Color System" sub="Three temperature layers: cool navy surfaces, warm bronze brand elements, cool blue interactive accents." />
 
             <SubLabel>Primary Palette</SubLabel>
-            <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap', marginBottom: '28px' }}>
+            <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap', marginBottom: '14px' }}>
               <ColorCard hex="#111620" name="Navy" desc="The foundation. Deep, warm navy grounds every surface. Not pure black — the blue undertone creates depth without harshness." usage={['Page backgrounds', 'App shell', 'Cards and containers']} />
               <ColorCard hex="#C48A3A" name="Bronze" desc="The brand voice. Bronze is reserved for headlines, logos, CTAs, and brand moments. If it appears on a poster, it's bronze." usage={['Headlines', 'Logos', 'CTAs', 'Brand accents']} />
             </div>
-            <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap', marginBottom: '28px' }}>
+            <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap', marginBottom: '12px' }}>
               <ColorCard hex="#F0EBE3" name="Warm Cream" desc="Primary text color. Not pure white — the warm cream prevents eye strain on dark backgrounds and feels more intentional." usage={['Body text', 'Headlines', 'Light surfaces']} />
-              <ColorCard hex="#7CBBDF" name="Focus Blue" desc="Interactive states only. Focus rings, active indicators, links, and data visualization accents. Never use for brand voice elements." usage={['Links', 'Focus rings', 'Selected states', 'Data viz']} />
+            </div>
+
+            {/* Focus Blue — secondary, smaller presentation */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '14px', padding: '12px 16px', background: C.s1, border: `1px solid ${C.border}`, borderRadius: '8px', marginBottom: '10px' }}>
+              <div style={{ width: '40px', height: '40px', borderRadius: '6px', background: '#7CBBDF', flexShrink: 0, border: `1px solid ${C.borderHov}` }} />
+              <div style={{ flex: 1 }}>
+                <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px' }}>
+                  <span style={{ fontFamily: F.display, fontSize: '14px', fontWeight: 700, color: C.text }}>Focus Blue</span>
+                  <span style={{ fontFamily: F.mono, fontSize: '10px', color: C.muted, background: C.s2, padding: '2px 6px', borderRadius: '3px' }}>Secondary</span>
+                  <span style={{ fontFamily: F.mono, fontSize: '11px', color: C.ghost }}>{'#7CBBDF'}</span>
+                </div>
+                <div style={{ fontFamily: F.body, fontSize: '12px', color: C.sub, marginTop: '2px' }}>Interactive states only — focus rings, active indicators, links, data visualization. Never for brand voice.</div>
+              </div>
+            </div>
+
+            {/* Navy shades note */}
+            <div style={{ padding: '10px 16px', background: C.s1, border: `1px solid ${C.border}`, borderRadius: '8px', marginBottom: '28px' }}>
+              <div style={{ fontFamily: F.body, fontSize: '12px', color: C.sub, lineHeight: 1.6 }}>
+                <span style={{ fontFamily: F.mono, fontSize: '10px', color: C.accent, marginRight: '8px' }}>NOTE</span>
+                The navy palette includes additional shades for surface depth — <span style={{ fontFamily: F.mono, fontSize: '11px' }}>#181E2A</span> (raised), <span style={{ fontFamily: F.mono, fontSize: '11px' }}>#1F2735</span> (overlay), <span style={{ fontFamily: F.mono, fontSize: '11px' }}>#262F3F</span> (subtle), <span style={{ fontFamily: F.mono, fontSize: '11px' }}>#2E3849</span> (muted). Use these for visual variation and depth hierarchy in layouts.
+              </div>
             </div>
 
             <DoDont type="do">Use bronze for anything that represents the brand voice — headlines, logos, CTAs, accent marks.</DoDont>
@@ -354,21 +410,32 @@ export default function BrandGuide() {
             <DoDont type="dont">Mix up bronze and blue. If it appears on a poster, it's bronze. If you click it, it's blue.</DoDont>
             <DoDont type="dont">Use pure white (#FFFFFF) for text. Always use warm cream #F0EBE3.</DoDont>
 
-            <SubLabel>UI Semantic Colors</SubLabel>
-            <p style={{ fontFamily: F.body, fontSize: '12px', color: C.muted, lineHeight: 1.5, marginBottom: '10px' }}>Not part of the core brand palette. Used only for functional UI states within the product.</p>
-            <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '20px' }}>
-              {[
-                { hex: '#8BAF9C', name: 'Success' },
-                { hex: '#D4A24B', name: 'Warning' },
-                { hex: '#C27A6B', name: 'Error' },
-                { hex: '#8BA4BE', name: 'Info' },
-              ].map(c => (
-                <div key={c.name} style={{ display: 'flex', alignItems: 'center', gap: '6px', padding: '4px 10px', background: C.s1, border: `1px solid ${C.border}`, borderRadius: '6px' }}>
-                  <div style={{ width: '12px', height: '12px', borderRadius: '3px', background: c.hex }} />
-                  <span style={{ fontFamily: F.mono, fontSize: '10px', color: C.muted }}>{c.name}</span>
-                  <span style={{ fontFamily: F.mono, fontSize: '10px', color: C.ghost }}>{c.hex}</span>
+            {/* Semantic Colors — collapsible */}
+            <div style={{ marginBottom: '20px' }}>
+              <button onClick={() => setShowSemantic(!showSemantic)} style={{ display: 'flex', alignItems: 'center', gap: '8px', background: 'none', border: 'none', cursor: 'pointer', padding: '8px 0', width: '100%' }}>
+                <span style={{ fontFamily: F.mono, fontSize: '10px', color: C.ghost, transition: 'transform 0.2s', transform: showSemantic ? 'rotate(90deg)' : 'rotate(0deg)' }}>&#9654;</span>
+                <span style={{ fontFamily: F.display, fontSize: '14px', fontWeight: 700, color: C.sub }}>UI Semantic Colors</span>
+                <span style={{ fontFamily: F.mono, fontSize: '9px', color: C.ghost, background: C.s2, padding: '2px 8px', borderRadius: '4px' }}>Not core palette</span>
+              </button>
+              {showSemantic && (
+                <div style={{ paddingLeft: '18px', paddingTop: '8px' }}>
+                  <p style={{ fontFamily: F.body, fontSize: '12px', color: C.muted, lineHeight: 1.5, marginBottom: '10px' }}>Functional UI states only. Not part of the core brand palette and should never appear in marketing materials.</p>
+                  <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+                    {[
+                      { hex: '#8BAF9C', name: 'Success' },
+                      { hex: '#D4A24B', name: 'Warning' },
+                      { hex: '#C27A6B', name: 'Error' },
+                      { hex: '#8BA4BE', name: 'Info' },
+                    ].map(c => (
+                      <div key={c.name} style={{ display: 'flex', alignItems: 'center', gap: '6px', padding: '4px 10px', background: C.s1, border: `1px solid ${C.border}`, borderRadius: '6px' }}>
+                        <div style={{ width: '12px', height: '12px', borderRadius: '3px', background: c.hex }} />
+                        <span style={{ fontFamily: F.mono, fontSize: '10px', color: C.muted }}>{c.name}</span>
+                        <span style={{ fontFamily: F.mono, fontSize: '10px', color: C.ghost }}>{c.hex}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              ))}
+              )}
             </div>
 
             <SubLabel>Accessibility</SubLabel>
@@ -383,7 +450,7 @@ export default function BrandGuide() {
           {/* 02 — LOGO RULES                           */}
           {/* ═══════════════════════════════════════════ */}
           <section ref={el => { sectionRefs.current['logo'] = el; }} id="logo" style={{ marginBottom: '64px', scrollMarginTop: '72px' }}>
-            <SectionHeading num="02" title="Logo Rules" sub="The Grouped wordmark is the brand's primary identifier. The Vinyl G mark is the secondary mark. Both require governance, not redesign." />
+            <SectionHeading num="03" title="Logo Rules" sub="The Grouped wordmark is the brand's primary identifier. The Vinyl G mark is the secondary mark. Both require governance, not redesign." />
 
             {/* Hero: Primary Typemark */}
             <SubLabel>Wordmark</SubLabel>
@@ -399,9 +466,25 @@ export default function BrandGuide() {
             <SubLabel>Treatment Rules</SubLabel>
             <DoDont type="do">Always render the wordmark as "Grouped" — capital G, no period.</DoDont>
             <DoDont type="do">Use Grouped Font (custom display OTF) for the wordmark at 28px+ minimum size.</DoDont>
+            <DoDont type="do">Dark mode is the default. All logo usage assumes a dark background unless otherwise specified.</DoDont>
             <DoDont type="dont">Never render in all-lowercase ("grouped") or with a trailing period ("grouped." / "Grouped.").</DoDont>
             <DoDont type="dont">Never set in all-caps: "GROUPED".</DoDont>
             <DoDont type="dont">Never set the wordmark in Satoshi, Arial, or any substitute typeface.</DoDont>
+
+            {/* Color variant rules */}
+            <SubLabel>Color Variant Rules</SubLabel>
+            <div style={{ padding: '14px 16px', background: C.s1, border: `1px solid ${C.border}`, borderRadius: '8px', marginBottom: '16px' }}>
+              <div style={{ fontFamily: F.body, fontSize: '13px', color: C.sub, lineHeight: 1.65 }}>
+                <strong style={{ color: C.text }}>Default variants:</strong> Warm Bronze (on dark), Navy (on light), and Cream (on dark) are the primary logo colors. Use these for all standard applications.
+              </div>
+              <div style={{ fontFamily: F.body, fontSize: '13px', color: C.sub, lineHeight: 1.65, marginTop: '8px' }}>
+                <strong style={{ color: C.text }}>Black & White:</strong> Only use the Black or White variants when the deliverable is explicitly monochrome — single-color print, fax, engraving, or a context where color reproduction is not possible.
+              </div>
+            </div>
+
+            {/* Pairing rule */}
+            <SubLabel>Typemark + Icon Pairing</SubLabel>
+            <GuideCallout>When using the Grouped typemark on any material, the Vinyl G icon must also appear somewhere on the same surface — and vice versa. We are actively building attribution between the wordmark and the mark. They should always appear together in some form on any deliverable.</GuideCallout>
 
             {/* Hero: Vinyl G Mark */}
             <SubLabel>Vinyl G Mark</SubLabel>
@@ -417,8 +500,29 @@ export default function BrandGuide() {
               </div>
             </GuideCard>
 
-            {/* All Logo Categories */}
-            {LOGO_CATEGORIES.map(cat => (
+            {/* Safe Space & Lockups */}
+            <SubLabel>Safe Space & Lockups</SubLabel>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginBottom: '20px' }}>
+              <GuideCard style={{ padding: '16px' }}>
+                <div style={{ fontFamily: F.display, fontSize: '14px', fontWeight: 700, color: C.accent, marginBottom: '6px' }}>Clear Space</div>
+                <div style={{ fontFamily: F.body, fontSize: '12px', color: C.sub, lineHeight: 1.6 }}>Maintain a minimum clear space equal to the height of the "G" in Grouped around all sides of any logo variant. No other elements should encroach on this space.</div>
+              </GuideCard>
+              <GuideCard style={{ padding: '16px' }}>
+                <div style={{ fontFamily: F.display, fontSize: '14px', fontWeight: 700, color: C.accent, marginBottom: '6px' }}>Minimum Size</div>
+                <div style={{ fontFamily: F.body, fontSize: '12px', color: C.sub, lineHeight: 1.6 }}>Typemark: 28px height minimum for digital, 12mm for print. Vinyl G icon: 16px minimum for digital, 6mm for print. Below these sizes, legibility is compromised.</div>
+              </GuideCard>
+              <GuideCard style={{ padding: '16px' }}>
+                <div style={{ fontFamily: F.display, fontSize: '14px', fontWeight: 700, color: C.accent, marginBottom: '6px' }}>Partnership Lockups</div>
+                <div style={{ fontFamily: F.body, fontSize: '12px', color: C.sub, lineHeight: 1.6 }}>When co-branding with a partner, use the horizontal lockup separated by a vertical divider (1px, border-default opacity). Equal visual weight between logos. Grouped logo always appears on the left or top.</div>
+              </GuideCard>
+              <GuideCard style={{ padding: '16px' }}>
+                <div style={{ fontFamily: F.display, fontSize: '14px', fontWeight: 700, color: C.accent, marginBottom: '6px' }}>Co-Branding Rules</div>
+                <div style={{ fontFamily: F.body, fontSize: '12px', color: C.sub, lineHeight: 1.6 }}>Never modify the Grouped logo to match a partner's style. Both logos should retain their original proportions. Maintain equal clear space between the divider and each logo.</div>
+              </GuideCard>
+            </div>
+
+            {/* Primary Logo Variants */}
+            {LOGO_CATEGORIES_PRIMARY.map(cat => (
               <div key={cat.type} style={{ marginBottom: '28px' }}>
                 <SubLabel>{cat.type}</SubLabel>
                 <p style={{ fontFamily: F.body, fontSize: '12px', color: C.muted, marginBottom: '12px' }}>{cat.desc}</p>
@@ -429,6 +533,31 @@ export default function BrandGuide() {
                 </div>
               </div>
             ))}
+
+            {/* Campaign / Internal Logos — collapsible */}
+            <div style={{ marginBottom: '28px' }}>
+              <button onClick={() => setShowCampaignLogos(!showCampaignLogos)} style={{ display: 'flex', alignItems: 'center', gap: '8px', background: 'none', border: 'none', cursor: 'pointer', padding: '8px 0', width: '100%' }}>
+                <span style={{ fontFamily: F.mono, fontSize: '10px', color: C.ghost, transition: 'transform 0.2s', transform: showCampaignLogos ? 'rotate(90deg)' : 'rotate(0deg)' }}>&#9654;</span>
+                <span style={{ fontFamily: F.display, fontSize: '14px', fontWeight: 700, color: C.sub }}>Campaign & Internal Variants</span>
+                <span style={{ fontFamily: F.mono, fontSize: '9px', color: C.ghost, background: C.s2, padding: '2px 8px', borderRadius: '4px' }}>Internal use only</span>
+              </button>
+              {showCampaignLogos && (
+                <div style={{ paddingLeft: '18px', paddingTop: '12px' }}>
+                  <p style={{ fontFamily: F.body, fontSize: '12px', color: C.muted, marginBottom: '16px' }}>These variants are reserved for internal marketing campaigns, social media assets, and promotional materials. Do not use for external partner-facing or co-branded deliverables.</p>
+                  {LOGO_CATEGORIES_CAMPAIGN.map(cat => (
+                    <div key={cat.type} style={{ marginBottom: '20px' }}>
+                      <h4 style={{ fontFamily: F.display, fontSize: '14px', fontWeight: 600, color: C.text, marginBottom: '8px' }}>{cat.type}</h4>
+                      <p style={{ fontFamily: F.body, fontSize: '11px', color: C.muted, marginBottom: '10px' }}>{cat.desc}</p>
+                      <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+                        {cat.variants.map(v => (
+                          <LogoVariantCard key={`${cat.type}-${v.color}`} file={v.file} color={v.color} bg={v.bg} />
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
 
             {/* Asset Links */}
             <SubLabel>Download All Assets</SubLabel>
@@ -442,7 +571,7 @@ export default function BrandGuide() {
           {/* 03 — TYPOGRAPHY                           */}
           {/* ═══════════════════════════════════════════ */}
           <section ref={el => { sectionRefs.current['typography'] = el; }} id="typography" style={{ marginBottom: '64px', scrollMarginTop: '72px' }}>
-            <SectionHeading num="03" title="Typography" sub={VI.typography.systemNote} />
+            <SectionHeading num="04" title="Typography" sub={VI.typography.systemNote} />
 
             {/* Typeface cards */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '28px' }}>
@@ -529,7 +658,7 @@ export default function BrandGuide() {
           {/* 04 — PHOTOGRAPHY & VIDEO                  */}
           {/* ═══════════════════════════════════════════ */}
           <section ref={el => { sectionRefs.current['photography'] = el; }} id="photography" style={{ marginBottom: '64px', scrollMarginTop: '72px' }}>
-            <SectionHeading num="04" title="Photography & Video" sub="Artist content is always the brightest, warmest, most vivid thing on screen. Grouped never competes with the artist's visual identity." />
+            <SectionHeading num="05" title="Photography & Video" sub="Artist content is always the brightest, warmest, most vivid thing on screen. Grouped never competes with the artist's visual identity." />
 
             <GuideCallout>{VI.extensionMetaphor}</GuideCallout>
 
@@ -556,9 +685,11 @@ export default function BrandGuide() {
             <DoDont type="do">Feature real artists and real fans. Authenticity is non-negotiable.</DoDont>
             <DoDont type="do">Use warm, moody lighting that complements the bronze + navy palette.</DoDont>
             <DoDont type="do">Prioritize close-up and candid shots over posed group photos.</DoDont>
+            <DoDont type="do">Always credit artists in every piece of content — photography, graphic design, social media. Go the extra mile for the personal artistic touch with taste.</DoDont>
             <DoDont type="dont">Use stock photography. Every image should feel real and earned.</DoDont>
             <DoDont type="dont">Use high-key, overlit studio photography — it clashes with the dark-mode aesthetic.</DoDont>
             <DoDont type="dont">Show generic "people on phones" imagery. Show the music, the connection, the craft.</DoDont>
+            <DoDont type="dont">Publish any artist content or imagery without proper credit and attribution.</DoDont>
 
             <SubLabel>Video Guidelines</SubLabel>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginBottom: '16px' }}>
@@ -585,7 +716,7 @@ export default function BrandGuide() {
           {/* 05 — VISUAL VOICE                         */}
           {/* ═══════════════════════════════════════════ */}
           <section ref={el => { sectionRefs.current['visual-voice'] = el; }} id="visual-voice" style={{ marginBottom: '64px', scrollMarginTop: '72px' }}>
-            <SectionHeading num="05" title="Visual Voice" sub={VI.foundationPrinciple} />
+            <SectionHeading num="06" title="Visual Voice" sub={VI.foundationPrinciple} />
 
             <SubLabel>Design Principles</SubLabel>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '28px' }}>
@@ -609,10 +740,15 @@ export default function BrandGuide() {
 
             <SubLabel>Brand Inspiration</SubLabel>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', marginBottom: '24px' }}>
-              {BRAND_IDENTITY.inspiration.map(b => (
-                <GuideCard key={b.brand} style={{ padding: '14px' }}>
-                  <div style={{ fontFamily: F.display, fontSize: '14px', fontWeight: 700, color: C.accent, marginBottom: '4px' }}>{b.brand}</div>
-                  <div style={{ fontFamily: F.body, fontSize: '12px', color: C.sub, lineHeight: 1.5 }}>{b.reason}</div>
+              {[
+                { ref: 'Swiss Modernism', note: 'Clean geometric precision, structured grids, confident typography. The belief that great design is invisible — it just works. Our layouts and type system draw from this tradition.' },
+                { ref: 'The Listening Room', note: 'A warm, dimly lit room where music is the focus. Every Grouped surface should feel like you have walked into a space designed to make music sound better — cozy, intentional, immersive.' },
+                { ref: 'Cozy Nostalgia', note: 'Vinyl crates, handwritten liner notes, concert ticket stubs. The tactile warmth of physical music culture translated into digital surfaces through grain, bronze tones, and rounded forms.' },
+                { ref: 'Gamified Energy', note: 'Status systems, leaderboards, achievement unlocks. The dopamine of progress — borrowed from gaming culture but applied to fandom. Playful without being childish.' },
+              ].map(b => (
+                <GuideCard key={b.ref} style={{ padding: '14px' }}>
+                  <div style={{ fontFamily: F.display, fontSize: '14px', fontWeight: 700, color: C.accent, marginBottom: '4px' }}>{b.ref}</div>
+                  <div style={{ fontFamily: F.body, fontSize: '12px', color: C.sub, lineHeight: 1.5 }}>{b.note}</div>
                 </GuideCard>
               ))}
             </div>
@@ -629,7 +765,7 @@ export default function BrandGuide() {
           {/* 06 — DARK MODE                            */}
           {/* ═══════════════════════════════════════════ */}
           <section ref={el => { sectionRefs.current['dark-mode'] = el; }} id="dark-mode" style={{ marginBottom: '64px', scrollMarginTop: '72px' }}>
-            <SectionHeading num="06" title="Dark Mode" sub="Dark mode is the primary surface. Light mode is secondary, reserved for documentation, print materials, and partner-facing content." />
+            <SectionHeading num="07" title="Dark Mode" sub="Dark mode is the primary surface. Light mode is secondary, reserved for documentation, print materials, and partner-facing content." />
 
             <GuideCallout>Every surface is designed to elevate whatever sits on top of it. Artist content should always be the brightest, warmest, most vivid thing on screen. Grouped never competes with the artist's visual identity.</GuideCallout>
 
@@ -689,7 +825,15 @@ export default function BrandGuide() {
           {/* 07 — VERBAL IDENTITY                      */}
           {/* ═══════════════════════════════════════════ */}
           <section ref={el => { sectionRefs.current['verbal'] = el; }} id="verbal" style={{ marginBottom: '64px', scrollMarginTop: '72px' }}>
-            <SectionHeading num="07" title="Verbal Identity" sub="The Grouped voice is artist-to-artist, not SaaS-to-customer. Direct, bold, warm — never corporate." />
+            <SectionHeading num="08" title="Verbal Identity" sub="The Grouped voice is artist-to-artist, not SaaS-to-customer. Direct, bold, warm — never corporate." />
+
+            <SubLabel>Boilerplate</SubLabel>
+            <GuideCard style={{ marginBottom: '24px', padding: '20px 22px' }}>
+              <div style={{ fontFamily: F.body, fontSize: '14px', color: C.sub, lineHeight: 1.7 }}>
+                Grouped is the direct-to-fan platform for independent musicians. Born from the 2026 merger of Tribly and Grouped, it is the only full-funnel solution that captures fans at the moment of excitement, keeps them engaged year-round, and compounds audience value with every release. No algorithms. No per-message fees. Just a direct line between artists and the fans who love their music.
+              </div>
+              <div style={{ fontFamily: F.mono, fontSize: '9px', color: C.muted, marginTop: '10px' }}>USE AS-IS FOR PRESS, BIOS, PARTNER MATERIALS, AND ABOUT SECTIONS</div>
+            </GuideCard>
 
             <SubLabel>Taglines</SubLabel>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', marginBottom: '24px' }}>
@@ -750,16 +894,35 @@ export default function BrandGuide() {
             </div>
 
             <SubLabel>Voice Spectrum</SubLabel>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '24px' }}>
-              {VB.voiceSpectrum.map(v => (
-                <div key={v.dim} style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                  <div style={{ fontFamily: F.body, fontSize: '12px', color: C.sub, width: '140px', flexShrink: 0 }}>{v.dim}</div>
-                  <div style={{ flex: 1, height: '6px', background: C.s2, borderRadius: '3px', overflow: 'hidden' }}>
-                    <div style={{ width: `${v.pct}%`, height: '100%', background: C.accent, borderRadius: '3px', transition: 'width 0.6s ease' }} />
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', marginBottom: '24px' }}>
+              {[
+                { left: 'Corporate', right: 'Artist-to-Artist', pct: 90, example: 'We say "Stop renting your audience" not "Leverage algorithmic distribution channels for optimal audience growth."' },
+                { left: 'Diplomatic', right: 'Direct', pct: 85, example: 'We say "Your Instagram reach is 3%. We fix that." not "We can potentially help improve your engagement metrics."' },
+                { left: 'Safe', right: 'Bold', pct: 80, example: 'We say "The gatekeepers are gone." not "We provide tools that may assist in reducing intermediary dependencies."' },
+                { left: 'Cold', right: 'Warm', pct: 65, example: 'We say "Just you and your fans. Every. Single. Time." not "Our platform facilitates direct creator-audience relationships."' },
+                { left: 'Complex', right: 'Simple', pct: 75, example: 'We say "Turn every listen into a fan." not "Convert passive consumption events into engaged relationship touchpoints."' },
+                { left: 'Serious', right: 'Playful', pct: 55, example: 'We lean serious now. Growing toward playful as gamification features (leaderboards, quests, fan passes) launch in later phases.' },
+              ].map(v => {
+                const isExpanded = expandedSpectrum === v.left;
+                return (
+                  <div key={v.left}>
+                    <button onClick={() => setExpandedSpectrum(isExpanded ? null : v.left)} style={{ display: 'flex', alignItems: 'center', gap: '8px', width: '100%', background: 'none', border: 'none', cursor: 'pointer', padding: '8px 0' }}>
+                      <span style={{ fontFamily: F.mono, fontSize: '10px', color: C.muted, width: '80px', textAlign: 'right', flexShrink: 0 }}>{v.left}</span>
+                      <div style={{ flex: 1, height: '6px', background: C.s2, borderRadius: '3px', overflow: 'hidden' }}>
+                        <div style={{ width: `${v.pct}%`, height: '100%', background: C.accent, borderRadius: '3px', transition: 'width 0.6s ease' }} />
+                      </div>
+                      <span style={{ fontFamily: F.mono, fontSize: '10px', color: C.muted, width: '100px', flexShrink: 0 }}>{v.right}</span>
+                      <span style={{ fontFamily: F.mono, fontSize: '10px', color: C.ghost, width: '28px', textAlign: 'right' }}>{v.pct}%</span>
+                      <span style={{ fontFamily: F.mono, fontSize: '9px', color: C.ghost, transition: 'transform 0.2s', transform: isExpanded ? 'rotate(90deg)' : 'rotate(0deg)' }}>&#9654;</span>
+                    </button>
+                    {isExpanded && (
+                      <div style={{ marginLeft: '88px', padding: '8px 14px', background: C.s1, border: `1px solid ${C.border}`, borderRadius: '6px', marginBottom: '4px' }}>
+                        <div style={{ fontFamily: F.body, fontSize: '12px', color: C.sub, lineHeight: 1.6, fontStyle: 'italic' }}>{v.example}</div>
+                      </div>
+                    )}
                   </div>
-                  <span style={{ fontFamily: F.mono, fontSize: '10px', color: C.muted, width: '32px', textAlign: 'right' }}>{v.pct}%</span>
-                </div>
-              ))}
+                );
+              })}
             </div>
 
             <SubLabel>Messaging DO / DON'T</SubLabel>
@@ -786,15 +949,7 @@ export default function BrandGuide() {
           {/* 08 — ICONOGRAPHY                          */}
           {/* ═══════════════════════════════════════════ */}
           <section ref={el => { sectionRefs.current['iconography'] = el; }} id="iconography" style={{ marginBottom: '64px', scrollMarginTop: '72px' }}>
-            <SectionHeading num="08" title="Iconography" sub="Feature colors, icon style, and the signature motif that ties the visual system together." />
-
-            <SubLabel>Feature Colors</SubLabel>
-            <p style={{ fontFamily: F.body, fontSize: '13px', color: C.sub, lineHeight: 1.65, marginBottom: '16px' }}>Each product pillar has a designated color for consistent identification across the platform.</p>
-            <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap', marginBottom: '28px' }}>
-              <ColorCard hex="#38C3FF" name="Community" desc="Groups and community surfaces. The color of belonging, participation, and fan connection." usage={['Group badges', 'Community features', 'Fan spaces']} />
-              <ColorCard hex="#5B61D9" name="Swaps" desc="Early access swap mechanics. The color of exchange, discovery, and first access." usage={['Swap cards', 'Release mechanics', 'Access gates']} />
-              <ColorCard hex="#AD6AD9" name="Broadcasts" desc="Email and messaging channels. The color of outreach, announcements, and direct communication." usage={['Email features', 'Push notifications', 'Messaging']} />
-            </div>
+            <SectionHeading num="09" title="Iconography" sub="Icon style and the signature motif that ties the visual system together." />
 
             <SubLabel>Concentric Arcs — Signature Motif</SubLabel>
             <GuideCard style={{ marginBottom: '20px' }}>
@@ -842,19 +997,48 @@ export default function BrandGuide() {
               </div>
             </GuideCard>
 
-            <SubLabel>Color Greenspace</SubLabel>
-            <p style={{ fontFamily: F.body, fontSize: '13px', color: C.sub, lineHeight: 1.65, marginBottom: '12px' }}>The bronze + deep navy combination is entirely unoccupied in the music platform space.</p>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', marginBottom: '20px' }}>
-              {VI.greenspace.map(g => (
-                <div key={g.name} style={{ display: 'flex', alignItems: 'center', gap: '12px', padding: '8px 14px', background: g.name === 'Grouped' ? C.accentGlow : C.s1, border: `1px solid ${g.name === 'Grouped' ? C.accent : C.border}`, borderRadius: '8px' }}>
-                  <div style={{ display: 'flex', gap: '3px' }}>
-                    {g.colors.map((c, i) => <div key={i} style={{ width: '18px', height: '18px', borderRadius: '4px', background: c, border: `1px solid ${C.border}` }} />)}
-                  </div>
-                  <span style={{ fontFamily: F.display, fontSize: '13px', fontWeight: g.name === 'Grouped' ? 700 : 500, color: g.name === 'Grouped' ? C.accent : C.text, flex: 1 }}>{g.name}</span>
-                  <span style={{ fontFamily: F.body, fontSize: '11px', color: C.muted }}>{g.note}</span>
+          </section>
+
+          {/* ═══════════════════════════════════════════ */}
+          {/* 10 — APPROVALS & CONTACT                   */}
+          {/* ═══════════════════════════════════════════ */}
+          <section ref={el => { sectionRefs.current['approvals'] = el; }} id="approvals" style={{ marginBottom: '64px', scrollMarginTop: '72px' }}>
+            <SectionHeading num="10" title="Approvals & Contact" sub="All brand usage requires approval. When in doubt, reach out." />
+
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginBottom: '24px' }}>
+              <GuideCard style={{ padding: '20px' }}>
+                <div style={{ fontFamily: F.display, fontSize: '16px', fontWeight: 700, color: C.accent, marginBottom: '8px' }}>Brand Approvals</div>
+                <div style={{ fontFamily: F.body, fontSize: '13px', color: C.sub, lineHeight: 1.65, marginBottom: '12px' }}>
+                  All external-facing uses of the Grouped brand — co-branding, partnership materials, press kits, derivative artwork, and campaign assets — require written approval from the marketing team before publication.
+                </div>
+                <div style={{ fontFamily: F.mono, fontSize: '13px', color: C.focus }}>marketing@grouped.com</div>
+              </GuideCard>
+              <GuideCard style={{ padding: '20px' }}>
+                <div style={{ fontFamily: F.display, fontSize: '16px', fontWeight: 700, color: C.accent, marginBottom: '8px' }}>Asset Requests</div>
+                <div style={{ fontFamily: F.body, fontSize: '13px', color: C.sub, lineHeight: 1.65, marginBottom: '12px' }}>
+                  Need logo files, brand assets, or custom lockups for a specific use case? Contact the team and we will provide the correct formats and variants for your project.
+                </div>
+                <div style={{ fontFamily: F.mono, fontSize: '13px', color: C.focus }}>marketing@grouped.com</div>
+              </GuideCard>
+            </div>
+
+            <SubLabel>What Needs Approval</SubLabel>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', marginBottom: '20px' }}>
+              {[
+                'Co-branded materials with partners or sponsors',
+                'Press kits and media coverage assets',
+                'Merchandise and physical goods featuring the brand',
+                'Modified or adapted logo treatments',
+                'Artist-facing templates and promotional tools',
+                'Any use of the brand outside of this guide\'s specifications',
+              ].map((item, i) => (
+                <div key={i} style={{ display: 'flex', gap: '8px', padding: '6px 0', fontFamily: F.body, fontSize: '13px', color: C.sub }}>
+                  <span style={{ color: C.accent, flexShrink: 0 }}>&#x2022;</span>{item}
                 </div>
               ))}
             </div>
+
+            <GuideCallout>Always credit artists. Every piece of content that features an artist — photography, design, video, social — must include proper attribution. Go the extra mile. The personal touch is a brand value, not an afterthought.</GuideCallout>
           </section>
 
           {/* ── FOOTER ────────────────────────────────── */}
