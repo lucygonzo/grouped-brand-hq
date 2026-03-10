@@ -354,12 +354,21 @@ export default function BrandGuide() {
             <DoDont type="dont">Mix up bronze and blue. If it appears on a poster, it's bronze. If you click it, it's blue.</DoDont>
             <DoDont type="dont">Use pure white (#FFFFFF) for text. Always use warm cream #F0EBE3.</DoDont>
 
-            <SubLabel>Secondary & Semantic</SubLabel>
-            <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginBottom: '20px' }}>
-              <SmallSwatch hex="#8BAF9C" name="Success" sub="Confirmations, connected" />
-              <SmallSwatch hex="#D4A24B" name="Warning" sub="Caution, limits" />
-              <SmallSwatch hex="#C27A6B" name="Error" sub="Errors, destructive" />
-              <SmallSwatch hex="#8BA4BE" name="Info" sub="Tips, neutral" />
+            <SubLabel>UI Semantic Colors</SubLabel>
+            <p style={{ fontFamily: F.body, fontSize: '12px', color: C.muted, lineHeight: 1.5, marginBottom: '10px' }}>Not part of the core brand palette. Used only for functional UI states within the product.</p>
+            <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '20px' }}>
+              {[
+                { hex: '#8BAF9C', name: 'Success' },
+                { hex: '#D4A24B', name: 'Warning' },
+                { hex: '#C27A6B', name: 'Error' },
+                { hex: '#8BA4BE', name: 'Info' },
+              ].map(c => (
+                <div key={c.name} style={{ display: 'flex', alignItems: 'center', gap: '6px', padding: '4px 10px', background: C.s1, border: `1px solid ${C.border}`, borderRadius: '6px' }}>
+                  <div style={{ width: '12px', height: '12px', borderRadius: '3px', background: c.hex }} />
+                  <span style={{ fontFamily: F.mono, fontSize: '10px', color: C.muted }}>{c.name}</span>
+                  <span style={{ fontFamily: F.mono, fontSize: '10px', color: C.ghost }}>{c.hex}</span>
+                </div>
+              ))}
             </div>
 
             <SubLabel>Accessibility</SubLabel>
