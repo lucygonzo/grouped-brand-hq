@@ -14,10 +14,7 @@ const SECTIONS = [
   { id: 'colors', label: 'Color System' },
   { id: 'logo', label: 'Logo & Wordmark' },
   { id: 'typography', label: 'Typography' },
-  { id: 'surfaces', label: 'Surfaces & Texture' },
-  { id: 'motion', label: 'Motif & Motion' },
   { id: 'verbal', label: 'Verbal Identity' },
-  { id: 'elements', label: 'Brand Elements' },
 ];
 
 // ── Copy Hex Swatch ─────────────────────────────────────
@@ -508,128 +505,10 @@ export default function BrandGuide() {
           </section>
 
           {/* ═══════════════════════════════════════════ */}
-          {/* 04 — SURFACES & TEXTURE                   */}
-          {/* ═══════════════════════════════════════════ */}
-          <section ref={el => { sectionRefs.current['surfaces'] = el; }} id="surfaces" style={{ marginBottom: '64px', scrollMarginTop: '72px' }}>
-            <SectionHeading num="04" title="Surfaces & Texture" sub={VI.surfaces.concept} />
-
-            <SubLabel>Surface Types</SubLabel>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '24px' }}>
-              {VI.surfaces.types.map(s => (
-                <GuideCard key={s.name}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-                    <div>
-                      <div style={{ fontFamily: F.display, fontSize: '16px', fontWeight: 700, color: C.text }}>{s.name}</div>
-                      <div style={{ fontFamily: F.body, fontSize: '13px', color: C.sub, lineHeight: 1.6, marginTop: '4px' }}>{s.description}</div>
-                    </div>
-                  </div>
-                  {'cssNote' in s && <div style={{ fontFamily: F.mono, fontSize: '10px', color: C.muted, marginTop: '8px', background: C.s2, padding: '6px 10px', borderRadius: '4px' }}>{s.cssNote}</div>}
-                  {'usage' in s && s.usage && <div style={{ fontFamily: F.body, fontSize: '11px', color: C.accent, marginTop: '6px' }}>Use for: {s.usage}</div>}
-                </GuideCard>
-              ))}
-            </div>
-
-            <SubLabel>Grain Overlay</SubLabel>
-            <GuideCard style={{ marginBottom: '20px' }}>
-              <div style={{ fontFamily: F.body, fontSize: '13px', color: C.sub, lineHeight: 1.65 }}>{VI.surfaces.grain}</div>
-              <div style={{ fontFamily: F.mono, fontSize: '10px', color: C.muted, marginTop: '8px', background: C.s2, padding: '6px 10px', borderRadius: '4px' }}>opacity: 0.028 · mix-blend-mode: overlay · SVG fractalNoise · 200px tile</div>
-            </GuideCard>
-
-            <SubLabel>Border Radius System</SubLabel>
-            <GuideCallout>{VI.radiusSystem.rule}</GuideCallout>
-            <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginBottom: '20px' }}>
-              {[
-                { label: 'Cards', value: '8px', token: '--radius-card' },
-                { label: 'Modals', value: '16px', token: '--radius-modal' },
-                { label: 'Hero', value: '24px', token: '--radius-hero' },
-                { label: 'Pills / Buttons', value: '39px', token: '--radius-pill' },
-              ].map(r => (
-                <div key={r.label} style={{ flex: '1 1 120px', textAlign: 'center' }}>
-                  <div style={{ width: '80px', height: '56px', background: C.s2, border: `1px solid ${C.borderHov}`, borderRadius: r.value, margin: '0 auto 8px' }} />
-                  <div style={{ fontFamily: F.mono, fontSize: '11px', color: C.text }}>{r.value}</div>
-                  <div style={{ fontFamily: F.body, fontSize: '10px', color: C.muted }}>{r.label}</div>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* ═══════════════════════════════════════════ */}
-          {/* 05 — MOTIF & MOTION                       */}
-          {/* ═══════════════════════════════════════════ */}
-          <section ref={el => { sectionRefs.current['motion'] = el; }} id="motion" style={{ marginBottom: '64px', scrollMarginTop: '72px' }}>
-            <SectionHeading num="05" title="Motif & Motion" sub="The concentric arc is Grouped's signature visual motif. Motion is intentional, weighted, and never decorative." />
-
-            <SubLabel>Concentric Arcs</SubLabel>
-            <GuideCallout>{VI.signatureMotif.meaning}</GuideCallout>
-
-            {/* SVG Demo */}
-            <GuideCard style={{ textAlign: 'center', padding: '32px', marginBottom: '20px' }}>
-              <svg width="160" height="160" viewBox="0 0 160 160" fill="none">
-                <circle cx="80" cy="80" r="75" stroke={C.accent} strokeWidth="4" strokeOpacity="0.15" fill="none" />
-                <circle cx="80" cy="80" r="55" stroke={C.accent} strokeWidth="4" strokeOpacity="0.22" fill="none" />
-                <circle cx="80" cy="80" r="35" stroke={C.accent} strokeWidth="4" strokeOpacity="0.32" fill="none" />
-                <text x="80" y="88" textAnchor="middle" fill={C.accent} fontFamily={F.display} fontSize="24" fontWeight="900" opacity="0.6">g.</text>
-              </svg>
-              <div style={{ fontFamily: F.mono, fontSize: '9px', color: C.muted, marginTop: '12px' }}>3 arcs · 2.5:1 stroke-to-gap ratio · Bronze at varying opacity</div>
-            </GuideCard>
-
-            <SubLabel>Construction Rules</SubLabel>
-            {VI.signatureMotif.rules.map((r, i) => <Rule key={i}>{r}</Rule>)}
-
-            <SubLabel>Ring Proportions</SubLabel>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '8px', marginBottom: '24px' }}>
-              {Object.entries(VI.signatureMotif.ringProportions).map(([k, v]) => (
-                <div key={k} style={{ background: C.s1, border: `1px solid ${C.border}`, borderRadius: '8px', padding: '10px 14px' }}>
-                  <div style={{ fontFamily: F.mono, fontSize: '10px', color: C.accent, textTransform: 'uppercase', letterSpacing: '0.08em' }}>{k}</div>
-                  <div style={{ fontFamily: F.body, fontSize: '12px', color: C.sub, marginTop: '2px' }}>{v}</div>
-                </div>
-              ))}
-            </div>
-
-            <SubLabel>Usage Modes</SubLabel>
-            <div style={{ display: 'flex', gap: '10px', marginBottom: '24px' }}>
-              {VI.signatureMotif.usage.map(u => (
-                <GuideCard key={u.mode} style={{ flex: 1 }}>
-                  <div style={{ fontFamily: F.display, fontSize: '14px', fontWeight: 700, color: C.text, marginBottom: '4px' }}>{u.mode}</div>
-                  <div style={{ fontFamily: F.mono, fontSize: '10px', color: C.accent, marginBottom: '6px' }}>Opacity: {u.opacity}</div>
-                  <div style={{ fontFamily: F.body, fontSize: '12px', color: C.sub, lineHeight: 1.5 }}>{u.use}</div>
-                </GuideCard>
-              ))}
-            </div>
-
-            <SubLabel>Motion Principles</SubLabel>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', marginBottom: '20px' }}>
-              {VI.motionPrinciples.map((p, i) => <Rule key={i}>{p}</Rule>)}
-            </div>
-
-            <SubLabel>Easing Library</SubLabel>
-            <div style={{ overflowX: 'auto' }}>
-              <table style={{ width: '100%', borderCollapse: 'collapse', fontFamily: F.body, fontSize: '12px' }}>
-                <thead>
-                  <tr>
-                    {['Token', 'Value', 'Usage'].map(h => (
-                      <th key={h} style={{ fontFamily: F.mono, fontSize: '9px', color: C.muted, textTransform: 'uppercase', letterSpacing: '0.1em', padding: '8px 10px', borderBottom: `1px solid ${C.border}`, textAlign: 'left' }}>{h}</th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody>
-                  {VI.easing.map(e => (
-                    <tr key={e.token}>
-                      <td style={{ fontFamily: F.mono, fontSize: '11px', color: C.accent, padding: '8px 10px', borderBottom: `1px solid ${C.borderSoft}` }}>{e.token}</td>
-                      <td style={{ fontFamily: F.mono, fontSize: '10px', color: C.sub, padding: '8px 10px', borderBottom: `1px solid ${C.borderSoft}` }}>{e.value}</td>
-                      <td style={{ color: C.muted, padding: '8px 10px', borderBottom: `1px solid ${C.borderSoft}` }}>{e.usage}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </section>
-
-          {/* ═══════════════════════════════════════════ */}
-          {/* 06 — VERBAL IDENTITY                      */}
+          {/* 04 — VERBAL IDENTITY                      */}
           {/* ═══════════════════════════════════════════ */}
           <section ref={el => { sectionRefs.current['verbal'] = el; }} id="verbal" style={{ marginBottom: '64px', scrollMarginTop: '72px' }}>
-            <SectionHeading num="06" title="Verbal Identity" sub="The grouped. voice is artist-to-artist, not SaaS-to-customer. Direct, bold, warm — never corporate." />
+            <SectionHeading num="04" title="Verbal Identity" sub="The grouped. voice is artist-to-artist, not SaaS-to-customer. Direct, bold, warm — never corporate." />
 
             <SubLabel>Taglines</SubLabel>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', marginBottom: '24px' }}>
@@ -689,53 +568,6 @@ export default function BrandGuide() {
                   <div style={{ fontFamily: F.display, fontSize: '14px', fontWeight: 700, color: C.accent, marginBottom: '4px' }}>{v.name}</div>
                   <div style={{ fontFamily: F.body, fontSize: '12px', color: C.sub, lineHeight: 1.5 }}>{v.desc}</div>
                 </GuideCard>
-              ))}
-            </div>
-          </section>
-
-          {/* ═══════════════════════════════════════════ */}
-          {/* 07 — BRAND ELEMENTS                       */}
-          {/* ═══════════════════════════════════════════ */}
-          <section ref={el => { sectionRefs.current['elements'] = el; }} id="elements" style={{ marginBottom: '64px', scrollMarginTop: '72px' }}>
-            <SectionHeading num="07" title="Brand Elements" sub="Feature colors, iconography status, and competitive greenspace analysis." />
-
-            <SubLabel>Feature Colors</SubLabel>
-            <p style={{ fontFamily: F.body, fontSize: '13px', color: C.sub, lineHeight: 1.65, marginBottom: '16px' }}>Each core product feature has a dedicated color for badges, charts, and UI accents within the product. These supplement — never replace — the primary bronze/blue system.</p>
-            <SwatchRow>
-              <Swatch hex="#38C3FF" name="Community" sub="Groups, community surfaces, member badges" />
-              <Swatch hex="#5B61D9" name="Swaps" sub="Early access mechanics, swap cards, trade UI" />
-              <Swatch hex="#AD6AD9" name="Broadcasts" sub="Email, messaging, notification surfaces" />
-            </SwatchRow>
-
-            <SubLabel>Iconography</SubLabel>
-            <div style={{ background: C.warningDim, borderLeft: `3px solid ${C.warning}`, borderRadius: '0 8px 8px 0', padding: '14px 18px', marginBottom: '24px' }}>
-              <div style={{ fontFamily: F.mono, fontSize: '9px', color: C.warning, textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: '4px' }}>Pending Figma Update</div>
-              <div style={{ fontFamily: F.body, fontSize: '13px', color: C.sub, lineHeight: 1.6 }}>Custom icon set is being finalized in the GDS26R Figma file. The icon system will follow the concentric arc motif language — geometric, medium weight, consistent stroke width matching Satoshi letterforms.</div>
-            </div>
-
-            <SubLabel>Competitive Greenspace</SubLabel>
-            <p style={{ fontFamily: F.body, fontSize: '13px', color: C.sub, lineHeight: 1.65, marginBottom: '16px' }}>Bronze + deep navy is entirely unoccupied territory in the music tech / direct-to-fan space. Every competitor clusters around purple, black, coral, indigo, or yellow. Grouped's color position is proprietary.</p>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-              {VI.greenspace.map(g => (
-                <div key={g.name} style={{ display: 'flex', alignItems: 'center', gap: '12px', padding: '8px 14px', background: C.s1, border: `1px solid ${C.border}`, borderRadius: '8px' }}>
-                  <div style={{ display: 'flex', gap: '3px' }}>
-                    {g.colors.map((c, i) => (
-                      <div key={i} style={{ width: '18px', height: '18px', borderRadius: '4px', background: c, border: `1px solid ${C.border}` }} />
-                    ))}
-                  </div>
-                  <span style={{ fontFamily: F.body, fontSize: '13px', color: g.name === 'grouped.' ? C.accent : C.text, fontWeight: g.name === 'grouped.' ? 700 : 400, flex: 1 }}>{g.name}</span>
-                  <span style={{ fontFamily: F.body, fontSize: '11px', color: C.muted }}>{g.note}</span>
-                </div>
-              ))}
-            </div>
-
-            <SubLabel>What This System Avoids</SubLabel>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '6px', marginTop: '12px' }}>
-              {VI.avoidList.map((a, i) => (
-                <div key={i} style={{ display: 'flex', gap: '8px', alignItems: 'flex-start' }}>
-                  <span style={{ fontFamily: F.mono, fontSize: '10px', color: C.error, marginTop: '3px', flexShrink: 0 }}>&#x2717;</span>
-                  <span style={{ fontFamily: F.body, fontSize: '12px', color: C.sub, lineHeight: 1.5 }}>{a}</span>
-                </div>
               ))}
             </div>
           </section>
