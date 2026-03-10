@@ -109,7 +109,7 @@ const Rule = ({ children }: { children: React.ReactNode }) => (
 const LOGO_BASE = 'https://raw.githubusercontent.com/lucygonzo/grouped_brand/main/Logo%20Assets';
 const logoSvgUrl = (file: string) => `${LOGO_BASE}/SVG/${encodeURIComponent(file)}.svg`;
 const logoPngUrl = (file: string) => `${LOGO_BASE}/PNG/${encodeURIComponent(file)}.png`;
-const GDRIVE_ASSETS = 'https://drive.google.com/drive/folders/1AXOI-qNOHnuiecDrgxdohV4zrA2C0pXD';
+const GDRIVE_ASSETS = 'https://drive.google.com/drive/folders/1E3xl-FC3HFVtCWRBLyN-u8RCVgk9VME6';
 
 const LOGO_CATEGORIES = [
   {
