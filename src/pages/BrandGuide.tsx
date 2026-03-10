@@ -105,6 +105,118 @@ const Rule = ({ children }: { children: React.ReactNode }) => (
   </div>
 );
 
+// ── Logo Assets ─────────────────────────────────────────
+const LOGO_BASE = 'https://raw.githubusercontent.com/lucygonzo/grouped_brand/main/Logo%20Assets';
+const logoSvgUrl = (file: string) => `${LOGO_BASE}/SVG/${encodeURIComponent(file)}.svg`;
+const logoPngUrl = (file: string) => `${LOGO_BASE}/PNG/${encodeURIComponent(file)}.png`;
+const GDRIVE_ASSETS = 'https://drive.google.com/drive/folders/1AXOI-qNOHnuiecDrgxdohV4zrA2C0pXD';
+
+const LOGO_CATEGORIES = [
+  {
+    type: 'Grouped Typemark', desc: 'Primary wordmark — "grouped." in Anacrusis', hero: true,
+    variants: [
+      { color: 'Warm Bronze', file: 'Grouped_Rebrand_Visual Assets_Grouped Typemark_WarmBronze', bg: '#111620' },
+      { color: 'White', file: 'Grouped_Rebrand_Visual Assets_Grouped Typemark_White', bg: '#111620' },
+      { color: 'Cream', file: 'Grouped_Rebrand_Visual Assets_Grouped Typemark_Cream', bg: '#111620' },
+      { color: 'Navy', file: 'Grouped_Rebrand_Visual Assets_Grouped Typemark_Navy', bg: '#F0EBE3' },
+      { color: 'Black', file: 'Grouped_Rebrand_Visual Assets_Grouped Typemark_Black', bg: '#F0EBE3' },
+      { color: 'Focus Blue', file: 'Grouped_Rebrand_Visual Assets_Grouped Typemark_Focus Blue', bg: '#111620' },
+    ],
+  },
+  {
+    type: 'VinylG Icon', desc: 'Standalone G mark — app icon, favicon, social avatar, watermark', hero: true,
+    variants: [
+      { color: 'Warm Bronze', file: 'Grouped_Rebrand_Visual Assets_VinylG Icon_WarmBronze', bg: '#111620' },
+      { color: 'White', file: 'Grouped_Rebrand_Visual Assets_VinylG Icon_White', bg: '#111620' },
+      { color: 'Cream', file: 'Grouped_Rebrand_Visual Assets_VinylG Icon_Cream', bg: '#111620' },
+      { color: 'Navy', file: 'Grouped_Rebrand_Visual Assets_VinylG Icon_Navy', bg: '#F0EBE3' },
+      { color: 'Black', file: 'Grouped_Rebrand_Visual Assets_VinylG Icon_Black', bg: '#F0EBE3' },
+      { color: 'Focus Blue', file: 'Grouped_Rebrand_Visual Assets_VinylG Icon_Focus Blue', bg: '#111620' },
+    ],
+  },
+  {
+    type: 'Lockup Horizontal', desc: 'VinylG + wordmark side by side',
+    variants: [
+      { color: 'Warm Bronze', file: 'Grouped_Rebrand_Visual Assets_Lockup Horizontal_Warm Bronze', bg: '#111620' },
+      { color: 'White', file: 'Grouped_Rebrand_Visual Assets_Lockup Horizontal_white', bg: '#111620' },
+      { color: 'Cream', file: 'Grouped_Rebrand_Visual Assets_Lockup Horizontal_Cream', bg: '#111620' },
+      { color: 'Navy', file: 'Grouped_Rebrand_Visual Assets_Lockup Horizontal_Navy', bg: '#F0EBE3' },
+      { color: 'Black', file: 'Grouped_Rebrand_Visual Assets_Lockup Horizontal_Black', bg: '#F0EBE3' },
+      { color: 'Focus Blue', file: 'Grouped_Rebrand_Visual Assets_Lockup Horizontal_Focus Blue', bg: '#111620' },
+    ],
+  },
+  {
+    type: 'Lockup Vertical', desc: 'VinylG + wordmark stacked',
+    variants: [
+      { color: 'Warm Bronze', file: 'Grouped_Rebrand_Visual Assets_Lockup Vertical_Warm Bronze', bg: '#111620' },
+      { color: 'Cream', file: 'Grouped_Rebrand_Visual Assets_Lockup Vertical_Cream', bg: '#111620' },
+      { color: 'Navy', file: 'Grouped_Rebrand_Visual Assets_Lockup Vertical_Navy', bg: '#F0EBE3' },
+      { color: 'Black', file: 'Grouped_Rebrand_Visual Assets_Lockup Vertical_Black', bg: '#F0EBE3' },
+      { color: 'Focus Blue', file: 'Grouped_Rebrand_Visual Assets_Lockup Vertical_Focus Blue', bg: '#111620' },
+    ],
+  },
+  {
+    type: 'Pill Tag', desc: 'Pill-shaped logo badge',
+    variants: [
+      { color: 'Full Color', file: 'Grouped_Rebrand_Visual Assets_Pill Tag_Full Color', bg: '#111620' },
+      { color: 'Warm Bronze', file: 'Grouped_Rebrand_Visual Assets_Pill Tag_Warm Bronze', bg: '#111620' },
+      { color: 'White', file: 'Grouped_Rebrand_Visual Assets_Pill Tag_White', bg: '#111620' },
+      { color: 'Navy', file: 'Grouped_Rebrand_Visual Assets_Pill Tag_Navy', bg: '#F0EBE3' },
+      { color: 'Black', file: 'Grouped_Rebrand_Visual Assets_Pill Tag_Black', bg: '#F0EBE3' },
+    ],
+  },
+  {
+    type: 'Stacked Askew', desc: 'Angled stacked treatment',
+    variants: [
+      { color: 'Warm Bronze', file: 'Grouped_Rebrand_Visual Assets_Stacked Askew_Warm Bronze', bg: '#111620' },
+      { color: 'White', file: 'Grouped_Rebrand_Visual Assets_Stacked Askew_White', bg: '#111620' },
+      { color: 'Navy', file: 'Grouped_Rebrand_Visual Assets_Stacked Askew_Navy', bg: '#F0EBE3' },
+      { color: 'Black', file: 'Grouped_Rebrand_Visual Assets_Stacked Askew_Black', bg: '#F0EBE3' },
+    ],
+  },
+  {
+    type: 'Stacked Sticker', desc: 'Sticker-style stacked treatment',
+    variants: [
+      { color: 'Warm Bronze', file: 'Grouped_Rebrand_Visual Assets_Stacked Sticker_WarmBronze', bg: '#111620' },
+      { color: 'White', file: 'Grouped_Rebrand_Visual Assets_Stacked Sticker_White', bg: '#111620' },
+      { color: 'Navy', file: 'Grouped_Rebrand_Visual Assets_Stacked Sticker_Navy', bg: '#F0EBE3' },
+      { color: 'Black', file: 'Grouped_Rebrand_Visual Assets_Stacked Sticker_Black', bg: '#F0EBE3' },
+    ],
+  },
+  {
+    type: 'Stacked Window', desc: 'Window-framed stacked treatment',
+    variants: [
+      { color: 'Warm Bronze', file: 'Grouped_Rebrand_Visual Assets_Stacked Window_Warm Bronze', bg: '#111620' },
+      { color: 'White', file: 'Grouped_Rebrand_Visual Assets_Stacked Window_White', bg: '#111620' },
+      { color: 'Navy', file: 'Grouped_Rebrand_Visual Assets_Stacked Window_Navy', bg: '#F0EBE3' },
+      { color: 'Black', file: 'Grouped_Rebrand_Visual Assets_Stacked Window_Black', bg: '#F0EBE3' },
+    ],
+  },
+  {
+    type: 'Retro Stamp', desc: 'Vintage stamp treatments',
+    variants: [
+      { color: 'Color', file: 'Grouped_Rebrand_Visual Assets_Retro stamp color', bg: '#111620' },
+      { color: 'Black', file: 'Grouped_Rebrand_Visual Assets_retro Stamp Black', bg: '#F0EBE3' },
+    ],
+  },
+];
+
+// ── Logo Preview Card ───────────────────────────────────
+const LogoVariantCard = ({ file, color, bg }: { file: string; color: string; bg: string }) => (
+  <div style={{ flex: '1 1 140px', minWidth: '130px' }}>
+    <div style={{ background: bg, borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '16px', height: '72px', border: `1px solid ${C.border}` }}>
+      <img src={logoSvgUrl(file)} alt={`${color} variant`} style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
+    </div>
+    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '5px', padding: '0 2px' }}>
+      <span style={{ fontFamily: F.body, fontSize: '10px', color: C.sub }}>{color}</span>
+      <div style={{ display: 'flex', gap: '8px' }}>
+        <a href={logoSvgUrl(file)} target="_blank" rel="noopener noreferrer" style={{ fontFamily: F.mono, fontSize: '9px', color: C.focus, textDecoration: 'none' }}>SVG</a>
+        <a href={logoPngUrl(file)} target="_blank" rel="noopener noreferrer" style={{ fontFamily: F.mono, fontSize: '9px', color: C.focus, textDecoration: 'none' }}>PNG</a>
+      </div>
+    </div>
+  </div>
+);
+
 // ══════════════════════════════════════════════════════════
 // MAIN COMPONENT
 // ══════════════════════════════════════════════════════════
@@ -255,10 +367,13 @@ export default function BrandGuide() {
           <section ref={el => { sectionRefs.current['logo'] = el; }} id="logo" style={{ marginBottom: '64px', scrollMarginTop: '72px' }}>
             <SectionHeading num="02" title="Logo & Wordmark" sub="The grouped. wordmark is the brand's primary identifier. The Vinyl G mark is the secondary mark. Both require governance, not redesign." />
 
+            {/* Hero: Primary Typemark */}
             <SubLabel>Wordmark</SubLabel>
             <GuideCard style={{ marginBottom: '20px', textAlign: 'center', padding: '40px 20px' }}>
-              <div style={{ fontFamily: F.display, fontSize: '48px', fontWeight: 900, color: C.accent, letterSpacing: '-0.03em' }}>grouped.</div>
-              <div style={{ fontFamily: F.mono, fontSize: '11px', color: C.muted, marginTop: '12px' }}>Anacrusis (Custom OTF) · Lowercase with period · Always.</div>
+              <div style={{ background: '#111620', borderRadius: '8px', padding: '24px 32px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', border: `1px solid ${C.border}` }}>
+                <img src={logoSvgUrl('Grouped_Rebrand_Visual Assets_Grouped Typemark_WarmBronze')} alt="grouped. wordmark" style={{ height: '48px', objectFit: 'contain' }} />
+              </div>
+              <div style={{ fontFamily: F.mono, fontSize: '11px', color: C.muted, marginTop: '16px' }}>Anacrusis (Custom OTF) · Lowercase with period · Always.</div>
             </GuideCard>
 
             <GuideCallout>{VI.wordmark.rationale}</GuideCallout>
@@ -270,32 +385,37 @@ export default function BrandGuide() {
             <DoDont type="dont">Never remove the period. "grouped" without the period is incomplete.</DoDont>
             <DoDont type="dont">Never set the wordmark in Satoshi, Arial, or any substitute typeface.</DoDont>
 
+            {/* Hero: Vinyl G Mark */}
             <SubLabel>Vinyl G Mark</SubLabel>
             <p style={{ fontFamily: F.body, fontSize: '13px', color: C.sub, lineHeight: 1.65, marginBottom: '16px' }}>The secondary mark — a geometric "G" within concentric arcs evoking vinyl grooves and sound waves. Used as an app icon, favicon, social avatar, and watermark.</p>
+            <GuideCard style={{ marginBottom: '20px', textAlign: 'center', padding: '32px 20px' }}>
+              <div style={{ display: 'inline-flex', gap: '16px', alignItems: 'center' }}>
+                <div style={{ background: '#111620', borderRadius: '8px', padding: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: `1px solid ${C.border}`, width: '80px', height: '80px' }}>
+                  <img src={logoSvgUrl('Grouped_Rebrand_Visual Assets_VinylG Icon_WarmBronze')} alt="VinylG mark — bronze" style={{ width: '48px', height: '48px', objectFit: 'contain' }} />
+                </div>
+                <div style={{ background: '#F0EBE3', borderRadius: '8px', padding: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: `1px solid ${C.border}`, width: '80px', height: '80px' }}>
+                  <img src={logoSvgUrl('Grouped_Rebrand_Visual Assets_VinylG Icon_Navy')} alt="VinylG mark — navy" style={{ width: '48px', height: '48px', objectFit: 'contain' }} />
+                </div>
+              </div>
+            </GuideCard>
 
-            <SubLabel>Color Variants</SubLabel>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '10px', marginBottom: '20px' }}>
-              {[
-                { name: 'Bronze on Navy', bg: '#111620', fg: '#C48A3A', use: 'Primary — headers, dark surfaces' },
-                { name: 'White on Navy', bg: '#111620', fg: '#F0EBE3', use: 'Reversed — dark backgrounds' },
-                { name: 'Navy on White', bg: '#F0EBE3', fg: '#111620', use: 'Print, light surfaces' },
-                { name: 'Bronze on White', bg: '#F0EBE3', fg: '#C48A3A', use: 'Premium print materials' },
-                { name: 'Mono White', bg: '#2E3849', fg: '#F0EBE3', use: 'Photo overlays, video' },
-                { name: 'Mono Dark', bg: '#F0EBE3', fg: '#2E3849', use: 'Single-color print' },
-              ].map(v => (
-                <GuideCard key={v.name} style={{ padding: '14px', textAlign: 'center' }}>
-                  <div style={{ height: '48px', background: v.bg, borderRadius: '6px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '8px', border: `1px solid ${C.border}` }}>
-                    <span style={{ fontFamily: F.display, fontSize: '20px', fontWeight: 900, color: v.fg, letterSpacing: '-0.02em' }}>g.</span>
-                  </div>
-                  <div style={{ fontFamily: F.body, fontSize: '11px', color: C.text }}>{v.name}</div>
-                  <div style={{ fontFamily: F.body, fontSize: '10px', color: C.muted }}>{v.use}</div>
-                </GuideCard>
-              ))}
-            </div>
+            {/* All Logo Categories */}
+            {LOGO_CATEGORIES.map(cat => (
+              <div key={cat.type} style={{ marginBottom: '28px' }}>
+                <SubLabel>{cat.type}</SubLabel>
+                <p style={{ fontFamily: F.body, fontSize: '12px', color: C.muted, marginBottom: '12px' }}>{cat.desc}</p>
+                <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+                  {cat.variants.map(v => (
+                    <LogoVariantCard key={`${cat.type}-${v.color}`} file={v.file} color={v.color} bg={v.bg} />
+                  ))}
+                </div>
+              </div>
+            ))}
 
-            <SubLabel>Asset Links</SubLabel>
+            {/* Asset Links */}
+            <SubLabel>Download All Assets</SubLabel>
             <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
-              <a href={VI.wordmark.driveFolder} target="_blank" rel="noopener noreferrer" style={{ fontFamily: F.mono, fontSize: '10px', color: C.focus, textDecoration: 'none', padding: '6px 14px', border: `1px solid ${C.focusDim}`, borderRadius: '39px', letterSpacing: '0.06em', textTransform: 'uppercase' }}>Google Drive Assets</a>
+              <a href={GDRIVE_ASSETS} target="_blank" rel="noopener noreferrer" style={{ fontFamily: F.mono, fontSize: '10px', color: C.focus, textDecoration: 'none', padding: '6px 14px', border: `1px solid ${C.focusDim}`, borderRadius: '39px', letterSpacing: '0.06em', textTransform: 'uppercase' }}>Google Drive — All Assets</a>
               <a href={VI.wordmark.figmaFile} target="_blank" rel="noopener noreferrer" style={{ fontFamily: F.mono, fontSize: '10px', color: C.focus, textDecoration: 'none', padding: '6px 14px', border: `1px solid ${C.focusDim}`, borderRadius: '39px', letterSpacing: '0.06em', textTransform: 'uppercase' }}>Figma GDS26R</a>
             </div>
           </section>
