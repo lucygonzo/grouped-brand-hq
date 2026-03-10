@@ -693,24 +693,61 @@ export default function BrandGuide() {
 
             <SubLabel>Taglines</SubLabel>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', marginBottom: '24px' }}>
-              {VB.taglines.map((t, i) => (
+              {[
+                { tag: 'The growth engine for music careers.', label: 'Primary' },
+                { tag: 'Turn every listen into a fan.' },
+                { tag: 'Turn every release into lasting fan relationships.' },
+                { tag: 'Direct-to-fan, finally done right.' },
+                { tag: 'Stop dropping music. Start creating moments.' },
+              ].map((t, i) => (
                 <div key={i} style={{ padding: '10px 14px', background: i === 0 ? C.accentGlow : C.s1, border: `1px solid ${i === 0 ? C.accent : C.border}`, borderRadius: '8px', display: 'flex', alignItems: 'center', gap: '10px' }}>
-                  {i === 0 && <span style={{ fontFamily: F.mono, fontSize: '9px', color: C.accent, textTransform: 'uppercase', letterSpacing: '0.1em', flexShrink: 0 }}>Primary</span>}
-                  <span style={{ fontFamily: F.display, fontSize: i === 0 ? '18px' : '15px', fontWeight: i === 0 ? 700 : 500, color: i === 0 ? C.text : C.sub, fontStyle: 'italic' }}>{t}</span>
+                  {t.label && <span style={{ fontFamily: F.mono, fontSize: '9px', color: C.accent, textTransform: 'uppercase', letterSpacing: '0.1em', flexShrink: 0 }}>{t.label}</span>}
+                  <span style={{ fontFamily: F.display, fontSize: i === 0 ? '18px' : '15px', fontWeight: i === 0 ? 700 : 500, color: i === 0 ? C.text : C.sub, fontStyle: 'italic' }}>{t.tag}</span>
                 </div>
               ))}
             </div>
 
-            <SubLabel>Brand Anchor — FIRST</SubLabel>
-            <GuideCard style={{ marginBottom: '20px' }}>
-              <div style={{ fontFamily: F.display, fontSize: '32px', fontWeight: 900, color: C.accent, letterSpacing: '-0.02em', marginBottom: '12px' }}>FIRST</div>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '8px' }}>
-                {VB.brandAnchorCopy.lines.map((l, i) => (
-                  <div key={i} style={{ fontFamily: F.body, fontSize: '15px', color: C.text, fontWeight: 500 }}>{l}</div>
-                ))}
-              </div>
-              <div style={{ fontFamily: F.body, fontSize: '12px', color: C.muted, marginTop: '12px', lineHeight: 1.6 }}>{VB.brandAnchorCopy.note}</div>
-            </GuideCard>
+            <SubLabel>Messaging Framework</SubLabel>
+            <GuideCallout>The product story follows five stages. Every piece of copy should map to one of these — capture attention, connect fans, engage consistently, grow revenue, compound momentum.</GuideCallout>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '24px' }}>
+              {[
+                { stage: 'Capture', line: 'Listeners become fans.', desc: 'Every touchpoint becomes a capture moment. Pre-saves, links, QR codes — fans opt in, you get their data.' },
+                { stage: 'Connect', line: 'Every fan. One place.', desc: 'Bring every fan from every platform into one space you own. Spotify, Instagram, TikTok — all in a single, direct channel.' },
+                { stage: 'Engage', line: 'Always top of mind.', desc: 'Push notifications, exclusive content, and a living feed that keeps fans engaged between releases.' },
+                { stage: 'Grow', line: 'Revenue you own.', desc: 'Paid tiers, merch drops, presale access — revenue that stays yours, built on a fanbase that already trusts you.' },
+                { stage: 'Compound', line: 'Never start from zero.', desc: 'Every release builds on the last. Reactivate dormant fans, compound your reach, and watch momentum grow.' },
+              ].map((s, i) => (
+                <GuideCard key={s.stage} style={{ display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
+                  <div style={{ fontFamily: F.mono, fontSize: '10px', color: C.accent, textTransform: 'uppercase', letterSpacing: '0.1em', width: '80px', flexShrink: 0, paddingTop: '2px' }}>0{i + 1} {s.stage}</div>
+                  <div>
+                    <div style={{ fontFamily: F.display, fontSize: '15px', fontWeight: 700, color: C.text, marginBottom: '4px' }}>{s.line}</div>
+                    <div style={{ fontFamily: F.body, fontSize: '12px', color: C.sub, lineHeight: 1.6 }}>{s.desc}</div>
+                  </div>
+                </GuideCard>
+              ))}
+            </div>
+
+            <SubLabel>Key Copy Lines</SubLabel>
+            <p style={{ fontFamily: F.body, fontSize: '12px', color: C.muted, lineHeight: 1.5, marginBottom: '10px' }}>Approved lines from the live website and overview deck. Use as-is or adapt for context.</p>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', marginBottom: '24px' }}>
+              {[
+                { line: 'One place to capture who\'s listening, reach them directly, and build an audience that grows with every release.', ctx: 'Hero sub' },
+                { line: 'Fill the gap between first listen and forever fan.', ctx: 'Solution' },
+                { line: 'This is not another super fan platform. This is for all of your fans.', ctx: 'Differentiator' },
+                { line: 'No algorithm. No per-message fees. No platform tax. Just direct reach.', ctx: 'Value prop' },
+                { line: 'Built different. On purpose.', ctx: 'Ethos' },
+                { line: 'No labels. No middlemen. No agenda. Just artists building for artists.', ctx: 'Ethos' },
+                { line: 'Release smarter, not harder.', ctx: 'How it works' },
+                { line: 'Build a home, not a list.', ctx: 'Groups' },
+                { line: 'Everything works together. Every feature compounds.', ctx: 'Features' },
+                { line: 'The gatekeepers are gone. Good music, good content, and the right engine is all you need now.', ctx: 'Closer' },
+              ].map((l, i) => (
+                <div key={i} style={{ display: 'flex', gap: '12px', padding: '8px 14px', background: C.s1, border: `1px solid ${C.border}`, borderRadius: '6px' }}>
+                  <span style={{ fontFamily: F.mono, fontSize: '9px', color: C.accent, textTransform: 'uppercase', letterSpacing: '0.08em', width: '80px', flexShrink: 0, paddingTop: '2px' }}>{l.ctx}</span>
+                  <span style={{ fontFamily: F.body, fontSize: '13px', color: C.sub, lineHeight: 1.5 }}>{l.line}</span>
+                </div>
+              ))}
+            </div>
 
             <SubLabel>Voice Spectrum</SubLabel>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '24px' }}>
@@ -725,22 +762,14 @@ export default function BrandGuide() {
               ))}
             </div>
 
-            <SubLabel>Voice Traits</SubLabel>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '24px' }}>
-              {VB.voiceTraits.map(t => (
-                <GuideCard key={t.trait}>
-                  <div style={{ fontFamily: F.display, fontSize: '14px', fontWeight: 700, color: C.text, marginBottom: '4px' }}>{t.trait}</div>
-                  <div style={{ fontFamily: F.body, fontSize: '12px', color: C.sub, lineHeight: 1.6 }}>{t.ex}</div>
-                </GuideCard>
-              ))}
-            </div>
-
             <SubLabel>Messaging DO / DON'T</SubLabel>
-            <DoDont type="do">"Stop renting your audience." — Direct, anti-jargon, reframes the problem.</DoDont>
-            <DoDont type="do">"1,000 fans who drive hours to see you play." — Reframes vanity metrics into real value.</DoDont>
+            <DoDont type="do">"Turn every listen into a fan." — Simple, active, outcome-focused.</DoDont>
+            <DoDont type="do">"Fill the gap between first listen and forever fan." — Names the problem and the promise in one line.</DoDont>
+            <DoDont type="do">"No algorithm. No per-message fees. No platform tax." — Concrete, repetitive structure that lands.</DoDont>
             <DoDont type="dont">"Leverage algorithmic distribution channels for optimal audience growth." — Corporate jargon.</DoDont>
-            <DoDont type="dont">"Join our community of 4,500+ artists!" — Leads with community (heavy, high-commitment).</DoDont>
+            <DoDont type="dont">"Join our community of 6,000+ artists!" — Leads with community (heavy, high-commitment ask).</DoDont>
             <DoDont type="dont">"Growth hack your fan base with our viral tools." — Extractive language.</DoDont>
+            <DoDont type="dont">Lead with features. Lead with the outcome for the artist, then explain the feature.</DoDont>
 
             <SubLabel>Brand Values</SubLabel>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '8px', marginBottom: '20px' }}>
