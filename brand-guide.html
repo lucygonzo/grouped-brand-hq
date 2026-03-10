@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/grouped-brand-hq/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>grouped. Brand HQ</title>
+    <title>grouped. Brand Guide</title>
+    <meta name="description" content="grouped. Brand Guide — GDS26R v1.0. The visual and verbal identity reference for Grouped, Inc." />
     <!-- GDS26R Fonts: Satoshi (display + body), JetBrains Mono (data) -->
     <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&display=swap" />
@@ -28,12 +29,13 @@
         background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
         background-size: 200px 200px;
       }
+      @media print {
+        body::after { display: none; }
+      }
     </style>
-    <script type="module" crossorigin src="/grouped-brand-hq/assets/main-w4IR8_QG.js"></script>
-    <link rel="modulepreload" crossorigin href="/grouped-brand-hq/assets/brandData-BTNHSWyr.js">
-    <link rel="stylesheet" crossorigin href="/grouped-brand-hq/assets/main-b4jksD7j.css">
   </head>
   <body>
     <div id="root"></div>
+    <script type="module" src="/src/brand-guide-entry.tsx"></script>
   </body>
 </html>
