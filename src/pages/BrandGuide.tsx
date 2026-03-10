@@ -12,24 +12,51 @@ const F = {
 // ── Sections ────────────────────────────────────────────
 const SECTIONS = [
   { id: 'colors', label: 'Color System' },
-  { id: 'logo', label: 'Logo & Wordmark' },
+  { id: 'logo', label: 'Logo Rules' },
   { id: 'typography', label: 'Typography' },
+  { id: 'photography', label: 'Photography & Video' },
+  { id: 'visual-voice', label: 'Visual Voice' },
+  { id: 'dark-mode', label: 'Dark Mode' },
   { id: 'verbal', label: 'Verbal Identity' },
+  { id: 'iconography', label: 'Iconography' },
 ];
 
-// ── Copy Hex Swatch ─────────────────────────────────────
-const Swatch = ({ hex, name, sub, wide }: { hex: string; name: string; sub: string; wide?: boolean }) => {
+// ── Copy Hex — Large Color Card ─────────────────────────
+const ColorCard = ({ hex, name, desc, usage }: { hex: string; name: string; desc: string; usage: string[] }) => {
+  const [copied, setCopied] = useState(false);
+  const copy = () => { navigator.clipboard.writeText(hex); setCopied(true); setTimeout(() => setCopied(false), 1200); };
+  const isLight = hex === '#F0EBE3' || hex === '#F6B44E';
+  return (
+    <div onClick={copy} style={{ cursor: 'pointer', background: C.s1, border: `1px solid ${C.border}`, borderRadius: '8px', overflow: 'hidden', flex: '1 1 280px', transition: 'border-color 0.2s' }}>
+      <div style={{ height: '120px', background: hex, display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', padding: '14px 16px' }}>
+        <span style={{ fontFamily: F.mono, fontSize: '14px', fontWeight: 600, color: isLight ? '#111620' : '#F0EBE3', letterSpacing: '0.02em' }}>{hex}</span>
+        {copied && <span style={{ fontFamily: F.mono, fontSize: '10px', background: 'rgba(0,0,0,0.7)', color: '#fff', padding: '2px 8px', borderRadius: '4px' }}>Copied!</span>}
+      </div>
+      <div style={{ padding: '16px' }}>
+        <div style={{ fontFamily: F.display, fontSize: '18px', fontWeight: 700, color: C.text, marginBottom: '6px' }}>{name}</div>
+        <div style={{ fontFamily: F.body, fontSize: '13px', color: C.sub, lineHeight: 1.6, marginBottom: '10px' }}>{desc}</div>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px' }}>
+          {usage.map((u, i) => (
+            <span key={i} style={{ fontFamily: F.mono, fontSize: '9px', color: C.muted, background: C.s2, padding: '3px 8px', borderRadius: '4px' }}>{u}</span>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// ── Small Swatch ────────────────────────────────────────
+const SmallSwatch = ({ hex, name, sub }: { hex: string; name: string; sub: string }) => {
   const [copied, setCopied] = useState(false);
   const copy = () => { navigator.clipboard.writeText(hex); setCopied(true); setTimeout(() => setCopied(false), 1200); };
   return (
-    <div onClick={copy} style={{ cursor: 'pointer', background: C.s1, border: `1px solid ${C.border}`, borderRadius: '8px', overflow: 'hidden', flex: wide ? '1 1 100%' : '1 1 160px', minWidth: wide ? undefined : '140px', transition: 'border-color 0.2s' }}>
-      <div style={{ height: wide ? '56px' : '48px', background: hex, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+    <div onClick={copy} style={{ cursor: 'pointer', background: C.s1, border: `1px solid ${C.border}`, borderRadius: '8px', overflow: 'hidden', flex: '1 1 140px', minWidth: '130px', transition: 'border-color 0.2s' }}>
+      <div style={{ height: '40px', background: hex, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         {copied && <span style={{ fontFamily: F.mono, fontSize: '10px', background: 'rgba(0,0,0,0.7)', color: '#fff', padding: '2px 8px', borderRadius: '4px' }}>Copied!</span>}
       </div>
       <div style={{ padding: '8px 10px' }}>
         <div style={{ fontFamily: F.mono, fontSize: '11px', color: C.text, fontWeight: 500 }}>{hex}</div>
-        <div style={{ fontFamily: F.body, fontSize: '11px', color: C.sub, marginTop: '2px' }}>{name}</div>
-        <div style={{ fontFamily: F.body, fontSize: '10px', color: C.muted, marginTop: '1px' }}>{sub}</div>
+        <div style={{ fontFamily: F.body, fontSize: '10px', color: C.muted, marginTop: '1px' }}>{name} · {sub}</div>
       </div>
     </div>
   );
@@ -87,11 +114,6 @@ const GuideCallout = ({ children }: { children: React.ReactNode }) => (
 // ── Card ────────────────────────────────────────────────
 const GuideCard = ({ children, style = {} }: { children: React.ReactNode; style?: React.CSSProperties }) => (
   <div style={{ background: C.s1, border: `1px solid ${C.border}`, borderRadius: '8px', padding: '18px', ...style }}>{children}</div>
-);
-
-// ── Row of swatches ─────────────────────────────────────
-const SwatchRow = ({ children }: { children: React.ReactNode }) => (
-  <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginBottom: '20px' }}>{children}</div>
 );
 
 // ── Rule item ───────────────────────────────────────────
@@ -214,6 +236,21 @@ const LogoVariantCard = ({ file, color, bg }: { file: string; color: string; bg:
   </div>
 );
 
+// ── Surface Layer Card ──────────────────────────────────
+const SurfaceCard = ({ hex, name, token, usage }: { hex: string; name: string; token: string; usage: string }) => (
+  <div style={{ display: 'flex', alignItems: 'center', gap: '14px', padding: '12px 14px', background: C.s1, border: `1px solid ${C.border}`, borderRadius: '8px', marginBottom: '6px' }}>
+    <div style={{ width: '48px', height: '32px', borderRadius: '6px', background: hex, border: `1px solid ${C.borderHov}`, flexShrink: 0 }} />
+    <div style={{ flex: 1 }}>
+      <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px' }}>
+        <span style={{ fontFamily: F.display, fontSize: '13px', fontWeight: 600, color: C.text }}>{name}</span>
+        <span style={{ fontFamily: F.mono, fontSize: '10px', color: C.muted }}>{token}</span>
+      </div>
+      <div style={{ fontFamily: F.body, fontSize: '11px', color: C.sub, marginTop: '2px' }}>{usage}</div>
+    </div>
+    <span style={{ fontFamily: F.mono, fontSize: '11px', color: C.ghost }}>{hex}</span>
+  </div>
+);
+
 // ══════════════════════════════════════════════════════════
 // MAIN COMPONENT
 // ══════════════════════════════════════════════════════════
@@ -263,7 +300,7 @@ export default function BrandGuide() {
       {/* ── SIDEBAR ───────────────────────────────── */}
       <nav style={{ width: '200px', flexShrink: 0, paddingTop: '72px', padding: '72px 0 24px 20px', position: 'fixed', height: '100vh', overflowY: 'auto' }}>
         <div style={{ fontFamily: F.mono, fontSize: '9px', color: C.ghost, textTransform: 'uppercase', letterSpacing: '0.16em', marginBottom: '14px', paddingLeft: '12px' }}>Contents</div>
-        {SECTIONS.map(s => {
+        {SECTIONS.map((s, i) => {
           const active = activeSection === s.id;
           return (
             <button key={s.id} onClick={() => scrollTo(s.id)} style={{
@@ -272,6 +309,7 @@ export default function BrandGuide() {
               border: 'none', borderLeft: active ? `2px solid ${C.accent}` : '2px solid transparent',
               padding: '8px 12px', cursor: 'pointer', transition: 'all 0.15s', borderRadius: '0 6px 6px 0', marginBottom: '2px',
             }}>
+              <span style={{ fontFamily: F.mono, fontSize: '10px', color: active ? C.accent : C.ghost, marginRight: '8px' }}>0{i + 1}</span>
               {s.label}
             </button>
           );
@@ -299,70 +337,44 @@ export default function BrandGuide() {
           {/* 01 — COLOR SYSTEM                         */}
           {/* ═══════════════════════════════════════════ */}
           <section ref={el => { sectionRefs.current['colors'] = el; }} id="colors" style={{ marginBottom: '64px', scrollMarginTop: '72px' }}>
-            <SectionHeading num="01" title="Color System" sub={VI.colorSystem.modeNote} />
+            <SectionHeading num="01" title="Color System" sub="Three temperature layers: cool navy surfaces, warm bronze brand elements, cool blue interactive accents." />
 
-            <SubLabel>Backgrounds</SubLabel>
-            <SwatchRow>
-              {VI.colorSystem.backgrounds.map(b => (
-                <Swatch key={b.token} hex={b.hex} name={b.token} sub={b.usage} />
-              ))}
-            </SwatchRow>
-
-            <SubLabel>Bronze — Primary Brand Accent</SubLabel>
-            <GuideCallout>Bronze is the brand voice. Headlines, logos, CTAs, brand moments. If it appears on a poster, it's bronze. Never use bronze for interactive UI states — that's focus blue's job.</GuideCallout>
-            <SwatchRow>
-              {VI.colorSystem.bronze.map(b => (
-                <Swatch key={b.token} hex={b.hex} name={b.token} sub={b.usage} />
-              ))}
-            </SwatchRow>
-
-            <SubLabel>Focus Blue — Interactive States Only</SubLabel>
-            <div style={{ marginBottom: '20px' }}>
-              <Swatch hex={VI.colorSystem.focusBlue.hex} name="--focus" sub={VI.colorSystem.focusBlue.rule} wide />
+            <SubLabel>Primary Palette</SubLabel>
+            <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap', marginBottom: '28px' }}>
+              <ColorCard hex="#111620" name="Navy" desc="The foundation. Deep, warm navy grounds every surface. Not pure black — the blue undertone creates depth without harshness." usage={['Page backgrounds', 'App shell', 'Cards and containers']} />
+              <ColorCard hex="#C48A3A" name="Bronze" desc="The brand voice. Bronze is reserved for headlines, logos, CTAs, and brand moments. If it appears on a poster, it's bronze." usage={['Headlines', 'Logos', 'CTAs', 'Brand accents']} />
+            </div>
+            <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap', marginBottom: '28px' }}>
+              <ColorCard hex="#F0EBE3" name="Warm Cream" desc="Primary text color. Not pure white — the warm cream prevents eye strain on dark backgrounds and feels more intentional." usage={['Body text', 'Headlines', 'Light surfaces']} />
+              <ColorCard hex="#7CBBDF" name="Focus Blue" desc="Interactive states only. Focus rings, active indicators, links, and data visualization accents. Never use for brand voice elements." usage={['Links', 'Focus rings', 'Selected states', 'Data viz']} />
             </div>
 
-            <SubLabel>Text</SubLabel>
-            <SwatchRow>
-              {VI.colorSystem.text.map(t => (
-                <Swatch key={t.token} hex={t.hex} name={`${t.token} (${t.opacity})`} sub={t.usage} />
-              ))}
-            </SwatchRow>
+            <DoDont type="do">Use bronze for anything that represents the brand voice — headlines, logos, CTAs, accent marks.</DoDont>
+            <DoDont type="do">Use focus blue exclusively for interactive elements — links, buttons, focus rings, active states.</DoDont>
+            <DoDont type="dont">Mix up bronze and blue. If it appears on a poster, it's bronze. If you click it, it's blue.</DoDont>
+            <DoDont type="dont">Use pure white (#FFFFFF) for text. Always use warm cream #F0EBE3.</DoDont>
 
-            <SubLabel>Borders</SubLabel>
-            <SwatchRow>
-              {VI.colorSystem.borders.map(b => (
-                <Swatch key={b.token} hex={`rgba(235,225,210,${parseFloat(b.opacity) / 100})`} name={`${b.token} (${b.opacity})`} sub={b.usage} />
-              ))}
-            </SwatchRow>
+            <SubLabel>Secondary & Semantic</SubLabel>
+            <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginBottom: '20px' }}>
+              <SmallSwatch hex="#8BAF9C" name="Success" sub="Confirmations, connected" />
+              <SmallSwatch hex="#D4A24B" name="Warning" sub="Caution, limits" />
+              <SmallSwatch hex="#C27A6B" name="Error" sub="Errors, destructive" />
+              <SmallSwatch hex="#8BA4BE" name="Info" sub="Tips, neutral" />
+            </div>
 
-            <SubLabel>Semantic Colors</SubLabel>
-            <SwatchRow>
-              {VI.colorSystem.semantic.map(s => (
-                <Swatch key={s.token} hex={s.hex} name={s.token} sub={s.usage} />
-              ))}
-            </SwatchRow>
-
-            <SubLabel>Feature Colors</SubLabel>
-            <SwatchRow>
-              <Swatch hex="#38C3FF" name="Community" sub="Groups and community surfaces" />
-              <Swatch hex="#5B61D9" name="Swaps" sub="Early access swap mechanics" />
-              <Swatch hex="#AD6AD9" name="Broadcasts" sub="Email and messaging" />
-            </SwatchRow>
-
-            <SubLabel>Accessibility Compliance</SubLabel>
+            <SubLabel>Accessibility</SubLabel>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', marginBottom: '20px' }}>
-              <WcagBadge level="AAA" ratio="13.5:1" fg="#F0EBE3" bg="#111620" label="Primary text on base background" />
-              <WcagBadge level="AAA" ratio="11.2:1" fg="#C48A3A" bg="#111620" label="Bronze accent on base background" />
-              <WcagBadge level="AA" ratio="7.8:1" fg="#7CBBDF" bg="#111620" label="Focus blue on base background" />
-              <WcagBadge level="AA" ratio="4.6:1" fg="rgba(240,235,227,0.60)" bg="#111620" label="Secondary text on base background" />
+              <WcagBadge level="AAA" ratio="13.5:1" fg="#F0EBE3" bg="#111620" label="Cream text on navy background" />
+              <WcagBadge level="AAA" ratio="11.2:1" fg="#C48A3A" bg="#111620" label="Bronze accent on navy background" />
+              <WcagBadge level="AA" ratio="7.8:1" fg="#7CBBDF" bg="#111620" label="Focus blue on navy background" />
             </div>
           </section>
 
           {/* ═══════════════════════════════════════════ */}
-          {/* 02 — LOGO & WORDMARK                      */}
+          {/* 02 — LOGO RULES                           */}
           {/* ═══════════════════════════════════════════ */}
           <section ref={el => { sectionRefs.current['logo'] = el; }} id="logo" style={{ marginBottom: '64px', scrollMarginTop: '72px' }}>
-            <SectionHeading num="02" title="Logo & Wordmark" sub="The grouped. wordmark is the brand's primary identifier. The Vinyl G mark is the secondary mark. Both require governance, not redesign." />
+            <SectionHeading num="02" title="Logo Rules" sub="The grouped. wordmark is the brand's primary identifier. The Vinyl G mark is the secondary mark. Both require governance, not redesign." />
 
             {/* Hero: Primary Typemark */}
             <SubLabel>Wordmark</SubLabel>
@@ -370,14 +382,14 @@ export default function BrandGuide() {
               <div style={{ background: '#111620', borderRadius: '8px', padding: '24px 32px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', border: `1px solid ${C.border}` }}>
                 <img src={logoSvgUrl('Grouped_Rebrand_Visual Assets_Grouped Typemark_WarmBronze')} alt="grouped. wordmark" style={{ height: '48px', objectFit: 'contain' }} />
               </div>
-              <div style={{ fontFamily: F.mono, fontSize: '11px', color: C.muted, marginTop: '16px' }}>Anacrusis (Custom OTF) · Lowercase with period · Always.</div>
+              <div style={{ fontFamily: F.mono, fontSize: '11px', color: C.muted, marginTop: '16px' }}>Grouped Font (Custom OTF) · Lowercase with period · Always.</div>
             </GuideCard>
 
             <GuideCallout>{VI.wordmark.rationale}</GuideCallout>
 
             <SubLabel>Treatment Rules</SubLabel>
             <DoDont type="do">Always render "grouped." in lowercase with a period. The period is the brand's punctuation signature.</DoDont>
-            <DoDont type="do">Use Anacrusis (custom display OTF) for the wordmark at 28px+ minimum size.</DoDont>
+            <DoDont type="do">Use Grouped Font (custom display OTF) for the wordmark at 28px+ minimum size.</DoDont>
             <DoDont type="dont">Never capitalize: "Grouped", "GROUPED", or "Grouped."</DoDont>
             <DoDont type="dont">Never remove the period. "grouped" without the period is incomplete.</DoDont>
             <DoDont type="dont">Never set the wordmark in Satoshi, Arial, or any substitute typeface.</DoDont>
@@ -498,17 +510,177 @@ export default function BrandGuide() {
             <div style={{ marginTop: '16px' }}>
               <DoDont type="do">Use Satoshi for all body copy, product UI, and anything under 28px.</DoDont>
               <DoDont type="do">Use tabular figures (font-variant-numeric: tabular-nums) in data tables and metrics.</DoDont>
-              <DoDont type="dont">Use Anacrusis for body copy, buttons, or any text under 28px.</DoDont>
+              <DoDont type="dont">Use Grouped Font for body copy, buttons, or any text under 28px.</DoDont>
               <DoDont type="dont">Mix condensed and standard variants in the same text block.</DoDont>
               <DoDont type="dont">Use pure white (#FFFFFF) for text — always use warm cream #F0EBE3.</DoDont>
             </div>
           </section>
 
           {/* ═══════════════════════════════════════════ */}
-          {/* 04 — VERBAL IDENTITY                      */}
+          {/* 04 — PHOTOGRAPHY & VIDEO                  */}
+          {/* ═══════════════════════════════════════════ */}
+          <section ref={el => { sectionRefs.current['photography'] = el; }} id="photography" style={{ marginBottom: '64px', scrollMarginTop: '72px' }}>
+            <SectionHeading num="04" title="Photography & Video" sub="Artist content is always the brightest, warmest, most vivid thing on screen. Grouped never competes with the artist's visual identity." />
+
+            <GuideCallout>{VI.extensionMetaphor}</GuideCallout>
+
+            <SubLabel>Photography Direction</SubLabel>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginBottom: '24px' }}>
+              <GuideCard>
+                <div style={{ fontFamily: F.display, fontSize: '14px', fontWeight: 700, color: C.accent, marginBottom: '8px' }}>Authentic over Polished</div>
+                <div style={{ fontFamily: F.body, fontSize: '13px', color: C.sub, lineHeight: 1.6 }}>Real artists in real settings. Backstage, studio, stage, listening sessions. The grittiness is the point — this is about the craft, not the gloss.</div>
+              </GuideCard>
+              <GuideCard>
+                <div style={{ fontFamily: F.display, fontSize: '14px', fontWeight: 700, color: C.accent, marginBottom: '8px' }}>Warm Lighting</div>
+                <div style={{ fontFamily: F.body, fontSize: '13px', color: C.sub, lineHeight: 1.6 }}>Warm amber and golden tones that echo the bronze palette. Low-light, intimate settings. Think vinyl listening room, not fluorescent office.</div>
+              </GuideCard>
+              <GuideCard>
+                <div style={{ fontFamily: F.display, fontSize: '14px', fontWeight: 700, color: C.accent, marginBottom: '8px' }}>Fan Moments</div>
+                <div style={{ fontFamily: F.body, fontSize: '13px', color: C.sub, lineHeight: 1.6 }}>Capture the connection — fans singing back lyrics, meet-and-greet moments, crowd reactions. The fan relationship is the product.</div>
+              </GuideCard>
+              <GuideCard>
+                <div style={{ fontFamily: F.display, fontSize: '14px', fontWeight: 700, color: C.accent, marginBottom: '8px' }}>Dark Backgrounds</div>
+                <div style={{ fontFamily: F.body, fontSize: '13px', color: C.sub, lineHeight: 1.6 }}>Photography should work on dark surfaces. Low-key lighting, deep shadows, subjects emerging from darkness — consistent with the dark-mode-first visual system.</div>
+              </GuideCard>
+            </div>
+
+            <DoDont type="do">Feature real artists and real fans. Authenticity is non-negotiable.</DoDont>
+            <DoDont type="do">Use warm, moody lighting that complements the bronze + navy palette.</DoDont>
+            <DoDont type="do">Prioritize close-up and candid shots over posed group photos.</DoDont>
+            <DoDont type="dont">Use stock photography. Every image should feel real and earned.</DoDont>
+            <DoDont type="dont">Use high-key, overlit studio photography — it clashes with the dark-mode aesthetic.</DoDont>
+            <DoDont type="dont">Show generic "people on phones" imagery. Show the music, the connection, the craft.</DoDont>
+
+            <SubLabel>Video Guidelines</SubLabel>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginBottom: '16px' }}>
+              <GuideCard style={{ padding: '14px' }}>
+                <div style={{ fontFamily: F.mono, fontSize: '9px', color: C.accent, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '6px' }}>Tone</div>
+                <div style={{ fontFamily: F.body, fontSize: '12px', color: C.sub, lineHeight: 1.6 }}>Confident, cinematic, unhurried. Transitions run 500ms+ because we're vibing, not rushing.</div>
+              </GuideCard>
+              <GuideCard style={{ padding: '14px' }}>
+                <div style={{ fontFamily: F.mono, fontSize: '9px', color: C.accent, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '6px' }}>Color Grading</div>
+                <div style={{ fontFamily: F.body, fontSize: '12px', color: C.sub, lineHeight: 1.6 }}>Warm shadows, slightly crushed blacks, bronze highlights. The grade should feel like the palette.</div>
+              </GuideCard>
+              <GuideCard style={{ padding: '14px' }}>
+                <div style={{ fontFamily: F.mono, fontSize: '9px', color: C.accent, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '6px' }}>Lower Thirds</div>
+                <div style={{ fontFamily: F.body, fontSize: '12px', color: C.sub, lineHeight: 1.6 }}>Satoshi Bold for names, JetBrains Mono for metadata. Bronze on dark glass surface. Minimal, no clutter.</div>
+              </GuideCard>
+              <GuideCard style={{ padding: '14px' }}>
+                <div style={{ fontFamily: F.mono, fontSize: '9px', color: C.accent, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '6px' }}>Avoid</div>
+                <div style={{ fontFamily: F.body, fontSize: '12px', color: C.sub, lineHeight: 1.6 }}>Auto-playing video, rapid cuts, screen recordings as hero content, drone footage without purpose.</div>
+              </GuideCard>
+            </div>
+          </section>
+
+          {/* ═══════════════════════════════════════════ */}
+          {/* 05 — VISUAL VOICE                         */}
+          {/* ═══════════════════════════════════════════ */}
+          <section ref={el => { sectionRefs.current['visual-voice'] = el; }} id="visual-voice" style={{ marginBottom: '64px', scrollMarginTop: '72px' }}>
+            <SectionHeading num="05" title="Visual Voice" sub={VI.foundationPrinciple} />
+
+            <SubLabel>Design Principles</SubLabel>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '28px' }}>
+              {VI.designPrinciples.map(p => (
+                <GuideCard key={p.name}>
+                  <div style={{ fontFamily: F.display, fontSize: '18px', fontWeight: 800, color: C.accent, marginBottom: '8px' }}>{p.name}</div>
+                  <div style={{ fontFamily: F.body, fontSize: '13px', color: C.sub, lineHeight: 1.65 }}>{p.desc}</div>
+                </GuideCard>
+              ))}
+            </div>
+
+            <SubLabel>Brand Personality</SubLabel>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', marginBottom: '24px' }}>
+              {BRAND_IDENTITY.personalityTraits.map(p => (
+                <GuideCard key={p.trait} style={{ padding: '14px' }}>
+                  <div style={{ fontFamily: F.display, fontSize: '14px', fontWeight: 700, color: C.text, marginBottom: '4px' }}>{p.trait}</div>
+                  <div style={{ fontFamily: F.body, fontSize: '12px', color: C.sub, lineHeight: 1.5 }}>{p.note}</div>
+                </GuideCard>
+              ))}
+            </div>
+
+            <SubLabel>Brand Inspiration</SubLabel>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', marginBottom: '24px' }}>
+              {BRAND_IDENTITY.inspiration.map(b => (
+                <GuideCard key={b.brand} style={{ padding: '14px' }}>
+                  <div style={{ fontFamily: F.display, fontSize: '14px', fontWeight: 700, color: C.accent, marginBottom: '4px' }}>{b.brand}</div>
+                  <div style={{ fontFamily: F.body, fontSize: '12px', color: C.sub, lineHeight: 1.5 }}>{b.reason}</div>
+                </GuideCard>
+              ))}
+            </div>
+
+            <SubLabel>What We Avoid</SubLabel>
+            {VI.avoidList.map((a, i) => (
+              <div key={i} style={{ display: 'flex', gap: '8px', padding: '5px 0', fontFamily: F.body, fontSize: '13px', color: C.sub }}>
+                <span style={{ color: C.error, flexShrink: 0 }}>&#x2717;</span>{a}
+              </div>
+            ))}
+          </section>
+
+          {/* ═══════════════════════════════════════════ */}
+          {/* 06 — DARK MODE                            */}
+          {/* ═══════════════════════════════════════════ */}
+          <section ref={el => { sectionRefs.current['dark-mode'] = el; }} id="dark-mode" style={{ marginBottom: '64px', scrollMarginTop: '72px' }}>
+            <SectionHeading num="06" title="Dark Mode" sub="Dark mode is the primary surface. Light mode is secondary, reserved for documentation, print materials, and partner-facing content." />
+
+            <GuideCallout>Every surface is designed to elevate whatever sits on top of it. Artist content should always be the brightest, warmest, most vivid thing on screen. Grouped never competes with the artist's visual identity.</GuideCallout>
+
+            <SubLabel>Surface Layers</SubLabel>
+            <div style={{ marginBottom: '24px' }}>
+              {VI.colorSystem.backgrounds.map(bg => (
+                <SurfaceCard key={bg.token} hex={bg.hex} name={bg.token.replace('--bg-', '').replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase())} token={bg.token} usage={bg.usage} />
+              ))}
+            </div>
+
+            <SubLabel>Grain Overlay</SubLabel>
+            <GuideCard style={{ marginBottom: '20px' }}>
+              <div style={{ fontFamily: F.body, fontSize: '13px', color: C.sub, lineHeight: 1.65 }}>
+                {VI.surfaces.grain}
+              </div>
+              <div style={{ marginTop: '12px', display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+                <span style={{ fontFamily: F.mono, fontSize: '10px', color: C.muted, background: C.s2, padding: '3px 8px', borderRadius: '4px' }}>opacity: 2.8%</span>
+                <span style={{ fontFamily: F.mono, fontSize: '10px', color: C.muted, background: C.s2, padding: '3px 8px', borderRadius: '4px' }}>mix-blend-mode: overlay</span>
+                <span style={{ fontFamily: F.mono, fontSize: '10px', color: C.muted, background: C.s2, padding: '3px 8px', borderRadius: '4px' }}>SVG feTurbulence</span>
+                <span style={{ fontFamily: F.mono, fontSize: '10px', color: C.muted, background: C.s2, padding: '3px 8px', borderRadius: '4px' }}>position: fixed</span>
+              </div>
+            </GuideCard>
+
+            <SubLabel>Border System</SubLabel>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', marginBottom: '20px' }}>
+              {VI.colorSystem.borders.slice(0, 4).map(b => (
+                <GuideCard key={b.token} style={{ padding: '14px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '6px' }}>
+                    <div style={{ width: '100%', height: '2px', background: `rgba(235,225,210,${parseFloat(b.opacity) / 100})`, borderRadius: '1px' }} />
+                  </div>
+                  <div style={{ fontFamily: F.mono, fontSize: '10px', color: C.accent }}>{b.token}</div>
+                  <div style={{ fontFamily: F.body, fontSize: '11px', color: C.sub, marginTop: '2px' }}>{b.usage} · {b.opacity} opacity</div>
+                </GuideCard>
+              ))}
+            </div>
+
+            <SubLabel>Radius System</SubLabel>
+            <GuideCallout>{VI.radiusSystem.concept}</GuideCallout>
+            <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap', marginBottom: '20px' }}>
+              {VI.radiusSystem.tokens.map(t => (
+                <GuideCard key={t.token} style={{ flex: '1 1 140px', padding: '14px', textAlign: 'center' }}>
+                  <div style={{ width: '60px', height: '40px', background: C.accent, borderRadius: t.value, margin: '0 auto 10px', opacity: 0.3 }} />
+                  <div style={{ fontFamily: F.mono, fontSize: '11px', color: C.text, fontWeight: 500 }}>{t.value}</div>
+                  <div style={{ fontFamily: F.mono, fontSize: '9px', color: C.accent, marginTop: '2px' }}>{t.token}</div>
+                  <div style={{ fontFamily: F.body, fontSize: '10px', color: C.muted, marginTop: '4px' }}>{t.family} · {t.usage}</div>
+                </GuideCard>
+              ))}
+            </div>
+
+            <DoDont type="do">Use surface layers to create depth hierarchy — base for page, raised for cards, overlay for dropdowns.</DoDont>
+            <DoDont type="do">Keep grain overlay at 2.8% — enough for texture, never interfering with readability.</DoDont>
+            <DoDont type="dont">Use pure black (#000000) anywhere. The deep navy base always has a blue undertone.</DoDont>
+            <DoDont type="dont">Skip the grain. Without it, surfaces feel flat and digital rather than warm and tactile.</DoDont>
+          </section>
+
+          {/* ═══════════════════════════════════════════ */}
+          {/* 07 — VERBAL IDENTITY                      */}
           {/* ═══════════════════════════════════════════ */}
           <section ref={el => { sectionRefs.current['verbal'] = el; }} id="verbal" style={{ marginBottom: '64px', scrollMarginTop: '72px' }}>
-            <SectionHeading num="04" title="Verbal Identity" sub="The grouped. voice is artist-to-artist, not SaaS-to-customer. Direct, bold, warm — never corporate." />
+            <SectionHeading num="07" title="Verbal Identity" sub="The grouped. voice is artist-to-artist, not SaaS-to-customer. Direct, bold, warm — never corporate." />
 
             <SubLabel>Taglines</SubLabel>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', marginBottom: '24px' }}>
@@ -568,6 +740,81 @@ export default function BrandGuide() {
                   <div style={{ fontFamily: F.display, fontSize: '14px', fontWeight: 700, color: C.accent, marginBottom: '4px' }}>{v.name}</div>
                   <div style={{ fontFamily: F.body, fontSize: '12px', color: C.sub, lineHeight: 1.5 }}>{v.desc}</div>
                 </GuideCard>
+              ))}
+            </div>
+          </section>
+
+          {/* ═══════════════════════════════════════════ */}
+          {/* 08 — ICONOGRAPHY                          */}
+          {/* ═══════════════════════════════════════════ */}
+          <section ref={el => { sectionRefs.current['iconography'] = el; }} id="iconography" style={{ marginBottom: '64px', scrollMarginTop: '72px' }}>
+            <SectionHeading num="08" title="Iconography" sub="Feature colors, icon style, and the signature motif that ties the visual system together." />
+
+            <SubLabel>Feature Colors</SubLabel>
+            <p style={{ fontFamily: F.body, fontSize: '13px', color: C.sub, lineHeight: 1.65, marginBottom: '16px' }}>Each product pillar has a designated color for consistent identification across the platform.</p>
+            <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap', marginBottom: '28px' }}>
+              <ColorCard hex="#38C3FF" name="Community" desc="Groups and community surfaces. The color of belonging, participation, and fan connection." usage={['Group badges', 'Community features', 'Fan spaces']} />
+              <ColorCard hex="#5B61D9" name="Swaps" desc="Early access swap mechanics. The color of exchange, discovery, and first access." usage={['Swap cards', 'Release mechanics', 'Access gates']} />
+              <ColorCard hex="#AD6AD9" name="Broadcasts" desc="Email and messaging channels. The color of outreach, announcements, and direct communication." usage={['Email features', 'Push notifications', 'Messaging']} />
+            </div>
+
+            <SubLabel>Concentric Arcs — Signature Motif</SubLabel>
+            <GuideCard style={{ marginBottom: '20px' }}>
+              <div style={{ fontFamily: F.body, fontSize: '13px', color: C.sub, lineHeight: 1.65, marginBottom: '12px' }}>
+                {VI.signatureMotif.meaning}
+              </div>
+              {/* SVG arc demo */}
+              <div style={{ display: 'flex', justifyContent: 'center', padding: '24px', background: C.s2, borderRadius: '8px', marginBottom: '12px' }}>
+                <svg width="140" height="140" viewBox="0 0 140 140" fill="none">
+                  <circle cx="70" cy="70" r="64" stroke={C.accent} strokeWidth="5" opacity="0.2" fill="none" />
+                  <circle cx="70" cy="70" r="50" stroke={C.accent} strokeWidth="5" opacity="0.3" fill="none" />
+                  <circle cx="70" cy="70" r="36" stroke={C.accent} strokeWidth="5" opacity="0.45" fill="none" />
+                  <circle cx="70" cy="70" r="18" fill={C.accent} opacity="0.15" />
+                  <text x="70" y="76" textAnchor="middle" fill={C.accent} fontFamily="Satoshi, sans-serif" fontSize="18" fontWeight="800">g.</text>
+                </svg>
+              </div>
+              <div style={{ fontFamily: F.mono, fontSize: '9px', color: C.muted, textAlign: 'center' }}>Concentric arcs radiating outward — sound waves, vinyl grooves, expanding reach</div>
+            </GuideCard>
+
+            <SubLabel>Motif Rules</SubLabel>
+            {VI.signatureMotif.rules.map((r, i) => <Rule key={i}>{r}</Rule>)}
+
+            <SubLabel>Usage Modes</SubLabel>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginBottom: '24px' }}>
+              {VI.signatureMotif.usage.map(u => (
+                <GuideCard key={u.mode} style={{ padding: '14px' }}>
+                  <div style={{ fontFamily: F.display, fontSize: '14px', fontWeight: 700, color: C.accent, marginBottom: '4px' }}>{u.mode}</div>
+                  <div style={{ fontFamily: F.mono, fontSize: '10px', color: C.muted, marginBottom: '4px' }}>Opacity: {u.opacity}</div>
+                  <div style={{ fontFamily: F.body, fontSize: '12px', color: C.sub, lineHeight: 1.5 }}>{u.use}</div>
+                </GuideCard>
+              ))}
+            </div>
+
+            <SubLabel>Icon Style</SubLabel>
+            <GuideCard style={{ marginBottom: '20px' }}>
+              <div style={{ fontFamily: F.body, fontSize: '13px', color: C.sub, lineHeight: 1.65, marginBottom: '12px' }}>
+                Icons follow the same principles as the broader visual system: geometric, warm, and considered. Stroke-based with rounded caps, 1.5px default weight, sized at 20px for UI and 24px for navigation.
+              </div>
+              <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
+                <span style={{ fontFamily: F.mono, fontSize: '9px', color: C.sub, background: C.s2, padding: '2px 8px', borderRadius: '4px' }}>Stroke-based</span>
+                <span style={{ fontFamily: F.mono, fontSize: '9px', color: C.sub, background: C.s2, padding: '2px 8px', borderRadius: '4px' }}>Rounded caps</span>
+                <span style={{ fontFamily: F.mono, fontSize: '9px', color: C.sub, background: C.s2, padding: '2px 8px', borderRadius: '4px' }}>1.5px weight</span>
+                <span style={{ fontFamily: F.mono, fontSize: '9px', color: C.sub, background: C.s2, padding: '2px 8px', borderRadius: '4px' }}>20/24px grid</span>
+                <span style={{ fontFamily: F.mono, fontSize: '9px', color: C.sub, background: C.s2, padding: '2px 8px', borderRadius: '4px' }}>Warm cream on dark</span>
+              </div>
+            </GuideCard>
+
+            <SubLabel>Color Greenspace</SubLabel>
+            <p style={{ fontFamily: F.body, fontSize: '13px', color: C.sub, lineHeight: 1.65, marginBottom: '12px' }}>The bronze + deep navy combination is entirely unoccupied in the music platform space.</p>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', marginBottom: '20px' }}>
+              {VI.greenspace.map(g => (
+                <div key={g.name} style={{ display: 'flex', alignItems: 'center', gap: '12px', padding: '8px 14px', background: g.name === 'grouped.' ? C.accentGlow : C.s1, border: `1px solid ${g.name === 'grouped.' ? C.accent : C.border}`, borderRadius: '8px' }}>
+                  <div style={{ display: 'flex', gap: '3px' }}>
+                    {g.colors.map((c, i) => <div key={i} style={{ width: '18px', height: '18px', borderRadius: '4px', background: c, border: `1px solid ${C.border}` }} />)}
+                  </div>
+                  <span style={{ fontFamily: F.display, fontSize: '13px', fontWeight: g.name === 'grouped.' ? 700 : 500, color: g.name === 'grouped.' ? C.accent : C.text, flex: 1 }}>{g.name}</span>
+                  <span style={{ fontFamily: F.body, fontSize: '11px', color: C.muted }}>{g.note}</span>
+                </div>
               ))}
             </div>
           </section>
