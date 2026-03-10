@@ -1039,6 +1039,37 @@ export default function BrandGuide() {
             </div>
 
             <GuideCallout>Always credit artists. Every piece of content that features an artist — photography, design, video, social — must include proper attribution. Go the extra mile. The personal touch is a brand value, not an afterthought.</GuideCallout>
+
+            {/* ── Coming Soon Tools ──────────────────── */}
+            <SubLabel>Brand Tools — Coming Soon</SubLabel>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginBottom: '8px' }}>
+              <GuideCard style={{ padding: '24px', position: 'relative', overflow: 'hidden', opacity: 0.85 }}>
+                <div style={{ position: 'absolute', top: '12px', right: '12px', fontFamily: F.mono, fontSize: '9px', fontWeight: 700, color: C.accent, background: 'rgba(196,138,58,0.12)', padding: '3px 10px', borderRadius: '20px', letterSpacing: '0.12em', textTransform: 'uppercase' }}>Coming Soon</div>
+                <div style={{ fontSize: '28px', marginBottom: '12px' }}>🧭</div>
+                <div style={{ fontFamily: F.display, fontSize: '16px', fontWeight: 700, color: C.text, marginBottom: '8px' }}>Brand Quiz</div>
+                <div style={{ fontFamily: F.body, fontSize: '13px', color: C.sub, lineHeight: 1.65 }}>
+                  A personalized quiz that helps you navigate this guide based on who you are, how you'll use the brand, and what you need to communicate. Get tailored recommendations — the right assets, templates, and rules for your specific use case.
+                </div>
+                <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', marginTop: '14px' }}>
+                  {['Partner', 'Agency', 'Artist', 'Press', 'Internal'].map(tag => (
+                    <span key={tag} style={{ fontFamily: F.mono, fontSize: '9px', color: C.muted, background: C.s2, padding: '3px 8px', borderRadius: '4px' }}>{tag}</span>
+                  ))}
+                </div>
+              </GuideCard>
+              <GuideCard style={{ padding: '24px', position: 'relative', overflow: 'hidden', opacity: 0.85 }}>
+                <div style={{ position: 'absolute', top: '12px', right: '12px', fontFamily: F.mono, fontSize: '9px', fontWeight: 700, color: C.accent, background: 'rgba(196,138,58,0.12)', padding: '3px 10px', borderRadius: '20px', letterSpacing: '0.12em', textTransform: 'uppercase' }}>Coming Soon</div>
+                <div style={{ fontSize: '28px', marginBottom: '12px' }}>✅</div>
+                <div style={{ fontFamily: F.display, fontSize: '16px', fontWeight: 700, color: C.text, marginBottom: '8px' }}>Brand Checker</div>
+                <div style={{ fontFamily: F.body, fontSize: '13px', color: C.sub, lineHeight: 1.65 }}>
+                  Upload a graphic and instantly check if it's on-brand. Get actionable recommendations for color, typography, logo usage, and spacing — so you can refine your work before submitting to a Grouped representative for final approval.
+                </div>
+                <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', marginTop: '14px' }}>
+                  {['Upload', 'Auto-Check', 'Recommendations', 'Pre-Approval'].map(tag => (
+                    <span key={tag} style={{ fontFamily: F.mono, fontSize: '9px', color: C.muted, background: C.s2, padding: '3px 8px', borderRadius: '4px' }}>{tag}</span>
+                  ))}
+                </div>
+              </GuideCard>
+            </div>
           </section>
 
           {/* ── FOOTER ────────────────────────────────── */}
