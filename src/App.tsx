@@ -18,6 +18,7 @@ import DecisionsPage from './pages/Decisions';
 import ReportCardPage from './pages/ReportCard';
 import LandscapePage from './pages/Landscape';
 import NewsFeedPage from './pages/NewsFeed';
+import RebrandAlignmentPage from './pages/RebrandAlignment';
 
 type TabId = string;
 type Tab = { id: TabId; label: string; component: React.ComponentType };
@@ -32,6 +33,7 @@ const NAV: Group[] = [
   ]},
   { group: 'Brand', tabs: [
     { id: 'identity', label: 'Brand Identity', component: BrandIdentityPage },
+    { id: 'alignment', label: 'P1 Alignment', component: RebrandAlignmentPage },
     { id: 'visual', label: 'Visual Identity', component: VisualIdentityPage },
     { id: 'verbal', label: 'Verbal Identity', component: VerbalIdentityPage },
   ]},
