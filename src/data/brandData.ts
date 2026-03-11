@@ -5,7 +5,7 @@
 //
 // NOTE ON VISUAL SPECS:
 // Grouped runs two distinct visual systems:
-//   1. BRAND / MARKETING (GDS26R) — Deep blue + bronze + warm white + Grouped Font / Satoshi
+//   1. BRAND / MARKETING (GDS26R) — Deep blue + bronze + warm white + Anacrusis / Satoshi
 //      Used on: marketing site, pitch decks, social, press, partner-facing materials
 //   2. PRODUCT / APP UI — Documented separately in the product design system
 //      The Brand HQ internal tool uses its own internal palette (lime + near-black)
@@ -214,10 +214,10 @@ export const VISUAL_IDENTITY = {
 
   // TYPOGRAPHY
   typography: {
-    systemNote: 'Two typefaces, one system. Grouped Font is brand-forward. Satoshi handles everything else.',
+    systemNote: 'Two typefaces, one system. Anacrusis is brand-forward. Satoshi handles everything else.',
     fonts: [
       {
-        name: 'Grouped Font',
+        name: 'Anacrusis',
         role: 'Display / Brand',
         type: 'Custom OTF — single weight (Regular), 160 glyphs, full ASCII coverage',
         minSize: '28px',
@@ -342,7 +342,7 @@ export const VISUAL_IDENTITY = {
   // WORDMARK
   wordmark: {
     treatment: 'Grouped — title case, no period.',
-    font: 'Grouped Font (custom display OTF)',
+    font: 'Anacrusis (custom display OTF)',
     rationale: 'Title case reflects confidence and brand maturity. The wordmark is clean, precise, and stands on its own without punctuation gimmicks.',
     logoNote: 'Assets in Google Drive. Full SVG/PNG export pending from Figma GDS26R (node 7-89).',
     driveFolder: 'https://drive.google.com/drive/folders/1_UmgLjW2jfctJywpoTFVcI4eReV8uaQx',
@@ -614,7 +614,7 @@ export const GAP_ANALYSIS = [
   },
   {
     dim: 'Visual Identity', priority: 'High', pct: 55,
-    current: 'GDS26R v1.0 defined (Feb 2026). Bronze/deep blue system documented. Figma component library build in progress. Grouped Font custom OTF and Satoshi confirmed as typeface system.',
+    current: 'GDS26R v1.0 defined (Feb 2026). Bronze/deep blue system documented. Figma component library build in progress. Anacrusis custom OTF and Satoshi confirmed as typeface system.',
     future: 'Full documented design system exported from GDS26R: component library, animation prototypes, campaign extension guide, Figma variables with light/dark mode.',
   },
   {
@@ -742,7 +742,7 @@ export const DECISIONS = [
   { date: 'Feb 2026', decision: 'Merged Tribly and Grouped under the Grouped brand identity', rationale: 'Combined entity owns the full funnel. Accelerates roadmap by 2-3 years. Grouped name tests stronger for community positioning.', owner: 'Seth + Tim', status: 'Active' },
   { date: 'Feb 2026', decision: 'Keep "Grouped" name (revisit if traction requires rebrand)', rationale: 'Short-term wedge > long-term fit. Win the market position first, brand can evolve. "First.FM" documented as future option.', owner: 'Seth', status: 'Active' },
   { date: 'Feb 2026', decision: 'GDS26R: Bronze (#C48A3A) as primary brand accent — supersedes electric lime', rationale: 'Deep blue + bronze + warm white system established in GDS26R v1.0. Bronze is the brand voice (headlines, logos, CTAs). Focus Blue (#7CBBDF) handles interactive states. Prior lime direction retired.', owner: 'Lucy', status: 'Active' },
-  { date: 'Feb 2026', decision: 'GDS26R: Grouped Font + Satoshi as the two-typeface system', rationale: 'Grouped Font (custom OTF) for display/brand. Satoshi (Fontshare) for all product/body copy. JetBrains Mono for data. Replaces Syne/DM Mono/Inter prior direction.', owner: 'Lucy', status: 'Active' },
+  { date: 'Feb 2026', decision: 'GDS26R: Anacrusis + Satoshi as the two-typeface system', rationale: 'Anacrusis (custom OTF) for display/brand. Satoshi (Fontshare) for all product/body copy. JetBrains Mono for data. Replaces Syne/DM Mono/Inter prior direction.', owner: 'Lucy', status: 'Active' },
   { date: 'Jan 2026', decision: 'Free tier at $0 — no freemium ceiling', rationale: 'Drive top-of-funnel volume. Convert via product experience, not trial expiry pressure.', owner: 'Seth', status: 'Active' },
   { date: 'Jan 2026', decision: 'Pricing at $0/$7/$19/$39 + email credits as revenue layer 2', rationale: 'Competitive vs. Laylo/Community at lower price. Email credits add variable revenue on top of fixed MRR.', owner: 'Seth + Lucy', status: 'Active' },
   { date: 'Dec 2025', decision: 'Position as collaborative partner to distributors, not competitor', rationale: 'Integration reduces friction and unlocks massive acquisition channel via distributor catalog.', owner: 'Seth', status: 'Active' },
@@ -751,7 +751,7 @@ export const DECISIONS = [
 ];
 
 export const REPORT_CARD = [
-  { cat: 'Visual Identity', score: 7, trend: 'up', note: 'GDS26R v1.0 documented (Feb 2026). Bronze/deep blue system established. Figma component library build in progress. Grouped Font + Satoshi typeface system confirmed.' },
+  { cat: 'Visual Identity', score: 7, trend: 'up', note: 'GDS26R v1.0 documented (Feb 2026). Bronze/deep blue system established. Figma component library build in progress. Anacrusis + Satoshi typeface system confirmed.' },
   { cat: 'Verbal Identity', score: 7, trend: 'up', note: 'Hero messaging sharp. FIRST anchor defined but not yet deployed. Segment-specific playbook in progress.' },
   { cat: 'Digital Presence', score: 6, trend: 'stable', note: 'Website strong. Social presence active. SEO baseline not yet measured.' },
   { cat: 'Market Position', score: 7, trend: 'up', note: 'Clear differentiation vs. Laylo/Community. Distribution partnership is the key unlock.' },

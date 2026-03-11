@@ -4,7 +4,7 @@
  * Dark Mode Primary · Light Mode Secondary
  *
  * Color system: GDS26R — Navy + Bronze + Warm Cream + Focus Blue
- * Typography: Grouped Font (display) + Satoshi (system) + JetBrains Mono (data)
+ * Typography: Anacrusis (display) + Satoshi (system) + JetBrains Mono (data)
  */
 
 export const tokens = {

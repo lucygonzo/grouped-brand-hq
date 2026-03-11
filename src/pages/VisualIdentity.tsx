@@ -100,7 +100,7 @@ export default function VisualIdentityPage() {
           <SectionLabel>Wordmark</SectionLabel>
           <Card>
             <div style={{ fontFamily: "'Satoshi', sans-serif", fontSize: '42px', fontWeight: 800, color: '#C48A3A', letterSpacing: '-0.03em', marginBottom: '12px' }}>Grouped</div>
-            <Body style={{ fontSize: '12px', marginBottom: '10px' }}><strong>Font:</strong> Grouped Font (custom OTF, single weight, 160 glyphs). Title case, no period. Clean, confident, stands on its own.</Body>
+            <Body style={{ fontSize: '12px', marginBottom: '10px' }}><strong>Font:</strong> Anacrusis (custom OTF, single weight, 160 glyphs). Title case, no period. Clean, confident, stands on its own.</Body>
             <div style={{ display: 'flex', gap: '8px' }}>
               <a href={VI.wordmark.driveFolder} target="_blank" rel="noreferrer" style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '9px', color: C.amber, textDecoration: 'none', padding: '4px 10px', border: `1px solid ${C.amber}35`, borderRadius: '4px' }}>Google Drive assets</a>
               <a href={VI.wordmark.figmaFile} target="_blank" rel="noreferrer" style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '9px', color: C.blue, textDecoration: 'none', padding: '4px 10px', border: `1px solid ${C.blue}35`, borderRadius: '4px' }}>Figma GDS26R</a>

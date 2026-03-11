@@ -42,17 +42,6 @@ const SEVERITY_COLORS: Record<Severity, string> = {
 const MISMATCHES: AlignmentItem[] = [
   // Typography
   {
-    id: 'type-font-name',
-    item: 'Display font name',
-    category: 'typography',
-    severity: 'critical',
-    brandGuide: '"Grouped Font" — Custom OTF, single weight, 160 glyphs. Min size 28px.',
-    figma: '"Anacrusis" — Variable --font/family/display resolves to Anacrusis:Regular.',
-    brandGuideSection: 'typography',
-    figmaNodeId: '757-1300',
-    aligned: false,
-  },
-  {
     id: 'type-scale-arch',
     item: 'Type scale architecture',
     category: 'typography',
@@ -193,7 +182,7 @@ const MISMATCHES: AlignmentItem[] = [
     item: 'Non-brand fonts in Title frame',
     category: 'fonts',
     severity: 'critical',
-    brandGuide: 'Only 3 approved typefaces: Grouped Font (display), Satoshi (body/UI), JetBrains Mono (data).',
+    brandGuide: 'Only 3 approved typefaces: Anacrusis (display), Satoshi (body/UI), JetBrains Mono (data).',
     figma: 'Title frame uses: All Round Gothic, Quicksand, TT Commons, TT Commons Pro — none approved in brand guide.',
     brandGuideSection: 'typography',
     figmaNodeId: '4056-2',
@@ -238,6 +227,16 @@ const MISMATCHES: AlignmentItem[] = [
 
 // ── ALIGNED ─────────────────────────────────────────────
 const ALIGNED: AlignmentItem[] = [
+  {
+    id: 'align-display-font',
+    item: 'Display font: Anacrusis',
+    category: 'typography',
+    brandGuide: 'Anacrusis — Custom OTF display face, single weight (Regular), 160 glyphs. Min size 28px.',
+    figma: 'Anacrusis:Regular — Variable --font/family/display. Used for D0 and D1 display tokens.',
+    brandGuideSection: 'typography',
+    figmaNodeId: '757-1300',
+    aligned: true,
+  },
   {
     id: 'align-text-primary',
     item: 'Primary text color',

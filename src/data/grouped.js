@@ -132,7 +132,7 @@ export const visualIdentity = {
     rules: [
       'Always title case — "Grouped" with capital G, no period',
       'Never all-lowercase ("grouped") or all-caps ("GROUPED")',
-      'Set in Grouped Font (custom display OTF)',
+      'Set in Anacrusis (custom display OTF)',
       'On dark backgrounds: use #F0EBE3 (warm cream) or #C48A3A (bronze)',
       'On light backgrounds: use #111620 (navy)',
       'Never stretch, rotate, or apply effects',
@@ -157,7 +157,7 @@ export const visualIdentity = {
   ],
 
   typography: [
-    { role: 'Display / Brand',    family: 'Grouped Font', weights: 'Regular (single weight)', usage: 'Hero headlines (48px+), marketing titles (32px+), wordmark/logotype', confirmed: true },
+    { role: 'Display / Brand',    family: 'Anacrusis', weights: 'Regular (single weight)', usage: 'Hero headlines (48px+), marketing titles (32px+), wordmark/logotype', confirmed: true },
     { role: 'System Workhorse',   family: 'Satoshi',      weights: 'Light 300, Regular 400, Medium 500, Bold 700, Black 900 + italics', usage: 'Body copy, product UI, subheadings, navigation, buttons, all text under 28px', confirmed: true },
     { role: 'Monospace / Data',   family: 'JetBrains Mono', weights: 'Regular 400, Medium 500', usage: 'Metrics, data values, code, labels, badges, metadata', confirmed: true },
   ],

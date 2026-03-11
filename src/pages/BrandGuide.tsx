@@ -482,14 +482,14 @@ export default function BrandGuide() {
               <div style={{ background: '#111620', borderRadius: '8px', padding: '24px 32px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', border: `1px solid ${C.border}` }}>
                 <img src={logoSvgUrl('Grouped_Rebrand_Visual Assets_Grouped Typemark_WarmBronze')} alt="Grouped wordmark" style={{ height: '48px', objectFit: 'contain' }} />
               </div>
-              <div style={{ fontFamily: F.mono, fontSize: '11px', color: C.muted, marginTop: '16px' }}>Grouped Font (Custom OTF) · Title case · No period.</div>
+              <div style={{ fontFamily: F.mono, fontSize: '11px', color: C.muted, marginTop: '16px' }}>Anacrusis (Custom OTF) · Title case · No period.</div>
             </GuideCard>
 
             <GuideCallout>{VI.wordmark.rationale}</GuideCallout>
 
             <SubLabel>Treatment Rules</SubLabel>
             <DoDont type="do">Always render the wordmark as "Grouped" — capital G, no period.</DoDont>
-            <DoDont type="do">Use Grouped Font (custom display OTF) for the wordmark at 28px+ minimum size.</DoDont>
+            <DoDont type="do">Use Anacrusis (custom display OTF) for the wordmark at 28px+ minimum size.</DoDont>
             <DoDont type="do">Dark mode is the default. All logo usage assumes a dark background unless otherwise specified.</DoDont>
             <DoDont type="dont">Never render in all-lowercase ("grouped") or with a trailing period ("grouped." / "Grouped.").</DoDont>
             <DoDont type="dont">Never set in all-caps: "GROUPED".</DoDont>
@@ -688,7 +688,7 @@ export default function BrandGuide() {
             <div style={{ marginTop: '16px' }}>
               <DoDont type="do">Use Satoshi for all body copy, product UI, and anything under 28px.</DoDont>
               <DoDont type="do">Use tabular figures (font-variant-numeric: tabular-nums) in data tables and metrics.</DoDont>
-              <DoDont type="dont">Use Grouped Font for body copy, buttons, or any text under 28px.</DoDont>
+              <DoDont type="dont">Use Anacrusis for body copy, buttons, or any text under 28px.</DoDont>
               <DoDont type="dont">Mix condensed and standard variants in the same text block.</DoDont>
               <DoDont type="dont">Use pure white (#FFFFFF) for text — always use warm cream #F0EBE3.</DoDont>
             </div>
@@ -698,7 +698,7 @@ export default function BrandGuide() {
             <div style={{ padding: '14px 16px', background: C.s1, border: `1px solid ${C.border}`, borderRadius: '8px', marginBottom: '12px' }}>
               <div style={{ fontFamily: F.body, fontSize: '13px', color: C.sub, lineHeight: 1.65 }}>
                 <span style={{ fontFamily: F.mono, fontSize: '10px', color: C.accent, marginRight: '8px' }}>WEIGHT GUIDANCE</span>
-                Favor <strong style={{ color: C.text }}>Black (900)</strong> for display and headline applications — it carries the most brand presence and pairs well with the boldness of Grouped Font. For body-adjacent UI where Semibold is needed, use <strong style={{ color: C.text }}>Bold (700)</strong> as a direct replacement — the optical difference is minimal at body sizes and maintains consistency across the weight stack.
+                Favor <strong style={{ color: C.text }}>Black (900)</strong> for display and headline applications — it carries the most brand presence and pairs well with the boldness of Anacrusis. For body-adjacent UI where Semibold is needed, use <strong style={{ color: C.text }}>Bold (700)</strong> as a direct replacement — the optical difference is minimal at body sizes and maintains consistency across the weight stack.
               </div>
             </div>
             <div style={{ padding: '14px 16px', background: C.s1, border: `1px solid ${C.border}`, borderRadius: '8px', marginBottom: '12px' }}>

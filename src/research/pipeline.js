@@ -282,7 +282,7 @@ For each of 4-5 core traits:
 Create: 02_Visual_Identity_Research.md
 
 Known visual context:
-- Wordmark: "Grouped" — Grouped Font (custom OTF), title case, no period
+- Wordmark: "Grouped" — Anacrusis (custom OTF), title case, no period
 - Primary accent: #C48A3A (bronze)
 - Background: #111620 (navy)
 - Dark mode primary, light mode secondary
