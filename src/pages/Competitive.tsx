@@ -12,7 +12,7 @@ export default function CompetitivePage() {
         {COMPETITIVE.map((c, i) => (
           <div key={i} onClick={() => setOpen(open === i ? null : i)} style={{ background: C.s2, border: `1px solid ${open === i ? C.accent : C.border}`, borderRadius: '10px', padding: '16px', cursor: 'pointer', transition: 'border-color 0.2s' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-              <div style={{ fontFamily: 'Syne, sans-serif', fontSize: '15px', fontWeight: 700, color: C.text }}>{c.name}</div>
+              <div style={{ fontFamily: "'Satoshi', sans-serif", fontSize: '15px', fontWeight: 700, color: C.text }}>{c.name}</div>
               <Threat level={c.threat} />
             </div>
             <ColorStrip colors={c.colors} label={c.category} />
@@ -20,8 +20,8 @@ export default function CompetitivePage() {
             {open === i && (
               <div style={{ marginTop: '12px', borderTop: `1px solid ${C.border}`, paddingTop: '12px' }}>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px', marginBottom: '10px' }}>
-                  <div><Lbl>Strengths</Lbl>{c.strengths.map((s, j) => <div key={j} style={{ fontFamily: 'Inter, sans-serif', fontSize: '11px', color: C.sub, padding: '2px 0' }}>+ {s}</div>)}</div>
-                  <div><Lbl>Weaknesses</Lbl>{c.weaknesses.map((w, j) => <div key={j} style={{ fontFamily: 'Inter, sans-serif', fontSize: '11px', color: C.sub, padding: '2px 0' }}>- {w}</div>)}</div>
+                  <div><Lbl>Strengths</Lbl>{c.strengths.map((s, j) => <div key={j} style={{ fontFamily: "'Satoshi', sans-serif", fontSize: '11px', color: C.sub, padding: '2px 0' }}>+ {s}</div>)}</div>
+                  <div><Lbl>Weaknesses</Lbl>{c.weaknesses.map((w, j) => <div key={j} style={{ fontFamily: "'Satoshi', sans-serif", fontSize: '11px', color: C.sub, padding: '2px 0' }}>- {w}</div>)}</div>
                 </div>
                 <Block variant="green"><strong>Grouped's moat:</strong> {c.moat}</Block>
                 {c.note && <Block variant="blue">{c.note}</Block>}

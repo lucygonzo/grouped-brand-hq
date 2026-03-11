@@ -120,7 +120,7 @@ export const BRAND_IDENTITY = {
     'Algorithmic language ("leverage," "optimize," "growth hacking")',
   ],
 
-  nameConsiderations: 'Seth\'s concern: "grouped." has 80% confusion rate on first listen, people mishear it. Also: community/grouping connotation emphasizes the hardest thing to sell. "First.FM" explored as alternative — better alignment with the FIRST brand anchor. Decision: keeping grouped. for now while this is documented for future consideration.',
+  nameConsiderations: 'Seth\'s concern: "Grouped" has 80% confusion rate on first listen, people mishear it. Also: community/grouping connotation emphasizes the hardest thing to sell. "First.FM" explored as alternative — better alignment with the FIRST brand anchor. Decision: keeping Grouped for now while this is documented for future consideration.',
 };
 
 // ============================================================
@@ -192,7 +192,7 @@ export const VISUAL_IDENTITY = {
     focusBlue: {
       token: '--focus',
       hex: '#7CBBDF',
-      rule: 'Focus blue handles interactive states ONLY: focus rings, accent stickers, badges, active/selected indicators, data viz accents. Never use for brand voice elements. If an element is on a poster, it\'s bronze. If you interact with it, it\'s focus blue.',
+      rule: 'Focus Blue handles interactive states ONLY: focus rings, accent stickers, badges, active/selected indicators, data viz accents. Never use for brand voice elements. If an element is on a poster, it\'s bronze. If you interact with it, it\'s Focus Blue.',
     },
     semantic: [
       { token: '--success',        hex: '#8BAF9C', usage: 'Confirmations, positive metrics, connected states' },
@@ -610,7 +610,7 @@ export const GAP_ANALYSIS = [
   {
     dim: 'Brand Narrative', priority: 'Critical', pct: 35,
     current: 'Two separate brand stories (Tribly swaps + Grouped community) not yet fully unified under one Grouped narrative. "First" brand anchor not yet deployed in customer-facing copy.',
-    future: 'Single narrative: "The full-funnel direct-to-fan growth engine." FIRST brand anchor activated across all touchpoints. Every feature maps back to the premiere window.',
+    future: 'Single narrative: "Where Artists and Fans Connect." FIRST brand anchor activated across all touchpoints. Every feature maps back to the premiere window.',
   },
   {
     dim: 'Visual Identity', priority: 'High', pct: 55,
@@ -740,8 +740,8 @@ export const PRODUCT_ROADMAP = [
 
 export const DECISIONS = [
   { date: 'Feb 2026', decision: 'Merged Tribly and Grouped under the Grouped brand identity', rationale: 'Combined entity owns the full funnel. Accelerates roadmap by 2-3 years. Grouped name tests stronger for community positioning.', owner: 'Seth + Tim', status: 'Active' },
-  { date: 'Feb 2026', decision: 'Keep "grouped." name (revisit if traction requires rebrand)', rationale: 'Short-term wedge > long-term fit. Win the market position first, brand can evolve. "First.FM" documented as future option.', owner: 'Seth', status: 'Active' },
-  { date: 'Feb 2026', decision: 'GDS26R: Bronze (#C48A3A) as primary brand accent — supersedes electric lime', rationale: 'Deep blue + bronze + warm white system established in GDS26R v1.0. Bronze is the brand voice (headlines, logos, CTAs). Focus blue (#7CBBDF) handles interactive states. Prior lime direction retired.', owner: 'Lucy', status: 'Active' },
+  { date: 'Feb 2026', decision: 'Keep "Grouped" name (revisit if traction requires rebrand)', rationale: 'Short-term wedge > long-term fit. Win the market position first, brand can evolve. "First.FM" documented as future option.', owner: 'Seth', status: 'Active' },
+  { date: 'Feb 2026', decision: 'GDS26R: Bronze (#C48A3A) as primary brand accent — supersedes electric lime', rationale: 'Deep blue + bronze + warm white system established in GDS26R v1.0. Bronze is the brand voice (headlines, logos, CTAs). Focus Blue (#7CBBDF) handles interactive states. Prior lime direction retired.', owner: 'Lucy', status: 'Active' },
   { date: 'Feb 2026', decision: 'GDS26R: Grouped Font + Satoshi as the two-typeface system', rationale: 'Grouped Font (custom OTF) for display/brand. Satoshi (Fontshare) for all product/body copy. JetBrains Mono for data. Replaces Syne/DM Mono/Inter prior direction.', owner: 'Lucy', status: 'Active' },
   { date: 'Jan 2026', decision: 'Free tier at $0 — no freemium ceiling', rationale: 'Drive top-of-funnel volume. Convert via product experience, not trial expiry pressure.', owner: 'Seth', status: 'Active' },
   { date: 'Jan 2026', decision: 'Pricing at $0/$7/$19/$39 + email credits as revenue layer 2', rationale: 'Competitive vs. Laylo/Community at lower price. Email credits add variable revenue on top of fixed MRR.', owner: 'Seth + Lucy', status: 'Active' },

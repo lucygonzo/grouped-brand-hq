@@ -8,15 +8,15 @@ export default function DecisionsPage() {
       {DECISIONS.map((d, i) => (
         <div key={i} style={{ display: 'grid', gridTemplateColumns: '70px 1fr', gap: '14px', marginBottom: '10px' }}>
           <div style={{ paddingTop: '16px' }}>
-            <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '9px', color: C.muted }}>{d.date}</div>
+            <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '9px', color: C.muted }}>{d.date}</div>
           </div>
           <Card>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '6px' }}>
-              <div style={{ fontFamily: 'Syne, sans-serif', fontSize: '14px', fontWeight: 700, color: C.text, flex: 1 }}>{d.decision}</div>
+              <div style={{ fontFamily: "'Satoshi', sans-serif", fontSize: '14px', fontWeight: 700, color: C.text, flex: 1 }}>{d.decision}</div>
               <Chip color={d.status === 'Active' ? C.teal : C.muted}>{d.status}</Chip>
             </div>
             <Body style={{ marginBottom: '5px', fontSize: '12px' }}>{d.rationale}</Body>
-            <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '9px', color: C.muted }}>Owner: {d.owner}</span>
+            <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '9px', color: C.muted }}>Owner: {d.owner}</span>
           </Card>
         </div>
       ))}

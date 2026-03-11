@@ -9,7 +9,7 @@ export default function GapPage() {
       {GAP_ANALYSIS.map((d, i) => (
         <Card key={i} style={{ marginBottom: '12px' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '12px' }}>
-            <div style={{ fontFamily: 'Syne, sans-serif', fontSize: '14px', fontWeight: 700, color: C.text }}>{d.dim}</div>
+            <div style={{ fontFamily: "'Satoshi', sans-serif", fontSize: '14px', fontWeight: 700, color: C.text }}>{d.dim}</div>
             <Chip color={d.priority === 'Critical' ? C.red : d.priority === 'High' ? C.amber : C.blue}>{d.priority}</Chip>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', marginBottom: '12px' }}>
@@ -24,7 +24,7 @@ export default function GapPage() {
           </div>
           <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '4px' }}>
             <Lbl style={{ marginBottom: 0 }}>Progress</Lbl>
-            <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '9px', color: C.accent }}>{d.pct}%</span>
+            <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '9px', color: C.accent }}>{d.pct}%</span>
           </div>
           <ProgressBar pct={d.pct} />
         </Card>

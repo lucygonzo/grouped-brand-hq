@@ -14,12 +14,12 @@ export const RESEARCH_STEPS = [
     driveFile: '01_Company_Research.md',
     estimatedTime: '20 min',
     inputsNeeded: ['Website URL', 'Any existing about page / pitch deck / bio'],
-    prompt: `You are a brand strategist building a comprehensive company profile for grouped.
+    prompt: `You are a brand strategist building a comprehensive company profile for Grouped
 
 Using the context below, create a structured Markdown document for: 01_Company_Research.md
 
 ---
-COMPANY: grouped.
+COMPANY: Grouped
 WEBSITE: https://grouped.com
 CONTEXT: [PASTE ANY RELEVANT BIOS, ABOUT PAGES, PITCH DECK TEXT HERE]
 ---
@@ -61,11 +61,11 @@ Format rules: Use H2 for sections, bullet points within, keep every bullet under
     driveFile: '05_Competitive_Analysis.md',
     estimatedTime: '45 min',
     inputsNeeded: ['Competitor names (from client)', 'Any existing competitive intel'],
-    prompt: `You are a brand strategist building a competitive analysis for grouped. — a direct-to-fan growth platform for independent musicians.
+    prompt: `You are a brand strategist building a competitive analysis for Grouped — a direct-to-fan growth platform for independent musicians.
 
 Using web research and the context below, create: 05_Competitive_Analysis.md
 
-Context about grouped.:
+Context about Grouped:
 - Smart Swaps: fan data capture via early access trades (email/phone for early listen)
 - Groups: owned fan community spaces
 - Fan Passes: wallet-based push notifications at 1/1000th SMS cost
@@ -95,13 +95,13 @@ For EACH competitor, generate:
 - [bullet]
 
 **Grouped's Moat vs This Competitor:**
-> [1-2 sentences: what makes grouped. win here]
+> [1-2 sentences: what makes Grouped win here]
 
 ---
 After all competitors, add:
 
 ## Market Position Summary
-[2-3 paragraphs synthesizing the competitive landscape, where the gaps are, and why grouped.'s position is defensible]
+[2-3 paragraphs synthesizing the competitive landscape, where the gaps are, and why Grouped's position is defensible]
 
 ## Greenspace Opportunity
 [Describe the visual and verbal white space in the market — what no one else is saying or looking like]`,
@@ -115,12 +115,12 @@ After all competitors, add:
     driveFile: '04_Target_Audience.md',
     estimatedTime: '40 min',
     inputsNeeded: ['Any existing customer interviews', 'Platform analytics if available', 'Artist names currently on platform'],
-    prompt: `You are a brand strategist creating deep audience personas for grouped. — a direct-to-fan platform for independent musicians.
+    prompt: `You are a brand strategist creating deep audience personas for Grouped — a direct-to-fan platform for independent musicians.
 
 Using web research on independent music artist behavior, streaming economics, and the context below, create: 04_Target_Audience.md
 
 Context:
-- grouped. serves independent artists at 3 tiers: Developing (<100K listeners), Mid-Tier (100K-3M), High-Tier (3M+)
+- Grouped serves independent artists at 3 tiers: Developing (<100K listeners), Mid-Tier (100K-3M), High-Tier (3M+)
 - Core use case: artist uses early access swap to capture fan contact info, builds direct channel
 - Key emotional hook: "stop starting from zero every release"
 - Current platform users include: Forrest Frank, PardyAlone, MIKE., Surfaces, Ali Gatie, Devvon Terrell
@@ -152,7 +152,7 @@ For EACH of the 3 artist tiers, generate:
 - Current tools in their stack
 
 ### Jobs to Be Done
-- Functional: what task are they hiring grouped. to complete
+- Functional: what task are they hiring Grouped to complete
 - Emotional: how do they want to feel after using it
 - Social: how does it change how others see them
 
@@ -188,7 +188,7 @@ After all segments, add:
     driveFile: '03_Verbal_Identity_Research.md',
     estimatedTime: '35 min',
     inputsNeeded: ['Approved taglines', 'Any existing copy deck or brand guide', 'Website copy'],
-    prompt: `You are a brand voice strategist building the complete verbal identity for grouped.
+    prompt: `You are a brand voice strategist building the complete verbal identity for Grouped
 
 Create: 03_Verbal_Identity_Research.md
 
@@ -197,9 +197,9 @@ Company context:
 - Brand archetype: The Outlaw / The Creator — anti-algorithm, pro-artist
 - Tone: artist-to-artist, direct, bold, warm but not sentimental
 - Core belief: "Artists should own their fan relationships. Full stop."
-- Known taglines: "The growth engine for lifelong music careers." / "direct-to-fan, finally done right."
+- Known taglines: "Where Artists and Fans Connect." / "Grow Your Audience, On Your Terms."
 - Style guide note: NO em dashes. Use colons or periods instead.
-- The wordmark is "grouped." — always lowercase, always with the period.
+- The wordmark is "Grouped" — title case, no period.
 
 [ADD: Any existing brand voice notes, rejected copy, or approved phrases here]
 
@@ -207,26 +207,26 @@ Company context:
 
 ## Brand Voice Overview
 - Voice in 5 adjectives
-- The spectrum: where grouped. sits on Formal-Casual, Bold-Safe, Warm-Cold axes
-- What grouped. sounds like vs. what it never sounds like
+- The spectrum: where Grouped sits on Formal-Casual, Bold-Safe, Warm-Cold axes
+- What Grouped sounds like vs. what it never sounds like
 
 ## Voice Characteristics
 For each of 4-5 core traits:
 **[Trait Name]**
 - Definition
 - Because: [the strategic reason for this trait]
-- Sounds like: [example of the trait in action — real grouped. copy or approximation]
+- Sounds like: [example of the trait in action — real Grouped copy or approximation]
 - Never: [what violates this trait]
 
 ## Positioning Statement
 **Core Bio (2 sentences):**
-[What grouped. does and why it matters]
+[What Grouped does and why it matters]
 
 **Problem Statement:**
 [The problem, in the artist's words]
 
 **Solution Statement:**
-[How grouped. solves it, no jargon]
+[How Grouped solves it, no jargon]
 
 **Tagline Options (5 variants):**
 [From most approved to most exploratory]
@@ -234,7 +234,7 @@ For each of 4-5 core traits:
 ## Naming Conventions
 - How the product features are named and why
 - Words used in the product (Swap, Group, Pass, Feed) and their rules
-- Brand name usage rules (lowercase, period, no "The Grouped")
+- Brand name usage rules (title case "Grouped", no period, no "The Grouped")
 
 ## Channel-Specific Voice
 
@@ -263,7 +263,7 @@ For each of 4-5 core traits:
 - Example: upgrade prompt language
 
 ## Words We Own
-[List 10-15 words/phrases that are distinctly grouped. — that feel wrong if a competitor used them]
+[List 10-15 words/phrases that are distinctly Grouped — that feel wrong if a competitor used them]
 
 ## Words We Never Use
 [List 10-15 words/phrases that are off-brand — and why each one is]`,
@@ -277,14 +277,14 @@ For each of 4-5 core traits:
     driveFile: '02_Visual_Identity_Research.md',
     estimatedTime: '25 min',
     inputsNeeded: ['Figma GDS26R export', 'Logo files from Drive', 'Any existing brand guide'],
-    prompt: `You are a brand designer documenting the visual identity for grouped.
+    prompt: `You are a brand designer documenting the visual identity for Grouped
 
 Create: 02_Visual_Identity_Research.md
 
 Known visual context:
-- Wordmark: "grouped." — Syne font family, weight 800, lowercase, with period
-- Primary accent: #BFFF00 (electric lime / acid green)
-- Background: near-black (#07070A)
+- Wordmark: "Grouped" — Grouped Font (custom OTF), title case, no period
+- Primary accent: #C48A3A (bronze)
+- Background: #111620 (navy)
 - Dark mode primary, light mode secondary
 - Design system codename: GDS26R
 - Figma file: https://www.figma.com/design/wValDdxygSxILi49qBBgAW/GDS26R
@@ -340,7 +340,7 @@ For each color:
 - Custom icons if any
 
 ## Greenspace Analysis
-[Table: Brand vs. each top competitor — colors, typography style, visual vibe — where grouped. stands out]
+[Table: Brand vs. each top competitor — colors, typography style, visual vibe — where Grouped stands out]
 
 ## Asset Index
 - Where to find: [Drive folder URL]
@@ -360,12 +360,12 @@ For each color:
     driveFile: '06_GTM_Strategy.md',
     estimatedTime: '30 min',
     inputsNeeded: ['Current ad spend and channels', 'Known partnership conversations', 'Any distribution partner names'],
-    prompt: `You are a growth strategist building the go-to-market documentation for grouped.
+    prompt: `You are a growth strategist building the go-to-market documentation for Grouped
 
 Create: 06_GTM_Strategy.md
 
 Context:
-- grouped. targets independent artists across 3 tiers (developing, mid-tier, high-tier)
+- Grouped targets independent artists across 3 tiers (developing, mid-tier, high-tier)
 - Current acquisition: Meta/Instagram paid ads + organic social
 - Strategic unlock: distribution partnership (integrating at music upload flow)
 - SAM: $414.8M in artist tools
@@ -432,7 +432,7 @@ For each active/planned channel:
     driveFile: '07_Product_Strategy.md',
     estimatedTime: '25 min',
     inputsNeeded: ['Product roadmap if exists', 'Feature prioritization notes', 'Any customer feature requests'],
-    prompt: `You are a product strategist documenting grouped.'s product vision and roadmap.
+    prompt: `You are a product strategist documenting Grouped's product vision and roadmap.
 
 Create: 07_Product_Strategy.md
 
@@ -448,7 +448,7 @@ Context:
 ---
 
 ## Product Vision
-[2-3 sentences: where grouped. is going as a platform, not just a tool]
+[2-3 sentences: where Grouped is going as a platform, not just a tool]
 
 ## Current Product (Phase 1)
 
@@ -470,13 +470,13 @@ For each live feature:
 [Feature list with brief descriptions]
 
 ### Platform Vision
-[The end state — what grouped. becomes at scale]
+[The end state — what Grouped becomes at scale]
 
 ## Feature Prioritization Framework
-[How does grouped. decide what to build next: user requests, revenue impact, retention impact, strategic moat?]
+[How does Grouped decide what to build next: user requests, revenue impact, retention impact, strategic moat?]
 
 ## Competitive Differentiation by Feature
-[Table: Feature vs. closest competitor alternative — where grouped. wins]
+[Table: Feature vs. closest competitor alternative — where Grouped wins]
 
 ## Open Product Items
 [N/A for anything undecided or unresearched]`,

@@ -29,7 +29,7 @@ export default function CompanyPage() {
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
           {[{ label: 'Tribly (Top of Funnel)', desc: COMPANY.merger.tribly }, { label: 'Grouped (Bottom of Funnel)', desc: COMPANY.merger.grouped }].map((b, i) => (
             <div key={i} style={{ background: C.s3, borderRadius: '7px', padding: '12px' }}>
-              <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '9px', color: C.accent, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '5px' }}>{b.label}</div>
+              <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '9px', color: C.accent, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '5px' }}>{b.label}</div>
               <Body style={{ marginBottom: 0, fontSize: '12px' }}>{b.desc}</Body>
             </div>
           ))}
@@ -53,8 +53,8 @@ export default function CompanyPage() {
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px' }}>
         {COMPANY.team.map((m, i) => (
           <Card key={i}>
-            <div style={{ fontFamily: 'Syne, sans-serif', fontSize: '16px', fontWeight: 700, color: C.text, marginBottom: '2px' }}>{m.name}</div>
-            <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '9px', color: C.accent, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '10px' }}>{m.role}</div>
+            <div style={{ fontFamily: "'Satoshi', sans-serif", fontSize: '16px', fontWeight: 700, color: C.text, marginBottom: '2px' }}>{m.name}</div>
+            <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '9px', color: C.accent, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '10px' }}>{m.role}</div>
             <Body style={{ marginBottom: 0, fontSize: '12px' }}>{m.story}</Body>
           </Card>
         ))}

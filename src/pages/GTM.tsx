@@ -10,14 +10,14 @@ export default function GTMPage() {
         <div key={i} style={{ display: 'grid', gridTemplateColumns: '120px 1fr', marginBottom: '2px' }}>
           <div style={{ display: 'flex', alignItems: 'center', padding: '14px', background: '#15151C', border: `1px solid #272733`, borderRadius: '8px 0 0 8px', borderRight: 'none' }}>
             <div>
-              <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '9px', color: '#BFFF00', textTransform: 'uppercase', letterSpacing: '0.1em' }}>{p.label}</div>
-              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: '10px', color: p.status === 'Active' ? '#00E59B' : p.status === 'Optimizing' ? '#FFB020' : '#555566', marginTop: '2px' }}>{p.status}</div>
+              <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '9px', color: '#C48A3A', textTransform: 'uppercase', letterSpacing: '0.1em' }}>{p.label}</div>
+              <div style={{ fontFamily: "'Satoshi', sans-serif", fontSize: '10px', color: p.status === 'Active' ? '#8BAF9C' : p.status === 'Optimizing' ? '#D4A24B' : '#78716C', marginTop: '2px' }}>{p.status}</div>
             </div>
           </div>
           <div style={{ padding: '14px', background: '#15151C', border: `1px solid #272733`, borderRadius: '0 8px 8px 0' }}>
             <Body style={{ marginBottom: '8px', fontSize: '12px' }}>{p.strategy}</Body>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '5px' }}>
-              {p.kpis.map((k, j) => <span key={j} style={{ fontFamily: 'DM Mono, monospace', fontSize: '9px', background: '#1C1C26', border: `1px solid #33333F`, color: '#9494AA', padding: '2px 7px', borderRadius: '4px' }}>{k}</span>)}
+              {p.kpis.map((k, j) => <span key={j} style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '9px', background: '#1F2735', border: `1px solid #2E3849`, color: '#A8A29E', padding: '2px 7px', borderRadius: '4px' }}>{k}</span>)}
             </div>
           </div>
         </div>

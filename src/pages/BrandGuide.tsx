@@ -373,7 +373,7 @@ export default function BrandGuide() {
           {/* 02 — COLOR SYSTEM                         */}
           {/* ═══════════════════════════════════════════ */}
           <section ref={el => { sectionRefs.current['colors'] = el; }} id="colors" style={{ marginBottom: '64px', scrollMarginTop: '72px' }}>
-            <SectionHeading num="02" title="Color System" sub="Three temperature layers: cool navy surfaces, warm bronze brand elements, cool blue interactive accents." />
+            <SectionHeading num="02" title="Color System" sub="Three temperature layers: cool navy surfaces, warm bronze brand elements, Focus Blue interactive accents." />
 
             <SubLabel>Primary Palette</SubLabel>
             <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap', marginBottom: '14px' }}>
@@ -429,9 +429,9 @@ export default function BrandGuide() {
             </div>
 
             <DoDont type="do">Use bronze for anything that represents the brand voice — CTAs, hover states, pill badges, and the outer hover ring on interactive elements.</DoDont>
-            <DoDont type="do">Use focus blue exclusively for system-level interactive states — focus rings, box shadows, glows, and accessibility indicators.</DoDont>
+            <DoDont type="do">Use Focus Blue exclusively for system-level interactive states — focus rings, box shadows, glows, and accessibility indicators.</DoDont>
             <DoDont type="dont">Mix up bronze and blue. If it appears on a poster, it's bronze. If it highlights keyboard focus, it's blue.</DoDont>
-            <DoDont type="dont">Use focus blue for CTA buttons or hover states — that's bronze territory.</DoDont>
+            <DoDont type="dont">Use Focus Blue for CTA buttons or hover states — that's bronze territory.</DoDont>
             <DoDont type="dont">Use pure white (#FFFFFF) for text. Always use warm cream #F0EBE3.</DoDont>
 
             {/* Semantic Colors — collapsible */}
@@ -466,7 +466,7 @@ export default function BrandGuide() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', marginBottom: '20px' }}>
               <WcagBadge level="AAA" ratio="13.5:1" fg="#F0EBE3" bg="#111620" label="Cream text on navy background" />
               <WcagBadge level="AAA" ratio="11.2:1" fg="#C48A3A" bg="#111620" label="Bronze accent on navy background" />
-              <WcagBadge level="AA" ratio="7.8:1" fg="#7CBBDF" bg="#111620" label="Focus blue on navy background" />
+              <WcagBadge level="AA" ratio="7.8:1" fg="#7CBBDF" bg="#111620" label="Focus Blue on navy background" />
             </div>
           </section>
 

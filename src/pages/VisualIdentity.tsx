@@ -11,16 +11,16 @@ const Swatch = ({ hex, opacity, token, usage }: { hex: string; opacity?: string;
     <div onClick={copy} style={{ cursor: 'pointer', background: C.s2, border: `1px solid ${C.border}`, borderRadius: '8px', overflow: 'hidden' }}>
       <div style={{ height: '36px', background: opacity ? `rgba(${parseInt(hex.slice(1,3),16)},${parseInt(hex.slice(3,5),16)},${parseInt(hex.slice(5,7),16)},${parseFloat(opacity)/100})` : hex }} />
       <div style={{ padding: '8px 10px' }}>
-        <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '9px', color: copied ? C.accent : C.text }}>{copied ? 'Copied!' : display}</div>
-        <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '8px', color: C.muted, marginTop: '2px' }}>{token}</div>
-        <div style={{ fontFamily: 'Inter, sans-serif', fontSize: '10px', color: C.sub, marginTop: '3px', lineHeight: 1.4 }}>{usage}</div>
+        <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '9px', color: copied ? C.accent : C.text }}>{copied ? 'Copied!' : display}</div>
+        <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '8px', color: C.muted, marginTop: '2px' }}>{token}</div>
+        <div style={{ fontFamily: "'Satoshi', sans-serif", fontSize: '10px', color: C.sub, marginTop: '3px', lineHeight: 1.4 }}>{usage}</div>
       </div>
     </div>
   );
 };
 
 const SectionLabel = ({ children }: { children: React.ReactNode }) => (
-  <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '8px', color: C.accent, textTransform: 'uppercase', letterSpacing: '0.2em', marginBottom: '12px', marginTop: '28px', paddingBottom: '6px', borderBottom: `1px solid ${C.border}` }}>{children}</div>
+  <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '8px', color: C.accent, textTransform: 'uppercase', letterSpacing: '0.2em', marginBottom: '12px', marginTop: '28px', paddingBottom: '6px', borderBottom: `1px solid ${C.border}` }}>{children}</div>
 );
 
 export default function VisualIdentityPage() {
@@ -65,7 +65,7 @@ export default function VisualIdentityPage() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px', marginBottom: '24px' }}>
             {VI.designPrinciples.map((p, i) => (
               <Card key={i}>
-                <div style={{ fontFamily: 'Syne, sans-serif', fontSize: '16px', fontWeight: 800, color: C.accent, marginBottom: '8px' }}>{p.name}</div>
+                <div style={{ fontFamily: "'Satoshi', sans-serif", fontSize: '16px', fontWeight: 800, color: C.accent, marginBottom: '8px' }}>{p.name}</div>
                 <Body style={{ marginBottom: 0, fontSize: '12px' }}>{p.desc}</Body>
               </Card>
             ))}
@@ -76,7 +76,7 @@ export default function VisualIdentityPage() {
             {VI.avoidList.map((a, i) => (
               <div key={i} style={{ display: 'flex', gap: '8px', alignItems: 'flex-start', padding: '8px 12px', background: C.s2, border: `1px solid ${C.border}`, borderRadius: '6px' }}>
                 <span style={{ color: C.red, fontSize: '10px', marginTop: '2px', flexShrink: 0 }}>✕</span>
-                <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '11px', color: C.sub }}>{a}</span>
+                <span style={{ fontFamily: "'Satoshi', sans-serif", fontSize: '11px', color: C.sub }}>{a}</span>
               </div>
             ))}
           </div>
@@ -90,8 +90,8 @@ export default function VisualIdentityPage() {
                   <div style={{ display: 'flex', gap: '3px', justifyContent: 'center', marginBottom: '5px' }}>
                     {g.colors.map((col, i) => <div key={i} style={{ width: '22px', height: '22px', borderRadius: '4px', background: col, border: `1px solid ${C.border}` }} />)}
                   </div>
-                  <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '9px', color: g.name === 'Grouped' ? C.accent : C.muted }}>{g.name}</div>
-                  <div style={{ fontFamily: 'Inter, sans-serif', fontSize: '9px', color: C.muted, marginTop: '2px' }}>{g.note}</div>
+                  <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '9px', color: g.name === 'Grouped' ? C.accent : C.muted }}>{g.name}</div>
+                  <div style={{ fontFamily: "'Satoshi', sans-serif", fontSize: '9px', color: C.muted, marginTop: '2px' }}>{g.note}</div>
                 </div>
               ))}
             </div>
@@ -99,11 +99,11 @@ export default function VisualIdentityPage() {
 
           <SectionLabel>Wordmark</SectionLabel>
           <Card>
-            <div style={{ fontFamily: 'Syne, sans-serif', fontSize: '42px', fontWeight: 800, color: '#C48A3A', letterSpacing: '-0.03em', marginBottom: '12px' }}>Grouped</div>
+            <div style={{ fontFamily: "'Satoshi', sans-serif", fontSize: '42px', fontWeight: 800, color: '#C48A3A', letterSpacing: '-0.03em', marginBottom: '12px' }}>Grouped</div>
             <Body style={{ fontSize: '12px', marginBottom: '10px' }}><strong>Font:</strong> Grouped Font (custom OTF, single weight, 160 glyphs). Title case, no period. Clean, confident, stands on its own.</Body>
             <div style={{ display: 'flex', gap: '8px' }}>
-              <a href={VI.wordmark.driveFolder} target="_blank" rel="noreferrer" style={{ fontFamily: 'DM Mono, monospace', fontSize: '9px', color: C.amber, textDecoration: 'none', padding: '4px 10px', border: `1px solid ${C.amber}35`, borderRadius: '4px' }}>Google Drive assets</a>
-              <a href={VI.wordmark.figmaFile} target="_blank" rel="noreferrer" style={{ fontFamily: 'DM Mono, monospace', fontSize: '9px', color: C.blue, textDecoration: 'none', padding: '4px 10px', border: `1px solid ${C.blue}35`, borderRadius: '4px' }}>Figma GDS26R</a>
+              <a href={VI.wordmark.driveFolder} target="_blank" rel="noreferrer" style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '9px', color: C.amber, textDecoration: 'none', padding: '4px 10px', border: `1px solid ${C.amber}35`, borderRadius: '4px' }}>Google Drive assets</a>
+              <a href={VI.wordmark.figmaFile} target="_blank" rel="noreferrer" style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '9px', color: C.blue, textDecoration: 'none', padding: '4px 10px', border: `1px solid ${C.blue}35`, borderRadius: '4px' }}>Figma GDS26R</a>
             </div>
           </Card>
         </div>
@@ -166,19 +166,19 @@ export default function VisualIdentityPage() {
             {VI.typography.fonts.map((f, i) => (
               <Card key={i}>
                 <Chip color={i === 0 ? '#C48A3A' : i === 1 ? C.blue : C.teal}>{f.role}</Chip>
-                <div style={{ fontFamily: 'Syne, sans-serif', fontSize: '20px', fontWeight: 800, color: C.text, margin: '10px 0 6px' }}>{f.name}</div>
+                <div style={{ fontFamily: "'Satoshi', sans-serif", fontSize: '20px', fontWeight: 800, color: C.text, margin: '10px 0 6px' }}>{f.name}</div>
                 <Body style={{ fontSize: '11px', marginBottom: '8px' }}>{f.type}</Body>
-                {'source' in f && <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '9px', color: C.muted, marginBottom: '8px' }}>{f.source}</div>}
+                {'source' in f && <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '9px', color: C.muted, marginBottom: '8px' }}>{f.source}</div>}
                 {'useFor' in f && f.useFor && (
                   <div>
                     <Lbl>Use for</Lbl>
-                    {f.useFor.map((u, j) => <div key={j} style={{ fontFamily: 'Inter, sans-serif', fontSize: '10px', color: C.sub, padding: '1px 0' }}>+ {u}</div>)}
+                    {f.useFor.map((u, j) => <div key={j} style={{ fontFamily: "'Satoshi', sans-serif", fontSize: '10px', color: C.sub, padding: '1px 0' }}>+ {u}</div>)}
                   </div>
                 )}
                 {'dontUseFor' in f && f.dontUseFor && (
                   <div style={{ marginTop: '8px' }}>
                     <Lbl>Do not use for</Lbl>
-                    {f.dontUseFor.map((u, j) => <div key={j} style={{ fontFamily: 'Inter, sans-serif', fontSize: '10px', color: C.red + 'AA', padding: '1px 0' }}>✕ {u}</div>)}
+                    {f.dontUseFor.map((u, j) => <div key={j} style={{ fontFamily: "'Satoshi', sans-serif", fontSize: '10px', color: C.red + 'AA', padding: '1px 0' }}>✕ {u}</div>)}
                   </div>
                 )}
                 {'rule' in f && f.rule && <Block variant="amber" ><span style={{ fontSize: '11px' }}>{f.rule}</span></Block>}
@@ -189,16 +189,16 @@ export default function VisualIdentityPage() {
           <SectionLabel>Type Scale — Marketing / Website</SectionLabel>
           <div style={{ border: `1px solid ${C.border}`, borderRadius: '8px', overflow: 'hidden', marginBottom: '24px' }}>
             <div style={{ display: 'grid', gridTemplateColumns: '120px 60px 90px 60px 60px 1fr', background: C.s3, padding: '8px 14px' }}>
-              {['Token','Size','Weight','LH','LS','Usage'].map(h => <div key={h} style={{ fontFamily: 'DM Mono, monospace', fontSize: '8px', color: C.muted, textTransform: 'uppercase', letterSpacing: '0.1em' }}>{h}</div>)}
+              {['Token','Size','Weight','LH','LS','Usage'].map(h => <div key={h} style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '8px', color: C.muted, textTransform: 'uppercase', letterSpacing: '0.1em' }}>{h}</div>)}
             </div>
             {VI.typography.scaleMarketing.map((s, i) => (
               <div key={i} style={{ display: 'grid', gridTemplateColumns: '120px 60px 90px 60px 60px 1fr', padding: '9px 14px', borderTop: `1px solid ${C.border}`, alignItems: 'center' }}>
-                <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '9px', color: C.accent }}>{s.token}</div>
-                <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '9px', color: C.text }}>{s.size}</div>
-                <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '9px', color: C.sub }}>{s.weight}</div>
-                <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '9px', color: C.sub }}>{s.lh}</div>
-                <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '9px', color: C.sub }}>{s.ls}</div>
-                <div style={{ fontFamily: 'Inter, sans-serif', fontSize: '11px', color: C.sub }}>{s.usage}</div>
+                <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '9px', color: C.accent }}>{s.token}</div>
+                <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '9px', color: C.text }}>{s.size}</div>
+                <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '9px', color: C.sub }}>{s.weight}</div>
+                <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '9px', color: C.sub }}>{s.lh}</div>
+                <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '9px', color: C.sub }}>{s.ls}</div>
+                <div style={{ fontFamily: "'Satoshi', sans-serif", fontSize: '11px', color: C.sub }}>{s.usage}</div>
               </div>
             ))}
           </div>
@@ -208,7 +208,7 @@ export default function VisualIdentityPage() {
             {VI.typography.rules.map((r, i) => (
               <div key={i} style={{ display: 'flex', gap: '8px', padding: '8px 12px', background: C.s2, border: `1px solid ${C.border}`, borderRadius: '6px' }}>
                 <span style={{ color: C.accent, fontSize: '10px', flexShrink: 0, marginTop: '2px' }}>→</span>
-                <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '11px', color: C.sub }}>{r}</span>
+                <span style={{ fontFamily: "'Satoshi', sans-serif", fontSize: '11px', color: C.sub }}>{r}</span>
               </div>
             ))}
           </div>
@@ -225,11 +225,11 @@ export default function VisualIdentityPage() {
             {VI.surfaces.types.map((s, i) => (
               <Card key={i}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-                  <div style={{ fontFamily: 'Syne, sans-serif', fontSize: '15px', fontWeight: 700, color: C.text }}>{s.name}</div>
+                  <div style={{ fontFamily: "'Satoshi', sans-serif", fontSize: '15px', fontWeight: 700, color: C.text }}>{s.name}</div>
                   {'usage' in s && <Chip color={C.blue}>{s.usage}</Chip>}
                 </div>
                 <Body style={{ fontSize: '11px', marginBottom: '8px' }}>{s.description}</Body>
-                <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '9px', color: C.muted, padding: '5px 8px', background: C.s3, borderRadius: '4px' }}>{s.cssNote}</div>
+                <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '9px', color: C.muted, padding: '5px 8px', background: C.s3, borderRadius: '4px' }}>{s.cssNote}</div>
               </Card>
             ))}
           </div>
@@ -237,11 +237,11 @@ export default function VisualIdentityPage() {
           <SectionLabel>Grain + Ambient Glow</SectionLabel>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginBottom: '24px' }}>
             <Card>
-              <div style={{ fontFamily: 'Syne, sans-serif', fontSize: '14px', fontWeight: 700, color: C.text, marginBottom: '8px' }}>Grain Texture</div>
+              <div style={{ fontFamily: "'Satoshi', sans-serif", fontSize: '14px', fontWeight: 700, color: C.text, marginBottom: '8px' }}>Grain Texture</div>
               <Body style={{ fontSize: '11px', marginBottom: 0 }}>{VI.surfaces.grain}</Body>
             </Card>
             <Card>
-              <div style={{ fontFamily: 'Syne, sans-serif', fontSize: '14px', fontWeight: 700, color: C.text, marginBottom: '8px' }}>Ambient Glow</div>
+              <div style={{ fontFamily: "'Satoshi', sans-serif", fontSize: '14px', fontWeight: 700, color: C.text, marginBottom: '8px' }}>Ambient Glow</div>
               <Body style={{ fontSize: '11px', marginBottom: 0 }}>{VI.surfaces.ambientGlow}</Body>
             </Card>
           </div>
@@ -256,10 +256,10 @@ export default function VisualIdentityPage() {
             {VI.radiusSystem.tokens.map((r, i) => (
               <Card key={i} style={{ textAlign: 'center', padding: '14px' }}>
                 <div style={{ width: '40px', height: '40px', background: C.s3, border: `1px solid ${C.accent}40`, borderRadius: r.value === '9999px' ? '9999px' : r.value, margin: '0 auto 10px' }} />
-                <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '9px', color: C.accent, marginBottom: '2px' }}>{r.token}</div>
-                <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '9px', color: C.text, marginBottom: '4px' }}>{r.value}</div>
+                <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '9px', color: C.accent, marginBottom: '2px' }}>{r.token}</div>
+                <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '9px', color: C.text, marginBottom: '4px' }}>{r.value}</div>
                 <Chip color={r.family === 'Sleeve' ? C.blue : r.family === 'Label' ? '#C48A3A' : C.teal}>{r.family}</Chip>
-                <div style={{ fontFamily: 'Inter, sans-serif', fontSize: '9px', color: C.muted, marginTop: '4px' }}>{r.usage}</div>
+                <div style={{ fontFamily: "'Satoshi', sans-serif", fontSize: '9px', color: C.muted, marginTop: '4px' }}>{r.usage}</div>
               </Card>
             ))}
           </div>
@@ -292,7 +292,7 @@ export default function VisualIdentityPage() {
               {VI.signatureMotif.rules.map((r, i) => (
                 <div key={i} style={{ display: 'flex', gap: '8px', padding: '5px 0', borderBottom: i < VI.signatureMotif.rules.length - 1 ? `1px solid ${C.border}` : 'none' }}>
                   <span style={{ color: '#C48A3A', fontSize: '10px', flexShrink: 0 }}>→</span>
-                  <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '11px', color: C.sub }}>{r}</span>
+                  <span style={{ fontFamily: "'Satoshi', sans-serif", fontSize: '11px', color: C.sub }}>{r}</span>
                 </div>
               ))}
             </Card>
@@ -302,8 +302,8 @@ export default function VisualIdentityPage() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '8px', marginBottom: '24px' }}>
             {Object.entries(VI.signatureMotif.ringProportions).map(([k, v]) => (
               <Card key={k} style={{ textAlign: 'center', padding: '12px' }}>
-                <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '8px', color: C.muted, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '4px' }}>{k}</div>
-                <div style={{ fontFamily: 'Syne, sans-serif', fontSize: '13px', fontWeight: 700, color: '#C48A3A' }}>{v}</div>
+                <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '8px', color: C.muted, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '4px' }}>{k}</div>
+                <div style={{ fontFamily: "'Satoshi', sans-serif", fontSize: '13px', fontWeight: 700, color: '#C48A3A' }}>{v}</div>
               </Card>
             ))}
           </div>
@@ -323,7 +323,7 @@ export default function VisualIdentityPage() {
             {VI.motionPrinciples.map((p, i) => (
               <div key={i} style={{ display: 'flex', gap: '8px', padding: '8px 12px', background: C.s2, border: `1px solid ${C.border}`, borderRadius: '6px' }}>
                 <span style={{ color: '#C48A3A', fontSize: '10px', flexShrink: 0, marginTop: '2px' }}>→</span>
-                <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '11px', color: C.sub }}>{p}</span>
+                <span style={{ fontFamily: "'Satoshi', sans-serif", fontSize: '11px', color: C.sub }}>{p}</span>
               </div>
             ))}
           </div>
@@ -331,13 +331,13 @@ export default function VisualIdentityPage() {
           <SectionLabel>Easing Library</SectionLabel>
           <div style={{ border: `1px solid ${C.border}`, borderRadius: '8px', overflow: 'hidden' }}>
             <div style={{ display: 'grid', gridTemplateColumns: '150px 1fr 1fr', background: C.s3, padding: '8px 14px' }}>
-              {['Token', 'Value', 'Usage'].map(h => <div key={h} style={{ fontFamily: 'DM Mono, monospace', fontSize: '8px', color: C.muted, textTransform: 'uppercase', letterSpacing: '0.1em' }}>{h}</div>)}
+              {['Token', 'Value', 'Usage'].map(h => <div key={h} style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '8px', color: C.muted, textTransform: 'uppercase', letterSpacing: '0.1em' }}>{h}</div>)}
             </div>
             {VI.easing.map((e, i) => (
               <div key={i} style={{ display: 'grid', gridTemplateColumns: '150px 1fr 1fr', padding: '9px 14px', borderTop: `1px solid ${C.border}`, alignItems: 'center' }}>
-                <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '9px', color: '#C48A3A' }}>{e.token}</div>
-                <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '9px', color: C.sub }}>{e.value}</div>
-                <div style={{ fontFamily: 'Inter, sans-serif', fontSize: '11px', color: C.sub }}>{e.usage}</div>
+                <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '9px', color: '#C48A3A' }}>{e.token}</div>
+                <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '9px', color: C.sub }}>{e.value}</div>
+                <div style={{ fontFamily: "'Satoshi', sans-serif", fontSize: '11px', color: C.sub }}>{e.usage}</div>
               </div>
             ))}
           </div>

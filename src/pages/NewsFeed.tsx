@@ -8,8 +8,8 @@ export default function NewsFeedPage() {
         News feed is configured to track: direct-to-fan platforms, music distribution, creator economy, fan engagement tools, and Grouped competitors. Configure RSS sources to activate automated daily briefings.
       </Callout>
       <Card style={{ display: 'flex', alignItems: 'center', gap: '14px', padding: '24px' }}>
-        <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '9px', color: C.amber, textTransform: 'uppercase', letterSpacing: '0.14em' }}>Coming Soon</div>
-        <div style={{ fontFamily: 'Inter, sans-serif', fontSize: '12px', color: C.sub }}>RSS feed integration + AI daily briefing. Activate by connecting RSS sources in settings.</div>
+        <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '9px', color: C.amber, textTransform: 'uppercase', letterSpacing: '0.14em' }}>Coming Soon</div>
+        <div style={{ fontFamily: "'Satoshi', sans-serif", fontSize: '12px', color: C.sub }}>RSS feed integration + AI daily briefing. Activate by connecting RSS sources in settings.</div>
       </Card>
     </div>
   );

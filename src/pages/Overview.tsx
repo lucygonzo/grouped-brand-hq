@@ -16,12 +16,12 @@ export default function OverviewPage() {
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px', marginBottom: '24px' }}>
         <Card>
           <Lbl>Current Phase</Lbl>
-          <div style={{ fontFamily: 'Syne, sans-serif', fontSize: '17px', fontWeight: 700, color: C.text, marginBottom: '6px' }}>Pre-Series A</div>
+          <div style={{ fontFamily: "'Satoshi', sans-serif", fontSize: '17px', fontWeight: 700, color: C.text, marginBottom: '6px' }}>Pre-Series A</div>
           <Body style={{ marginBottom: 0 }}>Phase 1 SaaS live. Free + Starter tiers active. Series A fundraise in active preparation. Distribution partnership conversations underway.</Body>
         </Card>
         <Card>
           <Lbl>Stage</Lbl>
-          <div style={{ fontFamily: 'Syne, sans-serif', fontSize: '17px', fontWeight: 700, color: C.text, marginBottom: '6px' }}>{CLIENT.stage}</div>
+          <div style={{ fontFamily: "'Satoshi', sans-serif", fontSize: '17px', fontWeight: 700, color: C.text, marginBottom: '6px' }}>{CLIENT.stage}</div>
           <Body style={{ marginBottom: 0 }}>Post-merger brand unification in progress. Visual and verbal system documentation underway. Figma GDS26R in active development.</Body>
         </Card>
       </div>
@@ -38,8 +38,8 @@ export default function OverviewPage() {
       {OPEN_PRIORITIES.map((p, i) => (
         <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px 14px', background: C.s2, border: `1px solid ${C.border}`, borderRadius: '7px', marginBottom: '6px' }}>
           <div>
-            <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '13px', color: C.text }}>{p.text}</span>
-            <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '9px', color: C.muted, marginLeft: '10px' }}>{p.owner}</span>
+            <span style={{ fontFamily: "'Satoshi', sans-serif", fontSize: '13px', color: C.text }}>{p.text}</span>
+            <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '9px', color: C.muted, marginLeft: '10px' }}>{p.owner}</span>
           </div>
           <Chip color={p.urgency === 'Critical' ? C.red : p.urgency === 'High' ? C.amber : C.blue}>{p.urgency}</Chip>
         </div>
