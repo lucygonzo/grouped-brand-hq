@@ -305,7 +305,7 @@ export default function BrandGuide() {
               border: 'none', borderLeft: active ? `2px solid ${C.accent}` : '2px solid transparent',
               padding: '8px 12px', cursor: 'pointer', transition: 'all 0.15s', borderRadius: '0 6px 6px 0', marginBottom: '2px',
             }}>
-              <span style={{ fontFamily: F.mono, fontSize: '10px', color: active ? C.accent : C.ghost, marginRight: '8px' }}>0{i + 1}</span>
+              <span style={{ fontFamily: F.mono, fontSize: '10px', color: active ? C.accent : C.ghost, marginRight: '8px' }}>{String(i + 1).padStart(2, '0')}</span>
               {s.label}
             </button>
           );
@@ -405,9 +405,33 @@ export default function BrandGuide() {
               </div>
             </div>
 
-            <DoDont type="do">Use bronze for anything that represents the brand voice — headlines, logos, CTAs, accent marks.</DoDont>
-            <DoDont type="do">Use focus blue exclusively for interactive elements — links, buttons, focus rings, active states.</DoDont>
-            <DoDont type="dont">Mix up bronze and blue. If it appears on a poster, it's bronze. If you click it, it's blue.</DoDont>
+            {/* Bronze vs Interactive Accent */}
+            <SubLabel>Accent Color Usage</SubLabel>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginBottom: '16px' }}>
+              <GuideCard style={{ padding: '16px', borderLeft: `3px solid #C48A3A` }}>
+                <div style={{ fontFamily: F.display, fontSize: '14px', fontWeight: 700, color: '#C48A3A', marginBottom: '8px' }}>Bronze — Brand Accent</div>
+                <div style={{ fontFamily: F.body, fontSize: '12px', color: C.sub, lineHeight: 1.6, marginBottom: '10px' }}>The voice of the brand. Used for CTAs, hover states, and brand moments. Bronze carries the warmth and identity.</div>
+                <div style={{ display: 'flex', gap: '4px', flexWrap: 'wrap' }}>
+                  {['CTA buttons', 'Hover states', 'Pill badges', 'Outer hover ring', 'Brand headlines', 'Active tabs'].map(tag => (
+                    <span key={tag} style={{ fontFamily: F.mono, fontSize: '9px', color: '#C48A3A', background: 'rgba(196,138,58,0.08)', padding: '3px 8px', borderRadius: '4px' }}>{tag}</span>
+                  ))}
+                </div>
+              </GuideCard>
+              <GuideCard style={{ padding: '16px', borderLeft: `3px solid #7CBBDF` }}>
+                <div style={{ fontFamily: F.display, fontSize: '14px', fontWeight: 700, color: '#7CBBDF', marginBottom: '8px' }}>Focus Blue — Interactive Accent</div>
+                <div style={{ fontFamily: F.body, fontSize: '12px', color: C.sub, lineHeight: 1.6, marginBottom: '10px' }}>Functional and system-level. Used for focus rings, shadows, glows, and accessibility indicators. Never for brand voice.</div>
+                <div style={{ display: 'flex', gap: '4px', flexWrap: 'wrap' }}>
+                  {['Focus ring', 'Box shadow', 'Glow effects', 'Active indicator', 'Link underlines', 'Data viz'].map(tag => (
+                    <span key={tag} style={{ fontFamily: F.mono, fontSize: '9px', color: '#7CBBDF', background: 'rgba(124,187,223,0.08)', padding: '3px 8px', borderRadius: '4px' }}>{tag}</span>
+                  ))}
+                </div>
+              </GuideCard>
+            </div>
+
+            <DoDont type="do">Use bronze for anything that represents the brand voice — CTAs, hover states, pill badges, and the outer hover ring on interactive elements.</DoDont>
+            <DoDont type="do">Use focus blue exclusively for system-level interactive states — focus rings, box shadows, glows, and accessibility indicators.</DoDont>
+            <DoDont type="dont">Mix up bronze and blue. If it appears on a poster, it's bronze. If it highlights keyboard focus, it's blue.</DoDont>
+            <DoDont type="dont">Use focus blue for CTA buttons or hover states — that's bronze territory.</DoDont>
             <DoDont type="dont">Use pure white (#FFFFFF) for text. Always use warm cream #F0EBE3.</DoDont>
 
             {/* Semantic Colors — collapsible */}
@@ -447,7 +471,7 @@ export default function BrandGuide() {
           </section>
 
           {/* ═══════════════════════════════════════════ */}
-          {/* 02 — LOGO RULES                           */}
+          {/* 03 — LOGO RULES                           */}
           {/* ═══════════════════════════════════════════ */}
           <section ref={el => { sectionRefs.current['logo'] = el; }} id="logo" style={{ marginBottom: '64px', scrollMarginTop: '72px' }}>
             <SectionHeading num="03" title="Logo Rules" sub="The Grouped wordmark is the brand's primary identifier. The Vinyl G mark is the secondary mark. Both require governance, not redesign." />
@@ -485,6 +509,22 @@ export default function BrandGuide() {
             {/* Pairing rule */}
             <SubLabel>Typemark + Icon Pairing</SubLabel>
             <GuideCallout>When using the Grouped typemark on any material, the Vinyl G icon must also appear somewhere on the same surface — and vice versa. We are actively building attribution between the wordmark and the mark. They should always appear together in some form on any deliverable.</GuideCallout>
+
+            <DoDont type="do">The icon and wordmark must always be the same color when used together. Never mix color variants (e.g. bronze icon with cream wordmark).</DoDont>
+            <DoDont type="do">If the screen size or container width makes the wordmark too small to read comfortably, drop the wordmark and use the icon only.</DoDont>
+
+            {/* Nav behavior */}
+            <SubLabel>Navigation Logo Behavior</SubLabel>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginBottom: '20px' }}>
+              <GuideCard style={{ padding: '16px' }}>
+                <div style={{ fontFamily: F.display, fontSize: '14px', fontWeight: 700, color: C.accent, marginBottom: '6px' }}>Nav Open / Full Width</div>
+                <div style={{ fontFamily: F.body, fontSize: '12px', color: C.sub, lineHeight: 1.6 }}>Display both the Vinyl G icon and the Grouped wordmark side by side. This is the default state for expanded navigation and full-width headers.</div>
+              </GuideCard>
+              <GuideCard style={{ padding: '16px' }}>
+                <div style={{ fontFamily: F.display, fontSize: '14px', fontWeight: 700, color: C.accent, marginBottom: '6px' }}>Nav Collapsed / Small Screen</div>
+                <div style={{ fontFamily: F.body, fontSize: '12px', color: C.sub, lineHeight: 1.6 }}>Display only the Vinyl G icon. When the navigation collapses or the viewport shrinks below the wordmark's minimum legible size, the icon represents the brand alone.</div>
+              </GuideCard>
+            </div>
 
             {/* Hero: Vinyl G Mark */}
             <SubLabel>Vinyl G Mark</SubLabel>
@@ -568,7 +608,7 @@ export default function BrandGuide() {
           </section>
 
           {/* ═══════════════════════════════════════════ */}
-          {/* 03 — TYPOGRAPHY                           */}
+          {/* 04 — TYPOGRAPHY                           */}
           {/* ═══════════════════════════════════════════ */}
           <section ref={el => { sectionRefs.current['typography'] = el; }} id="typography" style={{ marginBottom: '64px', scrollMarginTop: '72px' }}>
             <SectionHeading num="04" title="Typography" sub={VI.typography.systemNote} />
@@ -598,11 +638,11 @@ export default function BrandGuide() {
             {/* Live specimens */}
             <SubLabel>Type Specimens</SubLabel>
             <GuideCard style={{ marginBottom: '20px' }}>
-              <div style={{ fontFamily: F.display, fontSize: '48px', fontWeight: 900, color: C.text, letterSpacing: '-0.03em', lineHeight: 0.95, marginBottom: '16px' }}>Turn every release into lasting fan relationships.</div>
+              <div style={{ fontFamily: F.display, fontSize: '48px', fontWeight: 900, color: C.text, letterSpacing: '-0.03em', lineHeight: 0.95, marginBottom: '16px' }}>Where Artists and Fans Connect.</div>
               <div style={{ fontFamily: F.mono, fontSize: '9px', color: C.muted }}>DISPLAY XL · Satoshi Black 900 · 48px · -0.03em</div>
             </GuideCard>
             <GuideCard style={{ marginBottom: '20px' }}>
-              <div style={{ fontFamily: F.display, fontSize: '28px', fontWeight: 700, color: C.text, letterSpacing: '-0.01em', lineHeight: 1.2, marginBottom: '12px' }}>Direct-to-fan, finally done right.</div>
+              <div style={{ fontFamily: F.display, fontSize: '28px', fontWeight: 700, color: C.text, letterSpacing: '-0.01em', lineHeight: 1.2, marginBottom: '12px' }}>Grow Your Audience, On Your Terms.</div>
               <div style={{ fontFamily: F.body, fontSize: '16px', color: C.sub, lineHeight: 1.6, marginBottom: '8px' }}>Every release builds on the last. We are fundamentally opposed to starting from zero. Grouped is the missing layer between music distribution and fan engagement.</div>
               <div style={{ fontFamily: F.mono, fontSize: '9px', color: C.muted }}>HEADING LG + BODY MD · Satoshi Bold 700 / Regular 400</div>
             </GuideCard>
@@ -652,10 +692,31 @@ export default function BrandGuide() {
               <DoDont type="dont">Mix condensed and standard variants in the same text block.</DoDont>
               <DoDont type="dont">Use pure white (#FFFFFF) for text — always use warm cream #F0EBE3.</DoDont>
             </div>
+
+            {/* Satoshi weight notes */}
+            <SubLabel>Satoshi Weight Notes</SubLabel>
+            <div style={{ padding: '14px 16px', background: C.s1, border: `1px solid ${C.border}`, borderRadius: '8px', marginBottom: '12px' }}>
+              <div style={{ fontFamily: F.body, fontSize: '13px', color: C.sub, lineHeight: 1.65 }}>
+                <span style={{ fontFamily: F.mono, fontSize: '10px', color: C.accent, marginRight: '8px' }}>WEIGHT GUIDANCE</span>
+                Favor <strong style={{ color: C.text }}>Black (900)</strong> for display and headline applications — it carries the most brand presence and pairs well with the boldness of Grouped Font. For body-adjacent UI where Semibold is needed, use <strong style={{ color: C.text }}>Bold (700)</strong> as a direct replacement — the optical difference is minimal at body sizes and maintains consistency across the weight stack.
+              </div>
+            </div>
+            <div style={{ padding: '14px 16px', background: C.s1, border: `1px solid ${C.border}`, borderRadius: '8px', marginBottom: '12px' }}>
+              <div style={{ fontFamily: F.body, fontSize: '13px', color: C.sub, lineHeight: 1.65 }}>
+                <span style={{ fontFamily: F.mono, fontSize: '10px', color: C.accent, marginRight: '8px' }}>SPACING</span>
+                Do not adjust letter-spacing on Satoshi at body sizes — the default tracking is optically correct. Only apply custom tracking at display scale (28px+) per the type scale table above.
+              </div>
+            </div>
+            <div style={{ padding: '14px 16px', background: C.s1, border: `1px solid ${C.border}`, borderRadius: '8px', marginBottom: '12px' }}>
+              <div style={{ fontFamily: F.body, fontSize: '13px', color: C.sub, lineHeight: 1.65 }}>
+                <span style={{ fontFamily: F.mono, fontSize: '10px', color: C.accent, marginRight: '8px' }}>ALTERNATE TYPEFACES</span>
+                If Satoshi presents legibility issues in a specific context, flag it for review before substituting. Any replacement typeface must be approved by the brand team — do not default to system fonts.
+              </div>
+            </div>
           </section>
 
           {/* ═══════════════════════════════════════════ */}
-          {/* 04 — PHOTOGRAPHY & VIDEO                  */}
+          {/* 05 — PHOTOGRAPHY & VIDEO                  */}
           {/* ═══════════════════════════════════════════ */}
           <section ref={el => { sectionRefs.current['photography'] = el; }} id="photography" style={{ marginBottom: '64px', scrollMarginTop: '72px' }}>
             <SectionHeading num="05" title="Photography & Video" sub="Artist content is always the brightest, warmest, most vivid thing on screen. Grouped never competes with the artist's visual identity." />
@@ -680,6 +741,14 @@ export default function BrandGuide() {
                 <div style={{ fontFamily: F.display, fontSize: '14px', fontWeight: 700, color: C.accent, marginBottom: '8px' }}>Dark Backgrounds</div>
                 <div style={{ fontFamily: F.body, fontSize: '13px', color: C.sub, lineHeight: 1.6 }}>Photography should work on dark surfaces. Low-key lighting, deep shadows, subjects emerging from darkness — consistent with the dark-mode-first visual system.</div>
               </GuideCard>
+            </div>
+
+            {/* Pending image update */}
+            <div style={{ padding: '12px 16px', background: 'rgba(196,138,58,0.06)', border: `1px dashed ${C.accent}`, borderRadius: '8px', marginBottom: '16px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <span style={{ fontFamily: F.mono, fontSize: '9px', fontWeight: 700, color: C.accent, background: 'rgba(196,138,58,0.12)', padding: '3px 10px', borderRadius: '20px', letterSpacing: '0.12em', textTransform: 'uppercase' }}>Pending</span>
+                <span style={{ fontFamily: F.body, fontSize: '13px', color: C.sub }}>Updated hero brand image incoming from the team. Asset will replace current placeholder once provided.</span>
+              </div>
             </div>
 
             <DoDont type="do">Feature real artists and real fans. Authenticity is non-negotiable.</DoDont>
@@ -713,7 +782,7 @@ export default function BrandGuide() {
           </section>
 
           {/* ═══════════════════════════════════════════ */}
-          {/* 05 — VISUAL VOICE                         */}
+          {/* 06 — VISUAL VOICE                         */}
           {/* ═══════════════════════════════════════════ */}
           <section ref={el => { sectionRefs.current['visual-voice'] = el; }} id="visual-voice" style={{ marginBottom: '64px', scrollMarginTop: '72px' }}>
             <SectionHeading num="06" title="Visual Voice" sub={VI.foundationPrinciple} />
@@ -762,7 +831,7 @@ export default function BrandGuide() {
           </section>
 
           {/* ═══════════════════════════════════════════ */}
-          {/* 06 — DARK MODE                            */}
+          {/* 07 — DARK MODE                            */}
           {/* ═══════════════════════════════════════════ */}
           <section ref={el => { sectionRefs.current['dark-mode'] = el; }} id="dark-mode" style={{ marginBottom: '64px', scrollMarginTop: '72px' }}>
             <SectionHeading num="07" title="Dark Mode" sub="Dark mode is the primary surface. Light mode is secondary, reserved for documentation, print materials, and partner-facing content." />
@@ -822,7 +891,7 @@ export default function BrandGuide() {
           </section>
 
           {/* ═══════════════════════════════════════════ */}
-          {/* 07 — VERBAL IDENTITY                      */}
+          {/* 08 — VERBAL IDENTITY                      */}
           {/* ═══════════════════════════════════════════ */}
           <section ref={el => { sectionRefs.current['verbal'] = el; }} id="verbal" style={{ marginBottom: '64px', scrollMarginTop: '72px' }}>
             <SectionHeading num="08" title="Verbal Identity" sub="The Grouped voice is artist-to-artist, not SaaS-to-customer. Direct, bold, warm — never corporate." />
@@ -899,7 +968,7 @@ export default function BrandGuide() {
                 { left: 'Corporate', right: 'Artist-to-Artist', pct: 90, example: 'We say "Stop renting your audience" not "Leverage algorithmic distribution channels for optimal audience growth."' },
                 { left: 'Diplomatic', right: 'Direct', pct: 85, example: 'We say "Your Instagram reach is 3%. We fix that." not "We can potentially help improve your engagement metrics."' },
                 { left: 'Safe', right: 'Bold', pct: 80, example: 'We say "The gatekeepers are gone." not "We provide tools that may assist in reducing intermediary dependencies."' },
-                { left: 'Cold', right: 'Warm', pct: 65, example: 'We say "Just you and your fans. Every. Single. Time." not "Our platform facilitates direct creator-audience relationships."' },
+                { left: 'Cold', right: 'Warm', pct: 65, example: 'We say "Where Artists and Fans Connect." not "Our platform facilitates direct creator-audience relationships."' },
                 { left: 'Complex', right: 'Simple', pct: 75, example: 'We say "Turn every listen into a fan." not "Convert passive consumption events into engaged relationship touchpoints."' },
                 { left: 'Serious', right: 'Playful', pct: 55, example: 'We lean serious now. Growing toward playful as gamification features (leaderboards, quests, fan passes) launch in later phases.' },
               ].map(v => {
@@ -946,7 +1015,7 @@ export default function BrandGuide() {
           </section>
 
           {/* ═══════════════════════════════════════════ */}
-          {/* 08 — ICONOGRAPHY                          */}
+          {/* 09 — ICONOGRAPHY                          */}
           {/* ═══════════════════════════════════════════ */}
           <section ref={el => { sectionRefs.current['iconography'] = el; }} id="iconography" style={{ marginBottom: '64px', scrollMarginTop: '72px' }}>
             <SectionHeading num="09" title="Iconography" sub="Icon style and the signature motif that ties the visual system together." />
@@ -963,7 +1032,7 @@ export default function BrandGuide() {
                   <circle cx="70" cy="70" r="50" stroke={C.accent} strokeWidth="5" opacity="0.3" fill="none" />
                   <circle cx="70" cy="70" r="36" stroke={C.accent} strokeWidth="5" opacity="0.45" fill="none" />
                   <circle cx="70" cy="70" r="18" fill={C.accent} opacity="0.15" />
-                  <text x="70" y="76" textAnchor="middle" fill={C.accent} fontFamily="Satoshi, sans-serif" fontSize="18" fontWeight="800">g.</text>
+                  <text x="70" y="76" textAnchor="middle" fill={C.accent} fontFamily="Satoshi, sans-serif" fontSize="18" fontWeight="800">G</text>
                 </svg>
               </div>
               <div style={{ fontFamily: F.mono, fontSize: '9px', color: C.muted, textAlign: 'center' }}>Concentric arcs radiating outward — sound waves, vinyl grooves, expanding reach</div>
